@@ -1,0 +1,21 @@
+<div class="" data-ng-controller="HeaderController">
+  <div class="navbar navbar-inverse navbar-static-top">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle Navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" style="color:#00b0ff;" href="/">Special Offer Shopper</a>
+    </div>
+    <div class="navbar-collapse collapse" style="height: 1px;">
+      <ul class="nav navbar-nav">
+        <li data-ng-repeat="item in menu" ui-route="{{item.link}}" ng-class="{active: $uiRoute}">
+          <a href="{{item.link}}">{{item.title}}</a>
+        </li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+   

@@ -1,0 +1,19 @@
+.search-button{
+  width:100%;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #efefef;
+  background: #25a9df;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.search-button-text{
+  font-family: Lato;
+  font-weight: 300;
+  color:#efefef;
+  font-size:20px;
+  opacity: 1 !important;
+}

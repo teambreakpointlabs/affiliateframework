@@ -1,0 +1,94 @@
+.filter-input{
+  width: 100% !important;
+  font-size: 20px;
+  text-align: center;
+  font-family: Lato;
+  color: #00b0ff;
+  font-weight: 300;
+  border: 1px solid #efefef;
+  margin-bottom: 10px;
+  padding:6px;
+}
+
+.filter-header{
+  font-size: 20px;
+  font-weight: 300;
+  font-family: Lato;
+  text-align: center;
+  padding: 15px;
+  margin-bottom: 15px;
+  color: #afafaf;
+  border-top: 1px solid #efefef;
+  border-bottom: 1px solid #efefef;
+}
+
+.filter-component-label-input{
+  font-size: 18px;
+  color: #00b0ff;
+  font-family: Lato;
+  font-weight: 300;
+  text-align: center;
+  padding: 15px;
+}
+
+.filter-component-label-slider{
+  font-size: 18px;
+  color: #00b0ff;
+  font-family: Lato;
+  font-weight: 300;
+  text-align: center;
+  padding: 15px;
+}
+
+.filter-component-label-min-max{
+  font-size: 18px;
+  color: #00b0ff;
+  font-family: Lato;
+  font-weight: 300;
+  text-align: center;
+  padding: 5px;
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
+}
+
+.filter-input-selections{
+  cursor: pointer;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  background: #eee;
+  font-size: 18px;
+  font-family: Lato;
+  letter-spacing: 0.02em;
+  font-weight: 300;
+  text-transform: capitalize;
+  border-radius: 10px;
+  color: #00b0ff;
+  margin-left: 10px;
+}
+
+.removeCross{
+  color: #00b0ff;
+  cursor: pointer;
+}
+
+/** Override Bootstrap **/
+ul.dropdown-menu{
+  width: 90% !important;
+  text-align: center;
+  font-size: 20px;
+  font-family: Lato;
+  font-weight: 300;
+  text-transform: capitalize;
+}
+/** Override Bootstrap **/
+.dropdown-menu>.active>a, .dropdown-menu>.active>a:hover, .dropdown-menu>.active>a:focus{
+  color: #00b0ff;
+  text-decoration: none;
+  background-color: #efefef;
+  outline: 0;
+  font-size: 20px;
+  font-family: Lato;
+  font-weight: 300;
+}
