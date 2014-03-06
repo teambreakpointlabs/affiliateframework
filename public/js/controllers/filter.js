@@ -1,57 +1,44 @@
-angular.module('mean.system').controller("FilterController", function($scope){
+angular.module('mean.system').controller("FilterController",['$scope','$stateParams','FilterHelperService','Data', function($scope, $stateParams,FilterHelperService,Data){
+  
+  var type = $stateParams.type;
+  var brand = $stateParams.brand;
 
+  $scope.filterDataService = FilterHelperService;
+  $scope.data = Data;
+  
   $scope.filterVisible = true;
-
-  //from database
-  var brands = [
-    'samsung',
-    'panasonic',
-    'sony'
-  ];
-
-   //from database
-  var retailers = [
-  'currys',
-  'argos',
-  'littlewoods'
-  ];
-
-  $scope.unselectedRetailers = retailers;
-
-  $scope.selectedRetailers = [
-  ];
-
-  $scope.unselectedBrands = brands;
-
-  $scope.selectedBrands = [
-  ];
-
-  $scope.retailers = retailers;
+  $scope.filterType = type;
 
 
-   var filters = {
-       television:{
-           priceMin: 0,
-           priceMax: 5000,
-           screenMin: 0,
-           screenMax: 80
-       },
-       laptop:{
-           priceMin: 0,
-           priceMax: 3000,
-           screenMin: 0,
-           screenMax: 30
-       },
-       tablet:{
-           priceMin: 0,
-           priceMax: 1000
-       },
-       camera:{
-           priceMin: 0,
-           priceMax: 3000
-       }
-   }
+  $scope.unselectedRetailers = Data.retailers[type];
+  $scope.unselectedBrands = Data.brands[type];
+  $scope.selectedRetailers = Data.selectedRetailers[type];
+  $scope.selectedBrands = Data.selectedBrands[type];
+  $scope.filters = Data.filters;
 
-   $scope.filters = filters;
+  getBrandFromUrl();
 
-});
+  $scope.submit = function(){
+    $scope.$broadcast('updateOffers');
+  };
+
+  function getBrandFromUrl(){
+    var type, brand;
+    type = $stateParams.type;
+    brand = $stateParams.brand;
+    
+    if (brand) {
+      $scope.selectedBrands.push(brand);
+      index = -1;
+      for (var i = 0; i<$scope.unselectedBrands.length;i++){
+        if ($scope.unselectedBrands[i] == brand){
+          index = i;
+        }
+      }
+      $scope.selectedBrands.splice(index,1);
+    }
+
+    return;
+  }
+
+}]);

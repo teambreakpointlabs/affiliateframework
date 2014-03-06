@@ -1,0 +1,12 @@
+<section data-ng-controller="OffersController" data-ng-init="find()">
+	<div class="row">
+  <div class="col-sm-12 col-md-12">
+		<div data-ng-repeat="offer in offers">
+			<div class="col-sm-4 col-md-4" style="border:1px solid black; text-align:center;">
+        <offer type="{{offerType}}">
+      </div>
+    </div>
+  </div>
+  </div>
+	<h1 data-ng-hide="!offers || offers.length">No offers yet.</h1>
+</section>

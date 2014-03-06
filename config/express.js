@@ -160,12 +160,23 @@ module.exports = function(app, passport, db) {
 
     // Finish with setting up the articleId param
     // app.param('articleId', articles.article);
+
+        //handle api calls - everything else runs through to angular
         var articles = require('../app/controllers/articles');
+        var offers = require('../app/controllers/offers');
 
         app.get('/api/articles', articles.all);
         app.get('/api/articles/:articleId', articles.show);
          // Finish with setting up the articleId param
         app.param('articleId', articles.article);
+
+        //extract retailer and brand so returns right offer for that urlDesc
+        //app.get('/api/offers/:retailer/:brand/:urlDesc', offers.show);
+
+        app.get('/api/offers', offers.all);
+
+        
+
         //app.get('/articles', articles.all);
         // Routes should be at the last
         app.use(app.router);

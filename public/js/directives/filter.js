@@ -1,5 +1,5 @@
 angular.module('mean.system').directive('filter',['$compile', 'FilterHelperService', '$timeout', function($compile, FilterHelperService, $timeout){
-  console.log('filter directive');
+
   var getTemplate = function(filterType){
    return FilterHelperService.buildFilterComponent(filterType);
   }
@@ -33,6 +33,7 @@ angular.module('mean.system').directive('filter',['$compile', 'FilterHelperServi
     controller:function($scope){
       
       this.isFound = function(val, arr){
+        console.log(arr);
         for (var i = 0; i< arr.length;i++){
           if (val == arr[i]){
               return i;
@@ -58,26 +59,31 @@ angular.module('mean.system').directive('filter',['$compile', 'FilterHelperServi
     },
     
     link: function(scope,elem,attrs,cntrl){
-      console.log('running link');
+      
+      var type = attrs.type;
+      var selectedRetailers = scope.selectedRetailers;
+      var unselectedRetailers = scope.unselectedRetailers;
+      var selectedBrands = scope.selectedBrands;
+      var unselectedBrands = scope.unselectedBrands;
+
       scope.removeRetailer = function removeRetailer(retailer){
-        cntrl.transferArrElem(cntrl.isFound(retailer, scope.selectedRetailers), scope.selectedRetailers, scope.unselectedRetailers);
+        cntrl.transferArrElem(cntrl.isFound(retailer, selectedRetailers), selectedRetailers, unselectedRetailers);
       }
 
       scope.removeBrand = function removeBrand(brand){
-        cntrl.transferArrElem(cntrl.isFound(brand, scope.selectedBrands), scope.selectedBrands, scope.unselectedBrands);
+        cntrl.transferArrElem(cntrl.isFound(brand, selectedBrands), selectedBrands, unselectedBrands);
       }
 
-      watchSelectedItem(scope, cntrl, 'selectedRetailer', scope.unselectedRetailers, scope.selectedRetailers);
-      watchSelectedItem(scope, cntrl, 'selectedBrand', scope.unselectedBrands, scope.selectedBrands);
-      generatePlaceholderText(scope,cntrl, 'selectedBrands', scope.unselectedBrands);
-      generatePlaceholderText(scope,cntrl, 'selectedRetailers', scope.unselectedRetailers);
-      
-      
+      watchSelectedItem(scope,cntrl,'selectedRetailer',unselectedRetailers,selectedRetailers);
+      watchSelectedItem(scope,cntrl,'selectedBrand',unselectedBrands,selectedBrands);
+      generatePlaceholderText(scope,cntrl,'selectedBrands',unselectedBrands);
+      generatePlaceholderText(scope,cntrl,'selectedRetailers',unselectedRetailers);
+
       $timeout(function() { 
-        elem.html(getTemplate(attrs.type)); 
+        elem.html(getTemplate(type)); 
         $compile(elem.contents())(scope);
       }, 200);
-       
+      
     }
   };
 }]);

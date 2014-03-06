@@ -1,0 +1,21 @@
+<section>
+	<!-- < h1>This is the home view {{filterVisible}}</h1> -->
+    <!-- <h2 ng-click="filterVisible=!filterVisible">show/hide filter</h2> -->
+	<div class="row" data-ng-controller="FilterController">
+	<div ng-if="filterVisible">
+	  <div class="col-sm-3 col-md-3">
+	    <filter type="{{filterType}}"></filter>
+	  </div>
+	  <div class="col-sm-9 col-md-9">
+	    <div data-ng-include="'/views/offers/list.html'"></div>
+	  </div>
+	</div>
+	<div ng-if="!filterVisible">
+	  <div class="col-sm-12 col-md-12">
+	    <div data-ng-include="'/views/offers/list.html'"></div>
+	  </div>
+	</div>
+	</div>
+
+	
+</section>

@@ -1,19 +1,6 @@
-angular.module('mean.system').service('FilterHelperService', function(){
-
-    this.buildFilterComponent = function(type){
-       switch (type){
-           case 'television':
-           return buildTelevisionFilter();
-           case 'laptop':
-           return buildLaptopFilter();
-           case 'tablet':
-           return buildTabletFilter();
-           case 'camera':
-           return buildCameraFilter();
-       }
-    }
-
-    var priceHeader = '<div class="filter-component-label-slider"> Price </div>';
+angular.module('mean.system').factory('FilterHelperService', function(){
+  
+var priceHeader = '<div class="filter-component-label-slider"> Price </div>';
     var screenHeader = '<div class="filter-component-label-slider"> Screen Size </div>';
     var retailerHeader = '<div class="filter-component-label-input"> Retailer(s) </div>';
     var brandHeader = '<div class="filter-component-label-input"> Brand(s) </div>';
@@ -44,7 +31,7 @@ angular.module('mean.system').service('FilterHelperService', function(){
         }
     }
 
-    var searchButton = '<div class="search-button"><span class="search-button-text">Search</span></div>';
+    var searchButton = '<div class="search-button" ng-click="submit();"><span class="search-button-text">Search</span></div>';
 
     var buildLaptopFilter = function() {
         var priceMin, priceMax, screenMin, screenMax;
@@ -132,40 +119,19 @@ angular.module('mean.system').service('FilterHelperService', function(){
 
         return cameraFilterTemplate;
     }
-    //from database
-  var brands = [
-    'samsung',
-    'panasonic',
-    'sony'
-  ];
 
-  var retailers = [
-  'currys',
-  'argos',
-  'littlewoods'
-  ];
-
-    var filters = {
-       television:{
-           priceMin: 0,
-           priceMax: 5000,
-           screenMin: 0,
-           screenMax: 80
-       },
-       laptop:{
-           priceMin: 0,
-           priceMax: 3000,
-           screenMin: 0,
-           screenMax: 30
-       },
-       tablet:{
-           priceMin: 0,
-           priceMax: 1000
-       },
-       camera:{
-           priceMin: 0,
-           priceMax: 3000
+  return{
+    buildFilterComponent: function buildFilterComponent(type){
+        switch (type){
+           case 'television':
+           return buildTelevisionFilter();
+           case 'laptop':
+           return buildLaptopFilter();
+           case 'tablet':
+           return buildTabletFilter();
+           case 'camera':
+           return buildCameraFilter();
        }
-   };
-
+    }
+  }
 });
