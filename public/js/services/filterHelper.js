@@ -31,7 +31,7 @@ var priceHeader = '<div class="filter-component-label-slider"> Price </div>';
         }
     }
 
-    var searchButton = '<div class="search-button" ng-click="submit();"><span class="search-button-text">Search</span></div>';
+    var searchButton = '<div class="search_button" ng-click="submit();"><span class="search_button_text">Search</span></div>';
 
     var buildLaptopFilter = function() {
         var priceMin, priceMax, screenMin, screenMax;

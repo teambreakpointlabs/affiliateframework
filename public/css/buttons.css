@@ -1,19 +1,64 @@
-.search-button{
+.search_button{
   width:100%;
   text-align: center;
   padding: 10px;
   border: 1px solid #efefef;
-  background: #25a9df;
+  background: #32d5d4;
   margin-top: 25px;
   margin-bottom: 15px;
   cursor: pointer;
   opacity: 0.8;
+  margin-bottom: 40px;
 }
 
-.search-button-text{
+.search_button_text{
   font-family: Lato;
   font-weight: 300;
   color:#efefef;
   font-size:20px;
   opacity: 1 !important;
 }
+
+.offer_button_holder{
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.offer_button_holder a.offer_button{
+  border-radius: 5px;
+  text-align: center;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-right: 20px;
+  padding-left: 20px;
+  border: 1px solid #efefef;
+  cursor: pointer;
+  opacity: 0.8;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  font-family: sans-serif;
+}
+
+.offer_button_holder a.offer_button.more_info{
+  border: 4px solid #afafaf;
+  color:#afafaf !important;
+}
+
+.offer_button_holder a.offer_button.more_info:hover{
+  border: 3px dashed #afafaf;
+}
+
+.offer_button_holder a.offer_button.view{
+   border: 4px solid #32d5d4;
+   color:#32d5d4 !important;
+}
+.offer_button_holder a.offer_button.view:hover{
+   border: 3px dashed #32d5d4;
+}
+
+
+
+
+
+

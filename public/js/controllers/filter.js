@@ -22,23 +22,25 @@ angular.module('mean.system').controller("FilterController",['$scope','$statePar
     $scope.$broadcast('updateOffers');
   };
 
-  function getBrandFromUrl(){
-    var type, brand;
+  function getBrandFromUrl(){    
+    var type, brand, index, isBrandFound;
     type = $stateParams.type;
     brand = $stateParams.brand;
-    
+    index = -1;
+    isBrandFound = false;
     if (brand) {
-      $scope.selectedBrands.push(brand);
-      index = -1;
       for (var i = 0; i<$scope.unselectedBrands.length;i++){
         if ($scope.unselectedBrands[i] == brand){
           index = i;
+          isBrandFound = true;
         }
       }
-      $scope.selectedBrands.splice(index,1);
+      if (isBrandFound){
+        $scope.selectedBrands.push(brand);
+        $scope.unselectedBrands.splice(index,1);
+      }else{
+        //static 404 page ??
+      }
     }
-
-    return;
   }
-
 }]);

@@ -1,13 +1,23 @@
-angular.module('mean.system').controller('OffersController', ['$scope','Offers','$stateParams','FilterHelperService','Data', function($scope, Offers, $stateParams,FilterHelperService,Data){
+var offersCtrl = angular.module('mean.system').controller('OffersController', ['$scope','Offers','$stateParams','FilterHelperService','Data', function($scope, Offers, $stateParams,FilterHelperService,Data){
  
   $scope.data = Data;
   $scope.offerType = $stateParams.type;
+
+  $scope.loaded = false;
   
   $scope.find = function() {
     Offers.getOffers(searchFromFilterData()).then(function(offers){
       $scope.offers = offers;
+      $scope.loaded = true;
     });
   };
+
+  $scope.findOne = function(){
+    Offers.findByUrlDesc($stateParams.urlDesc).then(function(offer){
+      $scope.offer = offer;
+      $scope.loaded = true;
+    });
+  }
 
   $scope.$on('updateOffers', function(event) {
     Offers.getOffers(searchFromFilterData()).then(function(offers){

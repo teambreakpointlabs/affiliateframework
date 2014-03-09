@@ -172,8 +172,11 @@ module.exports = function(app, passport, db) {
 
         //extract retailer and brand so returns right offer for that urlDesc
         //app.get('/api/offers/:retailer/:brand/:urlDesc', offers.show);
-
+        
+        app.get('/api/offer/:urlDesc', offers.show);
+        
         app.get('/api/offers', offers.all);
+
 
         
 

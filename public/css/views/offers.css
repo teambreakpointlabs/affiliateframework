@@ -1,0 +1,95 @@
+.offer_holder{
+  /*border: 1px solid #efefef;*/
+  /*height:650px;*/
+  border-radius: 4px;
+  margin-bottom: 40px;
+  width:225px;
+}
+
+.offer_tagline{
+  height:40px;
+  background: rgba(0,0,0,0.6);
+  font-family: sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  padding: 8px;
+  text-transform: capitalize;
+  color:#efefef;
+  letter-spacing: 0.025em;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.offer_img_holder{
+  text-align: center;
+  padding: 10px;
+  border-right: 1px solid #efefef;
+  border-left: 1px solid #efefef;
+}
+
+.offer_img{
+  height: 150px;
+  width: 150px;
+}
+
+.offer_info_holder{
+  background: rgb(250, 250, 250);
+  height: 450px;
+  padding-top: 20px;
+  border-left: 1px solid #efefef;
+  border: 1px solid #efefef;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.offer_description{
+  margin: 20px;
+  margin-bottom:14px;
+  margin-top:0px;
+  border: 1px dashed #afafaf;
+  padding: 5px;
+  padding-top: 12px;
+  height: 120px; 
+  text-align: center;
+  font-size: 12px;
+  vertical-align: middle;
+  color:#343434;
+  font-family: sans-serif;
+}
+
+.offer_price{
+ text-align: center;
+ font-size: 28px;
+ font-weight: 400;
+ color:#32d5d4;
+ font-family: sans-serif;
+}
+
+.original_price{
+ text-align: center;
+ font-size: 22px;
+ font-weight: 300;
+ color:#afafaf;
+ font-family: sans-serif;
+}
+
+.pct_savings{
+ text-align: center;
+ font-size: 20px;
+ font-weight: 300;
+ color:#afafaf;
+ font-family: sans-serif;
+}
+.retailer{
+ text-transform: capitalize;
+ text-align: center;
+ font-size: 22px;
+ font-weight: 300;
+ color:#afafaf;
+ margin-bottom: 28px;
+ font-family: sans-serif;
+}
+
+
+
+

@@ -23,7 +23,12 @@ exports.offer = function(req, res, next, id) {
  * Show an offer
  */
 exports.show = function(req, res) {
-    res.jsonp(req.offer);
+    console.log('finding offer');
+    console.log(req.params.urlDesc);
+    Offer.find({urlDesc: req.params.urlDesc, isValid:true}, function(err,offers){
+      console.log(offers[0]);
+      res.jsonp(offers[0]);
+    });
 };
 
 /**
