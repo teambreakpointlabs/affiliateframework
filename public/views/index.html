@@ -1,3 +1,92 @@
 <section data-ng-controller="IndexController">
-This is the home page
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12" style="text-align:center;">
+        <div class="landing_title">
+          Special Offer Shopper
+          <div class="tagline">
+            One Website. Every Offer.
+          </div>
+        </div>
+        <div class="selection_container">
+          <span><i> I'm looking for offers on a</i></span>
+          <div class="offer_selection_button" ng-click="showOptions=!showOptions">
+            <span>
+              <img src="../img/icons/tv.png" class="offer_selection_img">
+              Television
+            </span>
+            <span class="glyphicon glyphicon-chevron-down selection_chevron"></span>
+          </div>
+          <div class="selection_go_button">
+            <a ng-href="offers/television" class="go_text">GO!</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bg" ng-show="showOptions" ng-click="showOptions=!showOptions">
+     <div class="pop_up_selection_container">
+        <div class="pop_up_title" style="margin-bottom:40px;">
+          What are you looking for?
+        </div>
+      <div class="row" style="margin-bottom:40px;">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="row">
+            <div class="col-md-6">
+              <span style="font-size:26px;padding:4px;"> Television</span>
+              <span style="padding:4px;"><img src="../img/icons/tv.png" style="margin-bottom:5px;" class="pop_up_image_icon_tv"/></span>
+            </div>
+            <div class="col-md-6">
+                <div class="pop_up_selection_button">
+                <a ng-href="/offers/television" class="browse_offers_link"> Browse Offers > </a>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-bottom:40px;">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="row">
+            <div class="col-md-6">
+              <span style="font-size:26px;padding:4px;">Laptop</span>
+              <span style="font-size:26px;padding:4px;"><img src="../img/icons/laptop.png" class="pop_up_image_icon"/></span>
+            </div>
+            <div class="col-md-6">
+              <div class="pop_up_selection_button"> <a ng-href="/offers/laptop" class="browse_offers_link"> Browse Offers > </a> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-bottom:40px;">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="row">
+            <div class="col-md-6">
+              <span style="font-size:26px;padding:4px;">Tablet</span>
+              <span style="font-size:26px;padding:4px;"><img src="../img/icons/tablet.png" class="pop_up_image_icon"/></span>
+            </div>
+            <div class="col-md-6">
+              <div class="pop_up_selection_button"> <a ng-href="/offers/tablet" class="browse_offers_link"> Browse Offers > </a> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-bottom:40px;">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="row">
+            <div class="col-md-6" style="text-align:center;padding:8px;">
+              <span style="font-size:26px;padding:4px;">Camera</span>
+              <span style="font-size:26px;padding:4px;"><img src="../img/icons/camera.png" class="pop_up_image_icon"/></span>
+            </div>
+            <div class="col-md-6">
+            <div class="pop_up_selection_button"> <a ng-href="/offers/camera" class="browse_offers_link"> Browse Offers > </a> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
 </section>
+
+<div class="background_image">
+  <img src="../img/background.jpg">
+</div>

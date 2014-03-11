@@ -1,14 +1,26 @@
 <section data-ng-controller="OffersController" data-ng-init="find()">
-	<div class="row">
-  <div class="col-sm-12 col-md-12">
-		<div data-ng-repeat="offer in offers">
-			<div class="col-sm-4 col-md-4">
-        <div ng-if="loaded">
-          <offer offer="offer" view-type="list"></offer>
+  <div class="row">
+    <div class="col-md-12">
+    <div ng-if="loaded">
+      <div style="margin-left:20px" ng-hide="" ng-click=""> Found {{offers.length}} Offers</div>
+    </div>
+  </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+		  <div data-ng-repeat="offer in offers | limitTo: showItems">
+			  <div class="col-sm-4 col-md-4">
+          <div ng-if="loaded">
+            <offer offer="offer" view-type="list"></offer>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  </div>
+    <div class="row">
+      <div ng-if="loaded">
+        <div class="load_more_button" ng-hide="offers.length <= showItems" ng-click="showMoreItems();"> Load More ({{offers.length - showItems}})</div>
+      </div>
+    </div>
 	<h1 data-ng-hide="!offers || offers.length">No offers yet.</h1>
 </section>

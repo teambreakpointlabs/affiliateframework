@@ -3,7 +3,7 @@
   text-align: center;
   padding: 10px;
   border: 1px solid #efefef;
-  background: #32d5d4;
+  background: #00b0ff;
   margin-top: 25px;
   margin-bottom: 15px;
   cursor: pointer;
@@ -50,13 +50,82 @@
 }
 
 .offer_button_holder a.offer_button.view{
-   border: 4px solid #32d5d4;
-   color:#32d5d4 !important;
+   border: 4px solid #00b0ff;
+   color:#00b0ff !important;
 }
 .offer_button_holder a.offer_button.view:hover{
-   border: 3px dashed #32d5d4;
+   border: 3px dashed #00b0ff;
 }
 
+.offer_selection_button{
+  font-size:22px;
+  width:220px;
+  height:50px;
+  font-family:Lato;
+  font-weight:300;
+  margin:10px;
+  display: inline-block;
+  background: #efefef;
+  color:#343434;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.offer_selection_img{
+  height: 25px; 
+  width: 25px; 
+  margin-right:8px; 
+  position:relative; 
+  bottom:5px;
+  display: inline-block;
+}
+
+.selection_chevron{
+  color:#00b0ff;
+  font-size:14px;
+  display: inline-block;
+}
+
+.selection_go_button{
+  font-size:20px;
+  font-family:Lato;
+  font-weight:300;
+  margin-left:5px;
+  margin-right:55px;
+  background:#00b0ff !important;
+  display: inline-block;
+  padding:12px;
+  padding-left:15px;
+  padding-right: 15px;
+  height: 50px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.selection_go_button .go_text{
+  color:#fff;
+  text-decoration:none;
+  display: inline-block;
+}
+
+.load_more_button{
+  width:100%;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #efefef;
+  background: rgba(0,0,0,0.6);
+  margin-top: 25px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  opacity: 0.8;
+  margin-bottom: 40px;
+  font-size: 22px;
+  border-radius: 5px;
+  border: 1px solid #afafaf;
+  color: #f1f1f1;
+  font-weight: 300;
+}
 
 
 

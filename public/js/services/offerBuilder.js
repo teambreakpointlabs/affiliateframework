@@ -43,8 +43,8 @@ angular.module('mean.system').service('OfferBuilderService', function(){
                 
     '<div class="offer_info_holder">' +
        '<div class="offer_description">'+offer.description+'</div>'+
+       '<div class="original_price"><del>Was £'+ offer.pricing.original +'</del></div>'+
        '<div class="offer_price">£'+ offer.pricing.offer +'</div>'+
-       '<div class="original_price"><del>£'+ offer.pricing.original +'</del></div>'+
        '<div class="pct_savings">'+offer.pricing.pctSavings+'% Off!</div>' +
        '<div class="retailer">'+offer.retailer+'</div>' +
        '<div class="offer_button_holder">' +

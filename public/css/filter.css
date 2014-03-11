@@ -3,7 +3,7 @@
   font-size: 20px;
   text-align: center;
   font-family: Lato;
-  color: #32d5d4;
+  color: #00b0ff;
   font-weight: 300;
   border: 1px solid #efefef;
   margin-bottom: 10px;
@@ -20,12 +20,12 @@
   color: #afafaf;
   border-top: 1px solid #efefef;
   border-bottom: 1px solid #efefef;
-  color: #32d5d4;
+  color: #00b0ff;
 }
 
 .filter-component-label-input{
   font-size: 18px;
-  color: #32d5d4;
+  color: #00b0ff;
   font-family: Lato;
   font-weight: 300;
   text-align: center;
@@ -34,7 +34,7 @@
 
 .filter-component-label-slider{
   font-size: 18px;
-  color: #32d5d4;
+  color: #00b0ff;
   font-family: Lato;
   font-weight: 300;
   text-align: center;
@@ -43,7 +43,7 @@
 
 .filter-component-label-min-max{
   font-size: 18px;
-  color: #32d5d4;
+  color: #00b0ff;
   font-family: Lato;
   font-weight: 300;
   text-align: center;
@@ -65,12 +65,12 @@
   font-weight: 300;
   text-transform: capitalize;
   border-radius: 10px;
-  color: #32d5d4;
+  color: #00b0ff;
   margin-left: 10px;
 }
 
 .removeCross{
-  color: #32d5d4;
+  color: #00b0ff;
   cursor: pointer;
 }
 
@@ -85,7 +85,7 @@ ul.dropdown-menu{
 }
 /** Override Bootstrap **/
 .dropdown-menu>.active>a, .dropdown-menu>.active>a:hover, .dropdown-menu>.active>a:focus{
-  color: #32d5d4;
+  color: #00b0ff;
   text-decoration: none;
   background-color: #efefef;
   outline: 0;

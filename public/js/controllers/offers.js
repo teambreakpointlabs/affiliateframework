@@ -4,7 +4,12 @@ var offersCtrl = angular.module('mean.system').controller('OffersController', ['
   $scope.offerType = $stateParams.type;
 
   $scope.loaded = false;
-  
+  $scope.showItems = 6;
+
+  $scope.showMoreItems = function(){
+    $scope.showItems += 6;
+  }
+   
   $scope.find = function() {
     Offers.getOffers(searchFromFilterData()).then(function(offers){
       $scope.offers = offers;
