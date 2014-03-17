@@ -1,4 +1,4 @@
-<div class="" data-ng-controller="HeaderController">
+<div data-ng-controller="HeaderController">
   <div class="navbar navbar-inverse navbar-static-top">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
@@ -7,15 +7,15 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" style="color:#00b0ff;" href="/">Special Offer Shopper</a>
+      <a class="navbar-brand" style="color:#00b0ff;letter-spacing:0.05em" href="/"> offercrunch.co.uk </a>
     </div>
     <div class="navbar-collapse collapse" style="height: 1px;">
       <ul class="nav navbar-nav">
-        <li data-ng-repeat="item in menu" ui-route="{{item.link}}" ng-class="{active: $uiRoute}">
-          <a href="{{item.link}}">{{item.title}}</a>
-        </li>
+        <li><a ng-href="/offers/television" style="color:#fff;letter-spacing:0.025em;"> TV Offers</a></li>
+        <li><a ng-href="/offers/laptop" style="color:#fff;letter-spacing:0.025em;"> Laptop Offers</a></li>
+        <li><a ng-href="/offers/tablet" style="color:#fff;letter-spacing:0.025em;"> Tablet Offers</a></li>
+        <li><a ng-href="/offers/camera" style="color:#fff;letter-spacing:0.025em;"> Camera Offers</a></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>
 </div>
-   

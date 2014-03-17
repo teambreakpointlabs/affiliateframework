@@ -3,6 +3,10 @@
     margin-left:0
 }
 
+.navbar{
+
+}
+
 .content {
     margin-top:40px;
     width:100%;
@@ -78,6 +82,8 @@
   opacity:1 !important;
   overflow:scroll;
   height:100%;
+  border: 1px solid #00b0ff;
+  border-radius: 5px;
 }
 
 .pop_up_title{
@@ -85,6 +91,7 @@
   color:#343434;
   padding:15px;
   color:#00b0ff;
+  margin-bottom:40px;
 }
 
 .pop_up_selection_item_title{
@@ -119,26 +126,98 @@
   height:50px; 
   width:50px;
   margin-top:-20px;
-  padding-top:0px;
-  margin-left:10px;
+  /*padding-top:0px;
+  margin-left:10px;*/
+}
+
+.pop_up_row{
+  margin-bottom:40px;
+}
+
+.pop_up_offer_title{
+  font-size:26px;
+  padding:4px;
 }
 
 .browse_offers_link{
   color:#fff;
 }
 
-footer {
-    position:fixed;
-    left:0px;
-    bottom:0px;
-    height:30px;
-    width:100%;
-    background:#ddd;
-    -webkit-box-shadow:0 8px 6px 6px black;
-    -moz-box-shadow:0 8px 6px 6px black;
-    box-shadow:0 8px 6px 6px black
+.index_offer_box{
+  background: #efefef;
+  margin-bottom: 200px;
+  padding: 22px;
+  border-radius: 5px;
+  border:1px solid #00b0ff;
+  margin-top:40px;
 }
 
-footer p {
-    padding:5px 0 12px 10px
+.index_offer_box_section{
+  color:#00b0ff;
+  font-size:16px; 
+  text-transform:uppercase;
+  font-weight:400;
+  letter-spacing:0.1em;
+  padding:10px;
+  padding-left: 40px;
 }
+
+.index_offer_box_section .section_list{
+  list-style:none;
+  padding:0px;
+  padding-top:5px;
+  color:#58595b !important;
+  text-transform:none;
+  text-align:left;
+  line-height:25px;
+}
+
+.index_offer_box_section .section_list .section_list_link{
+  text-decoration:none;
+  color:#58595b !important;
+}
+.index_offer_box_section .section_list .section_list_link:hover{
+  text-decoration:none;
+  color:#00b0ff !important;
+}
+
+.bg .loading-text{
+  position: fixed;
+  font-size:40px;
+  font-weight:300;
+  font-family:'Open Sans';
+  color:#00b0ff;
+  top:40%;
+  left:40%;
+  z-index: 4;
+}
+
+.app_container{
+  width:96% !important;
+}
+
+.header_row{
+  text-align: center;
+}
+
+.close_tag{
+  text-align:right; 
+  padding-right:5%; 
+  color:#00b0ff; 
+  cursor:pointer;
+}
+
+.no_offers_message{
+  margin: 14px;
+  text-align: center;
+  font-size: 28px;
+  color:#00b0ff;
+
+}
+
+
+
+footer {
+    background:#343434;
+}
+

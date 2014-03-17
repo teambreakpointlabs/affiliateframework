@@ -2,7 +2,7 @@
 
 angular.module('mean.system').controller('HeaderController', ['$scope', 'Global', function ($scope, Global) {
     $scope.global = Global;
-    console.log('header controller');
+    
     $scope.menu = [{
         'title': 'Television Offers',
         'link': '/offers/television'
@@ -18,6 +18,5 @@ angular.module('mean.system').controller('HeaderController', ['$scope', 'Global'
         'title': 'Camera Offers',
         'link': '/offers/camera'
     }];
-    
-    $scope.isCollapsed = false;
+
 }]);

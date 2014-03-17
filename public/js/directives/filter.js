@@ -74,16 +74,19 @@ angular.module('mean.system').directive('filter',['$compile', 'FilterHelperServi
         cntrl.transferArrElem(cntrl.isFound(brand, selectedBrands), selectedBrands, unselectedBrands);
       }
 
+      // watchers
       watchSelectedItem(scope,cntrl,'selectedRetailer',unselectedRetailers,selectedRetailers);
       watchSelectedItem(scope,cntrl,'selectedBrand',unselectedBrands,selectedBrands);
+      // setting dynamic placeholder text
       generatePlaceholderText(scope,cntrl,'selectedBrands',unselectedBrands);
       generatePlaceholderText(scope,cntrl,'selectedRetailers',unselectedRetailers);
-
+      
+      //timeout as browser was jumping to filter when rendered before header - better solution here?
       $timeout(function() { 
         elem.html(getTemplate(type)); 
         $compile(elem.contents())(scope);
       }, 200);
-      
+
     }
   };
 }]);

@@ -1,92 +1,247 @@
-<section data-ng-controller="IndexController">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12" style="text-align:center;">
-        <div class="landing_title">
-          Special Offer Shopper
-          <div class="tagline">
-            One Website. Every Offer.
+<div ng-include="'/views/header.html'"></div>
+<section class="container" style="width: 96% !important;">
+  <section data-ng-controller="IndexController">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 header_row">
+          <div class="landing_title">
+            Offercrunch
+            <div class="tagline">
+              One Website. Every Offer.
+            </div>
+          </div>
+          <div class="selection_container">
+            <span><i> I'm looking for offers on a</i></span>
+            <div class="offer_selection_button" ng-click="showOptions=!showOptions">
+              <span>
+                <img src="../img/icons/tv.png" class="offer_selection_img">
+                Television
+              </span>
+              <span class="glyphicon glyphicon-chevron-down selection_chevron"></span>
+            </div>
+            <div class="selection_go_button">
+              <a ng-href="offers/television" class="go_text">GO!</a>
+            </div>
           </div>
         </div>
-        <div class="selection_container">
-          <span><i> I'm looking for offers on a</i></span>
-          <div class="offer_selection_button" ng-click="showOptions=!showOptions">
-            <span>
-              <img src="../img/icons/tv.png" class="offer_selection_img">
-              Television
-            </span>
-            <span class="glyphicon glyphicon-chevron-down selection_chevron"></span>
+      </div>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2 index_offer_box">
+          <div class="row">
+            <div class="col-md-6 index_offer_box_section">
+              <div> Offer Categories </div>
+              <ul class="section_list">
+                <li> 
+                  <a ng-href="/offers/television" class="section_list_link"> Television </a>
+                </li>
+                <li> 
+                  <a ng-href="/offers/laptop" class="section_list_link"> Laptop </a>
+                </li>
+                <li> 
+                  <a ng-href="/offers/tablet" class="section_list_link"> Tablet </a>
+                </li>
+                <li> 
+                  <a ng-href="/offers/camera" class="section_list_link"> Camera </a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-6 index_offer_box_section">
+              <div> Popular TV Brands </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <ul class="section_list">
+                    <li> 
+                      <a ng-href="/offers/television/sony" class="section_list_link"> Sony </a>
+                    </li>
+                    <li> 
+                      <a ng-href="/offers/television/samsung" class="section_list_link"> Samsung </a>
+                    </li>
+                    <li> 
+                      <a ng-href="/offers/television/panasonic" class="section_list_link"> Panasonic </a>
+                    </li>
+                    <li> 
+                      <a ng-href="/offers/television/lg" class="section_list_link"> LG </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <ul class="section_list">
+                    <li> 
+                      <a ng-href="/offers/television/toshiba" class="section_list_link"> Toshiba </a>
+                    </li>
+                    <li> 
+                      <a ng-href="/offers/television/philips" class="section_list_link"> Philips </a>
+                    </li>
+                    <li> 
+                      <a ng-href="/offers/television/sharp" class="section_list_link"> Sharp </a>
+                    </li>
+                    <li> 
+                      <a ng-href="/offers/television/cello" class="section_list_link"> Cello </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="selection_go_button">
-            <a ng-href="offers/television" class="go_text">GO!</a>
+          <div class="row">
+            <div class="col-md-6 index_offer_box_section">
+              <div> Popular Laptop Brands </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <ul class="section_list">
+                    <li> 
+                      <a ng-href="/offers/laptop/acer" class="section_list_link"> Acer </a>
+                    </li>
+                    <li> 
+                      <a ng-href="/offers/laptop/asus" class="section_list_link"> Asus </a>
+                    </li>
+                    <li> 
+                      <a ng-href="/offers/laptop/hp" class="section_list_link"> HP </a>
+                    </li>
+                    <li> 
+                      <a ng-href="/offers/laptop/lenovo" class="section_list_link"> Lenovo </a></li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <ul class="section_list">
+                    <li> 
+                      <a ng-href="/offers/laptop/samsung" class="section_list_link"> Samsung  </a>
+                    </li>
+                    <li> 
+                      <a ng-href="/offers/laptop/sony" class="section_list_link"> Sony </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 index_offer_box_section">
+              <div> Popular Tablet Brands </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <ul class="section_list">
+                    <li> 
+                      <a ng-href="/offers/tablet/apple" class="section_list_link"> Apple </a>
+                    </li>
+                    <li> 
+                      <a ng-href="/offers/tablet/microsoft" class="section_list_link"> Microsoft </a>
+                    </li>
+                    <li> 
+                      <a ng-href="/offers/tablet/nook" class="section_list_link"> Nook </a>
+                    </li>
+                    <li> 
+                      <a ng-href="/offers/tablet/lenovo" class="section_list_link"> Lenovo</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <ul class="section_list">
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 index_offer_box_section">
+              <div> Popular Camera Brands </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <ul class="section_list">
+                    <li> 
+                      <a ng-href="/offers/camera/canon" class="section_list_link"> Canon </a>
+                    </li>
+                    <li> 
+                      <a ng-href="/offers/camera/fujifilm" class="section_list_link"> Fujifilm </a>
+                    </li>
+                    <li> 
+                      <a ng-href="/offers/camera/nikon" class="section_list_link"> Nikon </a>
+                    </li>
+                    <li> 
+                      <a ng-href="/offers/camera/panasonic" class="section_list_link"> Panasonic </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <ul class="section_list">
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 index_offer_box_section">
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="bg" ng-show="showOptions" ng-click="showOptions=!showOptions">
-     <div class="pop_up_selection_container">
-        <div class="pop_up_title" style="margin-bottom:40px;">
-          What are you looking for?
+    <!-- pop up -->
+    <div class="bg" ng-show="showOptions" ng-click="showOptions=!showOptions">
+      <div class="pop_up_selection_container">
+        <div class="close_tag">
+          CLOSE X
         </div>
-      <div class="row" style="margin-bottom:40px;">
-        <div class="col-md-6 col-md-offset-3">
-          <div class="row">
-            <div class="col-md-6">
-              <span style="font-size:26px;padding:4px;"> Television</span>
-              <span style="padding:4px;"><img src="../img/icons/tv.png" style="margin-bottom:5px;" class="pop_up_image_icon_tv"/></span>
-            </div>
-            <div class="col-md-6">
+        <div class="pop_up_title">
+            What are you looking for?
+        </div>
+        <div class="row pop_up_row">
+          <div class="col-md-6 col-md-offset-3">
+            <div class="row">
+              <div class="col-md-6">
+                <span class="pop_up_offer_title"> TV</span>
+                <span style="padding:4px;"><img src="../img/icons/tv.png" style="margin-bottom:5px;" class="pop_up_image_icon_tv"/></span>
+              </div>
+              <div class="col-md-6">
                 <div class="pop_up_selection_button">
-                <a ng-href="/offers/television" class="browse_offers_link"> Browse Offers > </a>
+                  <a ng-href="/offers/television" class="browse_offers_link"> Browse Offers > </a>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row pop_up_row">
+          <div class="col-md-6 col-md-offset-3">
+            <div class="row">
+              <div class="col-md-6">
+                <span class="pop_up_offer_title">Laptop</span>
+                <span class="pop_up_offer_title"><img src="../img/icons/laptop.png" class="pop_up_image_icon"/></span>
+              </div>
+              <div class="col-md-6">
+                <div class="pop_up_selection_button"> <a ng-href="/offers/laptop" class="browse_offers_link"> Browse Offers > </a> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row pop_up_row">
+          <div class="col-md-6 col-md-offset-3">
+            <div class="row">
+              <div class="col-md-6">
+                <span class="pop_up_offer_title">Tablet</span>
+                <span class="pop_up_offer_title"><img src="../img/icons/tablet.png" class="pop_up_image_icon"/></span>
+              </div>
+              <div class="col-md-6">
+                <div class="pop_up_selection_button"> <a ng-href="/offers/tablet" class="browse_offers_link"> Browse Offers > </a> </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row pop_up_row">
+          <div class="col-md-6 col-md-offset-3">
+            <div class="row">
+              <div class="col-md-6" style="text-align:center;padding:8px;">
+                <span class="pop_up_offer_title">Camera</span>
+                <span class="pop_up_offer_title"><img src="../img/icons/camera.png" class="pop_up_image_icon"/></span>
+              </div>
+              <div class="col-md-6">
+                <div class="pop_up_selection_button"> <a ng-href="/offers/camera" class="browse_offers_link"> Browse Offers > </a> 
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="row" style="margin-bottom:40px;">
-        <div class="col-md-6 col-md-offset-3">
-          <div class="row">
-            <div class="col-md-6">
-              <span style="font-size:26px;padding:4px;">Laptop</span>
-              <span style="font-size:26px;padding:4px;"><img src="../img/icons/laptop.png" class="pop_up_image_icon"/></span>
-            </div>
-            <div class="col-md-6">
-              <div class="pop_up_selection_button"> <a ng-href="/offers/laptop" class="browse_offers_link"> Browse Offers > </a> </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row" style="margin-bottom:40px;">
-        <div class="col-md-6 col-md-offset-3">
-          <div class="row">
-            <div class="col-md-6">
-              <span style="font-size:26px;padding:4px;">Tablet</span>
-              <span style="font-size:26px;padding:4px;"><img src="../img/icons/tablet.png" class="pop_up_image_icon"/></span>
-            </div>
-            <div class="col-md-6">
-              <div class="pop_up_selection_button"> <a ng-href="/offers/tablet" class="browse_offers_link"> Browse Offers > </a> </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row" style="margin-bottom:40px;">
-        <div class="col-md-6 col-md-offset-3">
-          <div class="row">
-            <div class="col-md-6" style="text-align:center;padding:8px;">
-              <span style="font-size:26px;padding:4px;">Camera</span>
-              <span style="font-size:26px;padding:4px;"><img src="../img/icons/camera.png" class="pop_up_image_icon"/></span>
-            </div>
-            <div class="col-md-6">
-            <div class="pop_up_selection_button"> <a ng-href="/offers/camera" class="browse_offers_link"> Browse Offers > </a> </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
-      </div>
+    </div>
+  </section>
 </section>
-
 <div class="background_image">
   <img src="../img/background.jpg">
 </div>
+<div ng-include="'/views/footer.html'"></div>

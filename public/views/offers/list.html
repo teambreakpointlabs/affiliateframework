@@ -1,16 +1,31 @@
 <section data-ng-controller="OffersController" data-ng-init="find()">
   <div class="row">
-    <div class="col-md-12">
-    <div ng-if="loaded">
-      <div style="margin-left:20px" ng-hide="" ng-click=""> Found {{offers.length}} Offers</div>
+    <div class="col-md-12" style="margin-top:15px; margin-bottom:15px;">
+    <div ng-show="isLoaded">
+    <span class="pull-left">
+      <li class="dropdown" style="list-style:none;cursor:pointer;">
+                <a class="dropdown-toggle" style="text-decoration:none;color:#00b0ff;font-size:22px;padding:20px;font-weight:300;">
+                 Sort By
+                  <span style="padding-left:5px;top:5px;" class="glyphicon glyphicon-chevron-down"></span>
+                  <span style="margin-left:10px;color:#afafaf;font-size:18px;">{{choice}}</span>
+                </a>
+                <ul class="dropdown-menu sort" style="width: 200px !important; cursor:pointer;color:#00b0ff;">
+                  <li ng-repeat="sortChoice in sortChoices">
+                    <a ng-click="sort(sortChoice)" style="color:#00b0ff;font-weight:300;">{{sortChoice}}</a>
+                  </li>
+                </ul>
+              </li>
+    </span>
+    <span class="pull-right" style="font-family:Lato;font-weight:300;font-size:22px;color:#00b0ff;margin-bottom:20px;text-transform:capitalize;" ng-hide="" ng-click=""> <span ng-hide="!offers.length" class="glyphicon glyphicon-ok"></span> {{offers.length}} {{offerType}} offers</span>
+      <!-- put in search params user has entered for usability -->
     </div>
   </div>
   </div>
   <div class="row">
     <div class="col-sm-12 col-md-12">
-		  <div data-ng-repeat="offer in offers | limitTo: showItems">
+		  <div data-ng-repeat="offer in offers | orderBy: sortedValue | limitTo: showItems ">
 			  <div class="col-sm-4 col-md-4">
-          <div ng-if="loaded">
+          <div ng-if="isLoaded">
             <offer offer="offer" view-type="list"></offer>
           </div>
         </div>
@@ -18,9 +33,12 @@
     </div>
   </div>
     <div class="row">
-      <div ng-if="loaded">
-        <div class="load_more_button" ng-hide="offers.length <= showItems" ng-click="showMoreItems();"> Load More ({{offers.length - showItems}})</div>
+      <div ng-if="isLoaded">
+        <div class="load_more_button" ng-hide="offers.length <= showItems" ng-click="showMoreItems();"> Load More Offers ({{offers.length - showItems}})</div>
       </div>
     </div>
-	<h1 data-ng-hide="!offers || offers.length">No offers yet.</h1>
+    <div ng-show="!isLoaded" ng-class="{bg:'!isLoaded'}">
+          <span class="loading-text" style="text-transform:capitalize;">Loading {{offerType}} Offers...</span>
+    </div>
+	<div class="no_offers_message" data-ng-hide="!offers || offers.length">{{message}}</div>
 </section>

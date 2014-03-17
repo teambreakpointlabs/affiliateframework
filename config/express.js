@@ -49,11 +49,7 @@ module.exports = function(app, passport, db) {
 
     // Enable jsonp
     app.enable('jsonp callback');
-
-    // require(config.root + '/app/routes/index.js')(app);
-    //require(config.root + '/app/routes/users.js')(app);
-    // require(config.root + '/app/routes/article.js')(app);
-
+    
     app.configure(function() {
         // The cookieParser should be above session
         app.use(express.cookieParser());
@@ -89,129 +85,36 @@ module.exports = function(app, passport, db) {
         //app.use("/views/articles", express.static(config.root + '/public/views/articles'));
         app.use("/img", express.static(config.root + '/public/img'));
 
-    //    var users = require('../app/controllers/users');
-    //
-
-
-    //     app.get('/signin', users.signin);
-    //     app.get('/signup', users.signup);
-    //     app.get('/signout', users.signout);
-    //     app.get('/users/me', users.me);
-        
-    //     // Setting up the users api
-    //     app.post('/users', users.create);
-        
-    //     // Setting up the userId param
-    //     app.param('userId', users.user);
-
-    //     // Setting the local strategy route
-    //     app.post('/users/session', passport.authenticate('local', {
-    //       failureRedirect: '/signin',
-    //       failureFlash: true
-    //     }), users.session);
-
-    //         // Serialize the user id to push into the session
-    // passport.serializeUser(function(user, done) {
-    //     done(null, user.id);
-    // });
-
-    // Deserialize the user object based on a pre-serialized token
-    // which is the user id
-    // passport.deserializeUser(function(id, done) {
-    //     User.findOne({
-    //         _id: id
-    //     }, '-salt -hashed_password', function(err, user) {
-    //         done(err, user);
-    //     });
-    // });
-
-    // // Use local strategy
-    // passport.use(new LocalStrategy({
-    //         usernameField: 'email',
-    //         passwordField: 'password'
-    //     },
-    //     function(email, password, done) {
-    //         User.findOne({
-    //             email: email
-    //         }, function(err, user) {
-    //             if (err) {
-    //                 return done(err);
-    //             }
-    //             if (!user) {
-    //                 return done(null, false, {
-    //                     message: 'Unknown user'
-    //                 });
-    //             }
-    //             if (!user.authenticate(password)) {
-    //                 return done(null, false, {
-    //                     message: 'Invalid password'
-    //                 });
-    //             }
-    //             return done(null, user);
-    //         });
-    //     }
-    // ));
-
-   // app.get('/articles', articles.all);
-   // app.post('/articles',articles.create);
-   // app.get('/articles/:articleId', articles.show);
-   // app.put('/articles/:articleId', articles.update);
-   // app.del('/articles/:articleId', articles.destroy);
-
-    // Finish with setting up the articleId param
-    // app.param('articleId', articles.article);
-
-        //handle api calls - everything else runs through to angular
+        //handle api calls - everything else handled by angular
         var articles = require('../app/controllers/articles');
         var offers = require('../app/controllers/offers');
+        
+        //static sitemap
+        app.get('/sitemap', function(req, res) {
+          console.log('express: rendering sitemap');
+          res.sendfile(config.root + '/public/sitemap.xml');
+        });
 
         app.get('/api/articles', articles.all);
         app.get('/api/articles/:articleId', articles.show);
          // Finish with setting up the articleId param
         app.param('articleId', articles.article);
-
-        //extract retailer and brand so returns right offer for that urlDesc
-        //app.get('/api/offers/:retailer/:brand/:urlDesc', offers.show);
         
         app.get('/api/offer/:urlDesc', offers.show);
-        
         app.get('/api/offers', offers.all);
-
-
-        
-
-        //app.get('/articles', articles.all);
+ 
         // Routes should be at the last
         app.use(app.router);
 
         // Setting the fav icon and static folder
         app.use(express.favicon());
-        // app.use(express.static(config.root + '/public'));
-        // any other routes:
-        // var index = require('../app/controllers/index.js');
-        // app.get('/', index.render);
-
-       // app.use("/img", express.static(__dirname + "/../app/img"));
-       // app.use("/partials", express.static(__dirname + "/../app/partials"));
-        
-        //everything through angular
-        // app.get('/*', function(req, res) {
-        //   res.render('index.html');
-        // });
-
-        // app.get('*', function(req, res) {
-        //   res.redirect('/');
-        // });
-         
-        // app.all('/*', function(req, res) {
-        //   res.render('index.html', { user: req.user ? JSON.stringify(req.user) : "null" });
-        // });
 
 
         app.get('/*', function(req, res) {
           console.log('express: rendering index page');
           res.render('index.html',  { user: req.user ? JSON.stringify(req.user) : "null" });
         });
+
         // Assume "not found" in the error msgs is a 404. this is somewhat
         // silly, but valid, you can do whatever you like, set properties,
         // use instanceof etc.

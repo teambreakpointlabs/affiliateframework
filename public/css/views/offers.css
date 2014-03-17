@@ -1,15 +1,16 @@
 .offer_holder{
   border-radius: 4px;
   margin-bottom: 40px;
+  max-width: 400px;
 }
 
 .offer_tagline{
   height:40px;
   background: rgba(0,0,0,0.6);
   font-family: sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 300;
-  padding: 8px;
+  padding: 10px;
   text-transform: capitalize;
   color:#fff;
   letter-spacing: 0.025em;
@@ -31,7 +32,7 @@
 
 .offer_info_holder{
   background: rgb(250, 250, 250);
-  height: 450px;
+  height: 420px;
   padding-top: 20px;
   border-left: 1px solid #efefef;
   border: 1px solid #efefef;
@@ -52,6 +53,7 @@
   vertical-align: middle;
   color:#343434;
   font-family: sans-serif;
+  font-weight: bold;
 }
 
 .offer_price{
