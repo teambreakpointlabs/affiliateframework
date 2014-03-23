@@ -5,8 +5,6 @@ angular.module('mean').config(['$stateProvider', '$urlRouterProvider',
   function($stateProvider, $urlRouterProvider) {
     // For unmatched routes:
     $urlRouterProvider.otherwise('/');
-    console.log('angular routing');
-    //console.log($urlRouterProvider);
     // states for my app
     $stateProvider
       .state('all articles', {

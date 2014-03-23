@@ -85,42 +85,37 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
   }
 
   function searchRelated(){
-    console.log('search related');
-    console.log($stateParams.brand);
-    console.log($stateParams.type);
     var searchObj = searchFromFilterData();
     searchObj.brands = [$stateParams.brand];
     searchObj.type = $stateParams.type;
-    console.log(searchObj);
     return searchObj;
   }
-
   
+  //work around to hide dropdown if visible - move to directive
+  if ($('.in').is(":visible")){
+    $('.navbar-toggle').click();
+  } 
+  if ($('.intro').is(":visible")){
+    $('.intro').addClass('appear');
+  }
+  
+  //defaut sort
+  setSortedValue('pricing.offer');
+  $scope.choice = 'Price: Low > High';
+
   $scope.sortChoices = [
     "Price: Low > High",
     "Price: High > Low",
     "% Off: High > Low"
   ];
-
+  
+  //append screen size sorting options for tv and laptop
   if ($scope.offerType == 'television' || $scope.offerType == 'laptop'){
     $scope.sortChoices.push("Screen: Low > High");
     $scope.sortChoices.push("Screen: High > Low");
   }
-
-  if ($('.in').is(":visible")){
-    $('.navbar-toggle').click();
-  } 
-  if ($('.intro').is(":visible")){
-        $('.intro').addClass('appear');
-      }
-
-  function setSortedValue(value){
-    $scope.sortedValue = value;
-  }
-
-  setSortedValue('pricing.offer');
-  $scope.choice = 'Price: Low > High';
-
+  
+  //handle sort choice
   $scope.sort = function(choice){
     $scope.choice = choice;
     switch(choice){
@@ -142,5 +137,8 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
     }
   }
 
+  function setSortedValue(value){
+    $scope.sortedValue = value;
+  }
 
 }]);

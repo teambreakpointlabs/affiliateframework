@@ -1,6 +1,6 @@
 angular.module('mean.system').factory('FilterHelperService', function(){
   
-var priceHeader = '<div class="filter-component-label-slider"> Price </div>';
+  var priceHeader = '<div class="filter-component-label-slider"> Price </div>';
     var screenHeader = '<div class="filter-component-label-slider"> Screen Size </div>';
     var retailerHeader = '<div class="filter-component-label-input"> Retailer(s) </div>';
     var brandHeader = '<div class="filter-component-label-input"> Brand(s) </div>';

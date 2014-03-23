@@ -9,7 +9,7 @@ angular.module('mean.system').factory('Offers', ['$http', function($http){
     },
     findByUrlDesc: function findOfferByUrlDesc(urlDesc){
       console.log('finding offer');
-      return $http.get('/api/offer/'+urlDesc).then(function(result){
+      return $http.get('/api/offer/'+ urlDesc).then(function(result){
         return result.data;
       });
     }

@@ -7,6 +7,35 @@
 
 }
 
+.footer_section{
+  margin-bottom: 0px !important;
+  border-radius:0px !important; 
+  background:rgba(0,0,0,0.6) !important;
+  border:none;padding:20px;
+}
+
+.footer_row_first{
+  padding-left:10px;
+  font-family:sans-serif;
+  padding-top:10px;
+  color:#fff;
+}
+
+.footer_row_bottom{
+  padding-left:10px;
+  font-family:sans-serif;
+  padding-top:5px;
+  padding-bottom:5px;
+  color:#fff;
+}
+
+.footer_row{
+  padding-left:10px;
+  font-family:sans-serif;
+  padding-top:5px;
+  color:#fff;
+}
+
 .content {
     margin-top:40px;
     width:100%;
@@ -215,9 +244,6 @@
 
 }
 
-
-
 footer {
     background:#343434;
 }
-
