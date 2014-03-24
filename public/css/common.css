@@ -96,6 +96,7 @@
   background: black;
   z-index: 4000;
   opacity:0.9;
+  font-family:Lato;
 }
 
 .pop_up_selection_container{
