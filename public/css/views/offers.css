@@ -83,9 +83,10 @@
  text-transform: capitalize;
  text-align: center;
  font-size: 20px;
- font-weight: 300;
+ font-weight: 400;
  color:#afafaf;
- margin-bottom: 28px;
+ margin-top: 5px;
+ margin-bottom: 20px;
  font-family: sans-serif;
 }
 

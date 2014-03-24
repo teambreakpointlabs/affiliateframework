@@ -53,7 +53,7 @@ angular.module('mean.system').service('OfferBuilderService', function(){
        '<div class="original_price"><del>Was £'+ offer.pricing.original +'</del></div>'+
        '<div class="offer_price">£'+ offer.pricing.offer +'</div>'+
        '<div class="pct_savings">'+offer.pricing.pctSavings+'% Off!</div>' +
-       '<div class="retailer"><img style="width:100px;height:40px;padding-top:10px;" ng-src="/img/logos/'+offer.retailer+'.png"/></div>' +
+       '<div class="retailer">'+offer.retailer+'</div>' +
        '<div class="offer_button_holder">' +
        '<a class="offer_button view" target="_blank" ng-href="'+offer.url.skimlinks+'">View Offer</a>'+
        '</div>' +

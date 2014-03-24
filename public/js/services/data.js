@@ -1,14 +1,14 @@
 angular.module('mean.system').factory('Data',['$stateParams', function($stateParams){
 	
 	var brands = {
-		television: ['cello','lg','panasonic','toshiba','philips','sharp','samsung', 'jvc','sony','hitachi'],
+		television: ['aqualite','cello','lg','panasonic','toshiba','philips','sharp','samsung', 'jvc','sony','hitachi'],
     laptop:['acer','asus','apple','hp','lenovo','samsung','sony','toshiba'],
     camera:['fujifilm', 'nikon', 'canon','panasonic'],
     tablet:['apple','microsoft','nook','lenovo']
 	}
   var retailers = {
-  	television:['argos','currys','littlewoods'],
-  	laptop:['argos','currys','littlewoods','coop electrical'],
+  	television:['argos','currys','littlewoods','direct tvs','selfridges'],
+  	laptop:['argos','currys','littlewoods','coop electrical','laptops direct'],
   	camera:['argos','currys','littlewoods'],
   	tablet:['argos','currys','littlewoods']
   };
