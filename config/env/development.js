@@ -3,7 +3,7 @@
 module.exports = {
     db: "mongodb://admin:af!9876@oceanic.mongohq.com:10041/app22752353",
     app: {
-        name: 'Special Offer Shopper'
+        name: 'Offercrunch'
     },
     facebook: {
         clientID: 'APP_ID',
