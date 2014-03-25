@@ -23,19 +23,19 @@ angular.module('mean.system').service('OfferBuilderService', function(){
   }
 
 	var buildListOffer = function(offer){
+    
+  
 
-    var tvTagline =  '<span class="offer_brand">' + offer.brand + ' ' + offer.details.screenSize + '" '+ offer.details.screenType + '</span>'; 
-    var laptopTagline = '<span class="offer_brand">' + offer.brand + ' ' + offer.details.screenSize + '"' + ' Laptop</span>'; 
     var standardTagline = '<span class="offer_brand">' + offer.brand + ' ' + offer.type + '</span>';
     
     var tagline = '';
 
     switch(offer.type){
       case 'television':
-      tagline = tvTagline;
+      tagline = '<span class="offer_brand">' + offer.brand + ' ' + offer.details.screenSize + '" '+ offer.details.screenType + '</span>'; ;
       break;
       case 'laptop':
-      tagline = laptopTagline;
+      tagline = '<span class="offer_brand">' + offer.brand + ' ' + offer.details.screenSize + '"' + ' Laptop</span>' ;
       break;
       case 'tablet':
       tagline = standardTagline;
