@@ -27,6 +27,9 @@
   <div class="row">
   <div style="margin-bottom:10px;font-family:Lato;font-size:28px;font-weight:400;color:#afafaf;text-align:center;"><a ng-href="/" style="text-decoration:none;"> Browse All Offers</a></div>
   </div>
+   <div ng-show="!isLoaded" ng-class="{bg:'!isLoaded'}">
+     <span class="loading-text" style="text-transform:capitalize;">Loading {{offerType}} Offers...</span>
+   </div>
 </section>
 </section>
 <div ng-include="'/views/footer.html'"></div>
