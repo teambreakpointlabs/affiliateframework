@@ -32,6 +32,14 @@ angular.module('mean.system').service('OfferBuilderService', function(){
 
 	var buildListOffer = function(offer){
     
+    var originalPriceDisplay = '';
+    
+    if (offer.pricing.original != undefined){
+      originalPriceDisplay = '<div class="original_price"><del>Was £'+ offer.pricing.original +'</del></div>';
+    }else{
+      originalPriceDisplay = '<div class="original_price"> Save ££! </div>';
+    }
+
     var standardTagline = '<span class="offer_brand">' + offer.brand + ' ' + offer.type + '</span>';
     var tagline = '';
 
@@ -55,7 +63,7 @@ angular.module('mean.system').service('OfferBuilderService', function(){
     '<div class="offer_img_holder">'+ '<img src="'+ offer.url.image +'" class="offer_img"/> </div>' +
     '<div class="offer_info_holder">' +
        '<div class="offer_description">'+offer.description+'</div>'+
-       '<div class="original_price"><del>Was £'+ offer.pricing.original +'</del></div>'+
+       originalPriceDisplay +
        '<div class="offer_price">£'+ offer.pricing.offer +'</div>'+
        '<div class="pct_savings">'+offer.pricing.pctSavings+'% Off!</div>' +
        '<div class="retailer">'+offer.retailer+'</div>' +
