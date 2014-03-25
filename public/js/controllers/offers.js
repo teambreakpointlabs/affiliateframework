@@ -46,6 +46,7 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
   
   /** when filter fires updateOffers run this **/
   $scope.$on('updateOffers', function(event) {
+    $scope.isLoaded = false;
     Offers.getOffers(searchFromFilterData()).then(function(offers){
       $scope.offers = offers;
       $scope.isLoaded = true;
