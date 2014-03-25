@@ -9,7 +9,7 @@ angular.module('mean.system').factory('Data',['$stateParams', function($statePar
   var retailers = {
   	television:['argos','currys','littlewoods','direct tvs','selfridges', 'coop electrical'],
   	laptop:['argos','currys','littlewoods','coop electrical','laptops direct'],
-  	camera:['argos','currys','littlewoods'],
+  	camera:['argos','currys','littlewoods','jessops'],
   	tablet:['argos','currys','littlewoods']
   };
   
