@@ -30,7 +30,8 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
   $scope.findOne = function(){
     Offers.findByUrlDesc($stateParams.urlDesc).then(function(offer){
       $scope.offer = offer;
-      PageDetailService.setTitle(offer.description + ' | Offercrunch');
+      var capitaliseType = $stateParams.type.charAt(0).toUpperCase() + $stateParams.type.slice(1);
+      PageDetailService.setTitle(offer.description + ' | ' + capitaliseType + ' Offer | Offercrunch');
       PageDetailService.setMetaDescription(offer.description + ' | Offercrunch - All the best online offers in one place. Televisions, laptops, cameras, tablets. Up to 50% off big name brands from major UK retailers.');
       $scope.isLoaded = true;
     });
