@@ -91,8 +91,15 @@ module.exports = function(app, passport, db) {
         
         //static sitemap
         app.get('/sitemap', function(req, res) {
-          console.log('express: rendering sitemap');
-          res.sendfile(config.root + '/public/sitemap.xml');
+          res.sendfile(config.root + '/public/sitemap/sitemap.xml');
+        });
+        
+        app.get('/sitemap/main', function(req, res) {
+          res.sendfile(config.root + '/public/sitemap/main.xml');
+        });
+
+        app.get('/sitemap/offers/:type', function(req, res) {
+          res.sendfile(config.root + '/public/sitemap/offers/'+req.params.type+'.xml');
         });
 
         app.get('/api/articles', articles.all);

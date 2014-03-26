@@ -1,0 +1,17 @@
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>http://offercrunch.co.uk/sitemap/main</loc>
+  </sitemap> 
+  <sitemap>
+    <loc>http://offercrunch.co.uk/sitemap/offers/television</loc>
+  </sitemap>  
+  <sitemap>
+    <loc>http://offercrunch.co.uk/sitemap/offers/laptop</loc>
+  </sitemap>  
+  <sitemap>
+    <loc>http://offercrunch.co.uk/sitemap/offers/tablet</loc>
+  </sitemap>  
+  <sitemap>
+    <loc>http://offercrunch.co.uk/sitemap/offers/camera</loc>
+  </sitemap>    
+</sitemapindex>
