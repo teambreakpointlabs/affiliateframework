@@ -19,11 +19,31 @@ angular.module('mean.system').controller("FilterController",['$scope','$statePar
   
   //append brand to filter data if needed before offers retrieved
   getBrandFromUrl();
-  
+  updateFilterDisplayText();
+
+  function updateFilterDisplayText(){
+    if ($scope.filterVisible){
+      $scope.filterDisplayText = 'hide filter';
+    }else{
+      $scope.filterDisplayText = 'show filter';
+    }
+  }
+
   //tell offers controller to update offers
   $scope.submit = function(){
     $scope.$broadcast('updateOffers');
   };
+  $scope.submitMobile = function(){
+    $scope.$broadcast('updateOffers');
+    $scope.filterVisible = false;
+    updateFilterDisplayText();
+  };
+
+  $scope.click = function(){
+    console.log('click');
+    $scope.filterVisible = !$scope.filterVisible;
+    updateFilterDisplayText();
+  }
 
   function getBrandFromUrl(){    
     var type, brand, index, isBrandFound;

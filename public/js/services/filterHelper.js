@@ -31,7 +31,7 @@ angular.module('mean.system').factory('FilterHelperService', function(){
         }
     }
 
-    var searchButton = '<div class="search_button" ng-click="submit();"><span class="search_button_text">Search</span></div>';
+    var searchButton = '<div class="search_button hidden-xs" ng-click="submit();"><span class="search_button_text">Search</span></div><div class="search_button visible-xs" ng-click="submitMobile();"><span class="search_button_text">Search</span></div>';
 
     var buildLaptopFilter = function() {
         var priceMin, priceMax, screenMin, screenMax;

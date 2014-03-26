@@ -1,4 +1,4 @@
-angular.module('mean.system').controller('OffersController', ['$scope','Offers','$stateParams','FilterHelperService','Data', function($scope, Offers, $stateParams,FilterHelperService,Data){
+angular.module('mean.system').controller('OffersController', ['$scope','Offers','$stateParams','FilterHelperService','Data','PageDetailService', function($scope, Offers, $stateParams,FilterHelperService,Data,PageDetailService){
   
   //sync to data service
   $scope.data = Data;
@@ -17,6 +17,7 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
   }
    
   $scope.find = function() {
+    PageDetailService.setPageDetail($stateParams.type);
     Offers.getOffers(searchFromFilterData()).then(function(offers){
       $scope.offers = offers;
       $scope.isLoaded = true;
@@ -101,8 +102,8 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
   }
   
   //defaut sort
-  setSortedValue('pricing.offer');
-  $scope.choice = 'Price: Low > High';
+  setSortedValue('-pricing.pctSavings');
+  $scope.choice = '% Off: High > Low';
 
   $scope.sortChoices = [
     "Price: Low > High",
