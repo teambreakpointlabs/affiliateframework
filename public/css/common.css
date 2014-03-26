@@ -7,6 +7,16 @@
 
 }
 
+.header_link{
+  color:#fff !important;
+  letter-spacing:0.025em;
+}
+
+.header_link:hover{
+  color:#00b0ff !important;
+  letter-spacing:0.025em;
+}
+
 .footer_section{
   margin-bottom: 0px !important;
   border-radius:0px !important; 
