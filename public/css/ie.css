@@ -7,7 +7,7 @@
 	height:100%;
 	background: black;
 	opacity: 0.8;
-	z-index: 5;
+	z-index: 9999;
 }
 
 .message .message-text{
@@ -19,5 +19,5 @@
 	color:#00b0ff;
 	top:10%;
 	left:25%;
-	z-index:6;
+	z-index:99999;
 }
