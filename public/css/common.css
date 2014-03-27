@@ -281,6 +281,18 @@
 
 }
 
+.show-title{
+  display:none;
+}
+
+.message{
+  display: none;
+}
+
+.message .message-text{
+  display: none;
+}
+
 footer {
     background:#343434;
 }
