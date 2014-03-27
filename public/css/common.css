@@ -7,6 +7,31 @@
 
 }
 
+.title{
+  font-family:Lato;
+  font-size:28px;
+  color:#afafaf;
+  font-weight:300;
+  border-bottom:1px dashed #efefef;
+  padding:5px;
+}
+
+.question{
+  margin-top:15px;
+  font-family:Lato;
+  font-size:25px;
+  color:#00b0ff;
+  font-weight:300;
+}
+
+.answer{
+  margin-top:10px;
+  font-family:Lato;
+  font-size:22px;
+  color:#afafaf;
+  font-weight:300;
+}
+
 .header_link{
   color:#fff !important;
   letter-spacing:0.025em;
