@@ -42,7 +42,7 @@ exports.show = function(req, res) {
 exports.all = function(req, res) {
     console.log('offers controller: all');
     var searchObject =  generateSearch(req);
-    Offer.find(searchObject).sort('-created').populate('user', 'name username').exec(function(err, offers) {
+    Offer.find(searchObject).sort('-pricing.pctSavings').populate('user', 'name username').exec(function(err, offers) {
         if (err) {
             res.render('error', {
                 status: 500
