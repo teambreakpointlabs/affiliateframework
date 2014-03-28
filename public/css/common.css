@@ -278,7 +278,7 @@
   text-align: center;
   font-size: 28px;
   color:#00b0ff;
-
+  margin-bottom: 100px;
 }
 
 .show-title{
@@ -291,6 +291,24 @@
 
 .message .message-text{
   display: none;
+}
+
+.num_offers{
+  font-family:Lato;
+  font-weight:300;
+  font-size:22px;
+  color:#00b0ff;
+  margin-bottom:20px;
+  text-transform:capitalize;
+}
+
+@media (max-width: 767px){
+  .num_offers{
+    font-size:16px;
+    margin-top:20px;
+    margin-bottom:20px;
+    margin-right: 20px;
+  }
 }
 
 footer {
