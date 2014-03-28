@@ -27,7 +27,12 @@ exports.show = function(req, res) {
     console.log(req.params.urlDesc);
     Offer.find({urlDesc: req.params.urlDesc, isValid:true}, function(err,offers){
       console.log(offers[0]);
-      res.jsonp(offers[0]);
+      if (offers[0] == undefined){
+       res.jsonp({err:'notFound'});
+      }else{
+       res.jsonp(offers[0]); 
+      }
+      
     });
 };
 

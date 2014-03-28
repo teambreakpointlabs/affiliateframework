@@ -1,4 +1,4 @@
-angular.module('mean.system').controller('OffersController', ['$scope','Offers','$stateParams','FilterHelperService','Data','PageDetailService', function($scope, Offers, $stateParams,FilterHelperService,Data,PageDetailService){
+angular.module('mean.system').controller('OffersController', ['$scope','Offers','$stateParams','FilterHelperService','Data','PageDetailService','$location',function($scope, Offers, $stateParams,FilterHelperService,Data,PageDetailService,$location){
   
   //sync to data service
   $scope.data = Data;
@@ -28,12 +28,20 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
   };
 
   $scope.findOne = function(){
+    $scope.isLoaded = false;
     Offers.findByUrlDesc($stateParams.urlDesc).then(function(offer){
       $scope.offer = offer;
-      var capitaliseType = $stateParams.type.charAt(0).toUpperCase() + $stateParams.type.slice(1);
-      PageDetailService.setTitle(offer.description + ' | ' + capitaliseType + ' Offer | Offercrunch');
-      PageDetailService.setMetaDescription(offer.description + ' | Offercrunch - All the best online offers in one place. Televisions, laptops, cameras, tablets. Up to 50% off big name brands from major UK retailers.');
-      $scope.isLoaded = true;
+      console.log(offer);
+      if (!offer.err){
+        console.log('offer found');
+        var capitaliseType = $stateParams.type.charAt(0).toUpperCase() + $stateParams.type.slice(1);
+        PageDetailService.setTitle(offer.description + ' | ' + capitaliseType + ' Offer | Offercrunch');
+        PageDetailService.setMetaDescription(offer.description + ' | Offercrunch - All the best online offers in one place. Televisions, laptops, cameras, tablets. Up to 50% off big name brands from major UK retailers.');
+        $scope.isLoaded = true;
+      }else{
+        console.log('cannot find offer');
+        $location.path("/offers/"+ $stateParams.type);
+      }
     });
   }
 
