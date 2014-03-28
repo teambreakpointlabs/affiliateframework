@@ -51,6 +51,7 @@ module.exports = function(app, passport, db) {
     app.enable('jsonp callback');
     
     app.configure(function() {
+        app.use(require('prerender-node').set('prerenderToken', 'XjPlsCNXECHVU0gDX0RS'));
         // The cookieParser should be above session
         app.use(express.cookieParser());
 
@@ -93,7 +94,7 @@ module.exports = function(app, passport, db) {
         app.get('/sitemap', function(req, res) {
           res.sendfile(config.root + '/public/sitemap/sitemap.xml');
         });
-        
+
         app.get('/sitemap/main', function(req, res) {
           res.sendfile(config.root + '/public/sitemap/main.xml');
         });
