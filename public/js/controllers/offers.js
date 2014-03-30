@@ -66,6 +66,7 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
     Offers.getOffers(searchFromFilterData()).then(function(offers){
       $scope.offers = offers;
       $scope.isLoaded = true;
+      $scope.showItems = 9;
     });
   });
   
