@@ -11,6 +11,10 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
   $scope.sortedValue = '';
   $scope.message = '';
 
+  $scope.scrollTo = function(id) {
+    window.scrollTo(0, 0);
+  };
+
   /** this appends more items to view **/
   $scope.showMoreItems = function(){
     $scope.showItems += 6;

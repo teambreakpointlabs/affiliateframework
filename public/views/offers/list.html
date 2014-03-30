@@ -33,6 +33,7 @@
   </div>
     <div class="row">
       <div ng-if="isLoaded">
+        <div ng-click="scrollTo('top')" class="go_to_top"> <span class="go_to_top_text"> Go to Top </span></div>
         <div class="load_more_button" ng-hide="offers.length <= showItems" ng-click="showMoreItems();"> Load More Offers ({{offers.length - showItems}})</div>
       </div>
     </div>

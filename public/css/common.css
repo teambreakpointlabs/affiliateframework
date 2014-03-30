@@ -7,6 +7,21 @@
 
 }
 
+.go_to_top{
+  font-size:22px;
+  margin-right:5%;
+  margin-bottom:28px;
+  color:#afafaf;
+  font-family:Lato;
+  text-align:right;
+}
+
+.go_to_top_text{
+  border:1px solid #efefef; 
+  padding:10px; 
+  cursor:pointer;
+}
+
 .title{
   font-family:Lato;
   font-size:28px;
