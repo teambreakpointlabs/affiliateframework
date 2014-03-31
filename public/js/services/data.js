@@ -4,7 +4,7 @@ angular.module('mean.system').factory('Data',['$stateParams', function($statePar
 		television: ['aqualite','cello','lg','panasonic','toshiba','philips','sharp','samsung', 'jvc','sony','hitachi'],
     laptop:['acer','asus','apple','hp','lenovo','samsung','sony','toshiba'],
     camera:['fujifilm', 'nikon', 'canon','panasonic'],
-    tablet:['apple','microsoft','nook','lenovo']
+    tablet:['acer','samsung','sony','archos','toshiba','kobo','hp','arnova','prestigio','gemini','asus','google','apple','microsoft','nook','lenovo']
 	}
   var retailers = {
   	television:['argos','currys','littlewoods','direct tvs','selfridges', 'coop electrical','john lewis'],
