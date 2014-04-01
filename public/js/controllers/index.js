@@ -9,17 +9,20 @@ angular.module('mean.system').controller('IndexController', ['$scope', 'Global',
    
   runSkimlinks();
 
-  function runSkimlinks(){
-  	  $.getScript( "http://s.skimresources.com/js/54354X1506902.skimlinks.js", function( data, textStatus, jqxhr ) {
+    function runSkimlinks(){
+    console.log('attempting to load skimlinks script');
+  $.getScript( "http://s.skimresources.com/js/54354X1347041.skimlinks.js", function( data, textStatus, jqxhr ) {
     if (jqxhr.status == 200){
       console.log('skimlinks loaded');
     } else{
       //try again
-      $.getScript( "http://s.skimresources.com/js/54354X1506902.skimlinks.js", function( data, textStatus, jqxhr ) {
+      $.getScript( "http://s.skimresources.com/js/54354X1347041.skimlinks.js", function( data, textStatus, jqxhr ) {
         console.log('skimlinks loaded again');
       });
     }
+  });
   }
+  
 
 
 }]);
