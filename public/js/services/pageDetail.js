@@ -1,6 +1,7 @@
 angular.module('mean.system').factory('PageDetailService', function(){
   return {
     setPageDetail: function setPageDetail(offerType, brand){
+       $('meta[name=description]').remove();
       var capitaliseType = offerType.charAt(0).toUpperCase() + offerType.slice(1);
        if (brand != undefined){
        var capitaliseBrand = brand.charAt(0).toUpperCase() + brand.slice(1);
@@ -15,6 +16,7 @@ angular.module('mean.system').factory('PageDetailService', function(){
       document.title = title;
   	},
   	setMetaDescription: function setMetaDescription(metaDesc){
+      $('meta[name=description]').remove();
       var meta = document.createElement('meta');
       meta.name = "description";
       meta.content = metaDesc;
