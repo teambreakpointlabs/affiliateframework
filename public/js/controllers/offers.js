@@ -21,7 +21,7 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
   }
    
   $scope.find = function() {
-    PageDetailService.setPageDetail($stateParams.type);
+    PageDetailService.setPageDetail($stateParams.type, $stateParams.brand);
     Offers.getOffers(searchFromFilterData()).then(function(offers){
       $scope.offers = offers;
       $scope.isLoaded = true;

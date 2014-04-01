@@ -119,7 +119,6 @@ module.exports = function(app, passport, db) {
 
 
         app.get('/*', function(req, res) {
-          console.log('express: rendering index page');
           res.render('index.html',  { user: req.user ? JSON.stringify(req.user) : "null" });
         });
 

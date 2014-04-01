@@ -23,8 +23,6 @@ exports.offer = function(req, res, next, id) {
  * Show an offer
  */
 exports.show = function(req, res) {
-    console.log('finding offer');
-    console.log(req.params.urlDesc);
     Offer.find({urlDesc: req.params.urlDesc, isValid:true}, function(err,offers){
       console.log(offers[0]);
       if (offers[0] == undefined){
@@ -40,7 +38,6 @@ exports.show = function(req, res) {
  * List of offers
  */
 exports.all = function(req, res) {
-    console.log('offers controller: all');
     var searchObject =  generateSearch(req);
     Offer.find(searchObject).sort('-pricing.pctSavings').populate('user', 'name username').exec(function(err, offers) {
         if (err) {

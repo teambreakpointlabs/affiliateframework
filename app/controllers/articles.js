@@ -7,7 +7,6 @@ var mongoose = require('mongoose'),
     Article = mongoose.model('Article'),
     _ = require('lodash');
 
-console.log('articles controller.');
 /**
  * Find article by id
  */
