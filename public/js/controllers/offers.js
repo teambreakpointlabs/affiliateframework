@@ -27,6 +27,8 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
       if ($scope.offers.length == 0){
         $scope.message = "No Offers Found.";
       }
+      window.prerenderReady = true;
+
     });
   };
 
@@ -39,6 +41,7 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
         PageDetailService.setTitle(offer.description + ' | ' + capitaliseType + ' Offer | Offercrunch');
         PageDetailService.setMetaDescription(offer.description + ' | Offercrunch - All the best online offers in one place. Televisions, laptops, cameras, tablets. Up to 50% off big name brands from major UK retailers.');
         $scope.isLoaded = true;
+        window.prerenderReady = true;
       }else{
         $location.path("/offers/"+ $stateParams.type);
       }
