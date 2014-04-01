@@ -1,5 +1,4 @@
 angular.module('mean.system').controller('OffersController', ['$scope','Offers','$stateParams','FilterHelperService','Data','PageDetailService','$location',function($scope, Offers, $stateParams,FilterHelperService,Data,PageDetailService,$location){
-  window.prerenderReady = false; 
   //sync to data service
   $scope.data = Data;
   //get type from params
@@ -25,7 +24,6 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
     Offers.getOffers(searchFromFilterData()).then(function(offers){
       $scope.offers = offers;
       $scope.isLoaded = true;
-      window.prerenderReady = true;
       if ($scope.offers.length == 0){
         $scope.message = "No Offers Found.";
       }
@@ -33,7 +31,6 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
   };
 
   $scope.findOne = function(){
-    window.prerenderReady = false;
     $scope.isLoaded = false;
     Offers.findByUrlDesc($stateParams.urlDesc).then(function(offer){
       $scope.offer = offer;
@@ -42,7 +39,6 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
         PageDetailService.setTitle(offer.description + ' | ' + capitaliseType + ' Offer | Offercrunch');
         PageDetailService.setMetaDescription(offer.description + ' | Offercrunch - All the best online offers in one place. Televisions, laptops, cameras, tablets. Up to 50% off big name brands from major UK retailers.');
         $scope.isLoaded = true;
-        window.prerenderReady = true;
       }else{
         $location.path("/offers/"+ $stateParams.type);
       }
