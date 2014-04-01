@@ -26,7 +26,6 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
       $scope.offers = offers;
       $scope.isLoaded = true;
       window.prerenderReady = true;
-      runSkimlinks();
       if ($scope.offers.length == 0){
         $scope.message = "No Offers Found.";
       }
@@ -160,19 +159,5 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
     $scope.sortedValue = value;
   }
 
-
-    function runSkimlinks(){
-    console.log('attempting to load skimlinks script');
-  $.getScript( "http://s.skimresources.com/js/54354X1506902.skimlinks.js", function( data, textStatus, jqxhr ) {
-    if (jqxhr.status == 200){
-      console.log('skimlinks loaded');
-    } else{
-      //try again
-      $.getScript( "http://s.skimresources.com/js/54354X1506902.skimlinks.js", function( data, textStatus, jqxhr ) {
-        console.log('skimlinks loaded again');
-      });
-    }
-  });
-  }
 
 }]);

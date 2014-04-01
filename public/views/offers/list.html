@@ -35,12 +35,6 @@
       <div ng-if="isLoaded">
         <div ng-click="scrollTo('top')" class="go_to_top"> <span class="go_to_top_text"> Go to Top </span></div>
         <div class="load_more_button" ng-hide="offers.length <= showItems" ng-click="showMoreItems();"> Load More Offers ({{offers.length - showItems}})</div>
-                   <li> 
-                      <a href="http://www.argos.co.uk/static/Product/partNumber/1467752.htm" class="section_list_link"> Test Argos </a>
-                    </li>
-                    <li> 
-                      <a href="http://www.currys.co.uk/gbuk/computing/laptops/laptops/packard-bell-easynote-te69kb-15-6-laptop-silver-black-21737253-pdt.html" class="section_list_link"> Test Currys </a>
-                    </li>
       </div>
     </div>
     <div ng-show="!isLoaded" ng-class="{bg:'!isLoaded'}">
