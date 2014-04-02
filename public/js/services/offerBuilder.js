@@ -71,7 +71,7 @@ angular.module('mean.system').service('OfferBuilderService', function(){
        '<a class="offer_button view" rel="nofollow" target="_blank" ng-href="'+offer.url.skimlinks+'">View Offer</a>'+
        '</div>' +
        '<div class="offer_button_holder">' +
-       '<a class="offer_button more_info" ng-href="/offers/'+offer.type+'/'+offer.brand+'/'+offer.urlDesc+'">More Info</a>'+
+       '<a class="offer_button more_info" target="_blank" ng-href="/offers/'+offer.type+'/'+offer.brand+'/'+offer.urlDesc+'">More Info</a>'+
        '</div>' +
        '</div>' +
        '</div>';
