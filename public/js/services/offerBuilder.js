@@ -23,7 +23,7 @@ angular.module('mean.system').service('OfferBuilderService', function(){
 		return  '<div class="indiv_offer_brand">' + offer.brand + ' ' + offer.type + ' Offer </div>' + 
     '<div class="indiv_offer_description">' + offer.description +'</div>' + '<div class="indiv_offer_valid"> This offer is <span class="indiv_offer_valid_text">valid</span></div>' +
     '<div class="indiv_offer_img_holder"><img class="indiv_offer_img" src="'+ offer.url.image +'"/></div>'+'<div>'+
-    '<a class="indiv_offer_label indiv_go_to_offer" rel="nofollow" ng-href='+offer.url.skimlinks+'><span class="indiv_go_to_offer_text"> Go to Offer <span class="glyphicon glyphicon-chevron-right" style="color:#38d5b8;font-size:14px;"></span></span></a>' +
+    '<a class="indiv_offer_label indiv_go_to_offer" rel="nofollow" target="_blank" ng-href='+offer.url.skimlinks+'><span class="indiv_go_to_offer_text"> Go to Offer <span class="glyphicon glyphicon-chevron-right" style="color:#38d5b8;font-size:14px;"></span></span></a>' +
     '<div class="indiv_offer_label indiv_offer_price"> £' + offer.pricing.offer+ '</div>' +
     originalPriceDisplay +
     '<div class="indiv_offer_label indiv_saving"> Save ' + offer.pricing.pctSavings+ '%!</div>' +
