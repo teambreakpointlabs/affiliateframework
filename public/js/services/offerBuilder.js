@@ -18,7 +18,6 @@ angular.module('mean.system').service('OfferBuilderService', function(){
     if (offer.pricing.original != undefined){
       originalPriceDisplay = '<div class="indiv_offer_label indiv_original_price"> Was £' + offer.pricing.original+ '</div>';
     }
-    
 
 		return  '<div class="indiv_offer_brand">' + offer.brand + ' ' + offer.type + ' Offer </div>' + 
     '<div class="indiv_offer_description">' + offer.description +'</div>' + '<div class="indiv_offer_valid"> This offer is <span class="indiv_offer_valid_text">valid</span></div>' +
