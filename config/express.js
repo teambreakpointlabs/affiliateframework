@@ -109,6 +109,7 @@ module.exports = function(app, passport, db) {
         app.param('articleId', articles.article);
         
         app.get('/api/offer/:urlDesc', offers.show);
+        app.get('/api/offer/fashion/:gender/:urlDesc', offers.show);
         app.get('/api/offers', offers.all);
  
         // Routes should be at the last

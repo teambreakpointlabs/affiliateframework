@@ -17,6 +17,10 @@ angular.module('mean.system').controller('HeaderController', ['$scope', 'Global'
     {
         'title': 'Camera Offers',
         'link': '/offers/camera'
+    },
+    {
+        'title': 'Fashion Offers',
+        'link': '/offers/fashion'
     }];
 
 }]);

@@ -38,13 +38,16 @@ exports.show = function(req, res) {
  * List of offers
  */
 exports.all = function(req, res) {
+  console.log('searching offers');
     var searchObject =  generateSearch(req);
+   // console.log(searchObject);
     Offer.find(searchObject).sort('-pricing.pctSavings').populate('user', 'name username').exec(function(err, offers) {
         if (err) {
             res.render('error', {
                 status: 500
             });
         } else {
+          //console.log(offers);
             res.jsonp(offers);
         }
     });
@@ -75,6 +78,11 @@ function generateSearch(req){
 
   if (req.query.type == 'television' || req.query.type == 'laptop'){
     search['details.screenSize'] = {$gte: parseInt(req.query.screenMin), $lte: parseInt(req.query.screenMax)}
+  }
+
+  if (req.query.type == 'shoe'){
+    console.log(req.query.gender);
+    search['gender'] = req.query.gender;
   }
 
 

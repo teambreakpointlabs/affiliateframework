@@ -59,7 +59,6 @@ angular.module('mean.system').directive('filter',['$compile', 'FilterHelperServi
     },
     
     link: function(scope,elem,attrs,cntrl){
-      
       var type = attrs.type;
       var selectedRetailers = scope.selectedRetailers;
       var unselectedRetailers = scope.unselectedRetailers;

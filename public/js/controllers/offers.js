@@ -1,8 +1,16 @@
-angular.module('mean.system').controller('OffersController', ['$scope','Offers','$stateParams','FilterHelperService','Data','PageDetailService','$location',function($scope, Offers, $stateParams,FilterHelperService,Data,PageDetailService,$location){
+angular.module('mean.system').controller('OffersController', ['$scope','Offers','$stateParams','FilterHelperService','Data','PageDetailService','$location','UrlHelperService',function($scope, Offers, $stateParams,FilterHelperService,Data,PageDetailService,$location,UrlHelperService){
   //sync to data service
   $scope.data = Data;
-  //get type from params
-  $scope.offerType = $stateParams.type;
+
+  var urlObj = UrlHelperService.processUrl($stateParams);
+
+  var type = urlObj.type;
+  var brand = urlObj.brand;
+  var gender = urlObj.gender;
+  var category = urlObj.category;
+
+
+  $scope.offerType = type;
 
   $scope.isLoaded = false;
   $scope.showItems = 9;
@@ -20,8 +28,11 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
   }
    
   $scope.find = function() {
-    PageDetailService.setPageDetail($stateParams.type, $stateParams.brand);
-    Offers.getOffers(searchFromFilterData()).then(function(offers){
+    PageDetailService.setPageDetail(type, $stateParams.brand);
+    var search = searchFromFilterData();
+    console.log('searching for ');
+    console.log(search);
+    Offers.getOffers(search).then(function(offers){
       $scope.offers = offers;
       $scope.isLoaded = true;
       if ($scope.offers.length == 0){
@@ -34,15 +45,19 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
 
   $scope.findOne = function(){
     $scope.isLoaded = false;
+    console.log('searching for offer...' + $stateParams.urlDesc);
     Offers.findByUrlDesc($stateParams.urlDesc).then(function(offer){
       $scope.offer = offer;
+      console.log(offer);
       if (!offer.err){
+        console.log('offer found');
         var capitaliseType = $stateParams.type.charAt(0).toUpperCase() + $stateParams.type.slice(1);
         PageDetailService.setTitle(offer.pricing.pctSavings + '% Off! ' + offer.description + ' | ' + capitaliseType + ' Offer | Offercrunch');
         PageDetailService.setMetaDescription(offer.description+ ' | Offercrunch - All the best online offers in one place. Televisions, laptops, cameras, tablets. Up to 50% off big name brands from major UK retailers.');
         $scope.isLoaded = true;
         window.prerenderReady = true;
       }else{
+        console.log('offer not found');
         $location.path("/offers/"+ $stateParams.type);
       }
     });
@@ -72,16 +87,25 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
   /** get current state of filter data and update offers **/
   function searchFromFilterData(){
 
-    var type = $stateParams.type;
     var filterMinMax = $scope.data.filters[type];
     var priceMax = filterMinMax.priceMax;
     var priceMin = filterMinMax.priceMin;
+    var gender = $stateParams.gender;
+    if (!gender){
     var brands = $scope.data.selectedBrands[type];
     var retailers = $scope.data.selectedRetailers[type];
 
     //if no selected brands/retailers pass them all
     if (!brands.length) brands = $scope.data.brands[type];
     if (!retailers.length) retailers = $scope.data.retailers[type];
+    }else{
+    var brands = $scope.data.selectedBrands[gender][type];
+    var retailers = $scope.data.selectedRetailers[gender][type];
+
+    //if no selected brands/retailers pass them all
+    if (!brands.length) brands = $scope.data.brands[gender][type];
+    if (!retailers.length) retailers = $scope.data.retailers[gender][type];
+   }
 
     //make search object
     var search = {
@@ -97,14 +121,18 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
       search.screenMax = filterMinMax.screenMax;
       search.screenMin = filterMinMax.screenMin;
     }
+    if (category == 'fashion'){
+      search.gender = urlObj.gender;
+    }
+
 
     return search;
   }
 
   function searchRelated(){
     var searchObj = searchFromFilterData();
-    searchObj.brands = [$stateParams.brand];
-    searchObj.type = $stateParams.type;
+    searchObj.brands = [urlObj.brand];
+    searchObj.type = urlObj.type;
     return searchObj;
   }
   

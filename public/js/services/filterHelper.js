@@ -1,6 +1,6 @@
 angular.module('mean.system').factory('FilterHelperService', function(){
   
-  var priceHeader = '<div class="filter-component-label-slider"> Price </div>';
+    var priceHeader = '<div class="filter-component-label-slider"> Price </div>';
     var screenHeader = '<div class="filter-component-label-slider"> Screen Size </div>';
     var retailerHeader = '<div class="filter-component-label-input"> Retailer(s) </div>';
     var brandHeader = '<div class="filter-component-label-input"> Brand(s) </div>';
@@ -119,6 +119,28 @@ angular.module('mean.system').factory('FilterHelperService', function(){
 
         return cameraFilterTemplate;
     }
+    var buildFashionFilter = function(type) {
+        console.log('building fashion filter');
+        var priceMin, priceMax;
+
+        priceMin = "filters."+type+".priceMin";
+        priceMax = "filters."+type+".priceMax";
+
+        var priceSlider, priceMinMaxLabel, retailerTypeahead, brandTypeahead;
+
+        priceSlider = setUpSlider(0,1000,20,priceMin,priceMax);
+        priceMinMaxLabel = setUpMinMaxLabel(priceMin,priceMax,"£");
+        retailerTypeahead = setUpModifiedTypeahead('retailer');
+        brandTypeahead = setUpModifiedTypeahead('brand');
+        var header = '';
+        var capitaliseType = type.charAt(0).toUpperCase() + type.slice(1);
+       
+
+        var fashionFilterTemplate = filterHeader(capitaliseType) +
+            priceHeader + priceSlider + priceMinMaxLabel  + retailerHeader + retailerTypeahead + brandHeader + brandTypeahead + searchButton;
+
+        return fashionFilterTemplate;
+    }
 
   return{
     buildFilterComponent: function buildFilterComponent(type){
@@ -131,6 +153,8 @@ angular.module('mean.system').factory('FilterHelperService', function(){
            return buildTabletFilter();
            case 'camera':
            return buildCameraFilter();
+           default:
+           return buildFashionFilter(type);
        }
     }
   }

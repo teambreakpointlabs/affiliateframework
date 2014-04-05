@@ -41,21 +41,33 @@ angular.module('mean.system').service('OfferBuilderService', function(){
 
     var standardTagline = '<span class="offer_brand">' + offer.brand + ' ' + offer.type + '</span>';
     var tagline = '';
+    var indivOfferUrlStub = '';
 
     switch(offer.type){
       case 'television':
       tagline = '<span class="offer_brand">' + offer.brand + ' ' + offer.details.screenSize + '" '+ offer.details.screenType + '</span>'; ;
+      indivOfferUrlStub = '/offers/'+offer.type;
       break;
       case 'laptop':
       tagline = '<span class="offer_brand">' + offer.brand + ' ' + offer.details.screenSize + '"' + ' Laptop</span>' ;
+      indivOfferUrlStub = '/offers/'+offer.type;
       break;
       case 'tablet':
       tagline = standardTagline;
+      indivOfferUrlStub = '/offers/'+offer.type;
       break;
       case 'camera':
       tagline = standardTagline;
+      indivOfferUrlStub = '/offers/'+offer.type;
       break;
+      case 'shoe':
+      tagline = '<span class="offer_brand">' + offer.brand + '</span>';
+      indivOfferUrlStub = '/offers/fashion/'+offer.gender + '/shoes';
+      break;
+      default:
+      tagline = standardTagline;
     }
+  
 
 		return '<div class="offer_holder">' +
     '<div class="offer_tagline">' + tagline + '</div>' +
@@ -70,7 +82,7 @@ angular.module('mean.system').service('OfferBuilderService', function(){
        '<a class="offer_button view" rel="nofollow" target="_blank" ng-href="'+offer.url.skimlinks+'">View Offer</a>'+
        '</div>' +
        '<div class="offer_button_holder">' +
-       '<a class="offer_button more_info" target="_blank" ng-href="/offers/'+offer.type+'/'+offer.brand+'/'+offer.urlDesc+'">More Info</a>'+
+       '<a class="offer_button more_info" target="_blank" ng-href='+indivOfferUrlStub+'/'+offer.brand+'/'+offer.urlDesc+'>More Info</a>'+
        '</div>' +
        '</div>' +
        '</div>';
