@@ -64,10 +64,32 @@ angular.module('mean.system').service('OfferBuilderService', function(){
       tagline = '<span class="offer_brand">' + offer.brand + '</span>';
       indivOfferUrlStub = '/offers/fashion/'+offer.gender + '/shoes';
       break;
+      case 'shirt':
+      tagline = '<span class="offer_brand">' + offer.brand + '</span>';
+      indivOfferUrlStub = '/offers/fashion/'+offer.gender + '/shirts';
+      break;
+      case 'top':
+      tagline = '<span class="offer_brand">' + offer.brand + '</span>';
+      indivOfferUrlStub = '/offers/fashion/'+offer.gender + '/tops';
+      break;
       default:
       tagline = standardTagline;
     }
-  
+
+    var checkMultipleBrandWords = offer.brand.split(' ');
+    var brand = offer.brand;
+    if (checkMultipleBrandWords.length > 0){
+      var brandAppender = '';
+      for (var i=0;i<checkMultipleBrandWords.length;i++){
+        if (i!=0){
+          brandAppender = brandAppender + "-" + checkMultipleBrandWords[i]; 
+        }else{
+          brandAppender = checkMultipleBrandWords[i];
+        }
+        
+      }
+      brand = brandAppender;
+    }
 
 		return '<div class="offer_holder">' +
     '<div class="offer_tagline">' + tagline + '</div>' +
@@ -82,7 +104,7 @@ angular.module('mean.system').service('OfferBuilderService', function(){
        '<a class="offer_button view" rel="nofollow" target="_blank" ng-href="'+offer.url.skimlinks+'">View Offer</a>'+
        '</div>' +
        '<div class="offer_button_holder">' +
-       '<a class="offer_button more_info" target="_blank" ng-href='+indivOfferUrlStub+'/'+offer.brand+'/'+offer.urlDesc+'>More Info</a>'+
+       '<a class="offer_button more_info" target="_blank" ng-href='+indivOfferUrlStub+'/'+brand+'/'+offer.urlDesc+'>More Info</a>'+
        '</div>' +
        '</div>' +
        '</div>';

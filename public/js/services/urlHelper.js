@@ -10,6 +10,9 @@ angular.module('mean.system').factory('UrlHelperService',function(){
         case 'shirts':
         transformedType = 'shirt';
         break;
+        case 'tops':
+        transformedType = 'top';
+        break;
         default:
         transformedType = type;
       }
