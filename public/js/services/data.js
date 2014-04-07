@@ -6,12 +6,12 @@ angular.module('mean.system').factory('Data',['$stateParams', function($statePar
     camera:['fujifilm', 'nikon', 'canon','panasonic','olympus','samsung','vivitar','pentax','polaroid'],
     tablet:['acer','samsung','sony','archos','toshiba','kobo','hp','arnova','prestigio','gemini','asus','google','apple','microsoft','nook','lenovo'],
 	  women: {
-      shoe:['asos','nike','river island'],
+      shoe:['aldo','ash','asos','bellfield','bertie','birkenstock','bronx','calvin klein','carvela','cheap monday','clarks','converse','dkny','dr martens','dune','faith','fred perry','ganni','gola','hudson','havaianas','hunter','juju','karen millen','keds','kurt geiger','lacoste','le coq sportif','love moschino','mango','melissa','miista','monki','new balance','new look','nike','oasis','onitsuka','pieces','pull&bear','puma','report signature','river island','roxy','sam edelman','saucony','senso','shellys london','shoesissima','steve madden','supra','swedish hasbeens','ted baker','timberland','toms','vagabond','vans','vivienne westwood','whistles','won hundred','wood wood','ymc','yru'],
       shirt:['test']
     },
     men:{
-      shoe:['lacoste','bellfield','asos','new balance','timberland','nike','river island'],
-      shirt:['test']
+      shoe:['adidas','aldo','anthony miles','antoine and stanley','asos','barbour','base london','beck & hersey','bellfield','ben sherman','bobbies','boxfresh','buttero','cat','converse','creative recreation','crosshatch','diesel','dolce & gabbana','dune','feud','firetrap','base','frank wright','fred perry','gola','gourmet','grenson','hudson','homeys','hugo boss','hummel','hush puppies','hype','jack & jones','jeffery west','kurt geiger','lacoste','le coq sportif','loake','marc jacobs','new balance','new look','nike','onitsuka','tiger','paul smith','ralph lauren','pony','pull&bear','puma','quiksilver','reiss','religion','river island','rock & revival','rokin','rolando sturlini','selected','shoe the bear','skive','soulland','supra','ted baker','the north face','timberland','trickers','underground','vans','vivienne westwood','xti','ymc'],
+      shirt:['']
     }
   }
 
@@ -21,12 +21,12 @@ angular.module('mean.system').factory('Data',['$stateParams', function($statePar
   	camera:['argos','currys','littlewoods','jessops'],
   	tablet:['argos','currys','littlewoods'],
     women:{
-      shoe:['asos','boohoo'],
-      shirt:['test']
+      shoe:['asos'],
+      shirt:['']
     },
     men:{
-      shoe:['asos','boohoo'],
-      shirt:['test']
+      shoe:['asos'],
+      shirt:['']
     }
   };
   

@@ -49,14 +49,13 @@ angular.module('mean.system').controller("FilterController",['$scope','$statePar
   };
 
   $scope.click = function(){
-    console.log('click');
     $scope.filterVisible = !$scope.filterVisible;
     updateFilterDisplayText();
   }
 
   function getBrandFromUrl(){    
     var brand, index, isBrandFound;
-    brand = $stateParams.brand;
+    brand = urlObj.brand;
     index = -1;
     isBrandFound = false;
     if (brand) {
