@@ -58,7 +58,11 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
         window.prerenderReady = true;
       }else{
         console.log('offer not found');
-        $location.path("/offers/"+ $stateParams.type);
+        if ($stateParams.gender){
+          $location.path("/offers/fashion/"+$stateParams.gender+"/"+$stateParams.type+"s");
+        }else{
+          $location.path("/offers/"+ $stateParams.type);
+        }
       }
     });
   }
