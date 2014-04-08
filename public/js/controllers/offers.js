@@ -59,7 +59,7 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
       }else{
         console.log('offer not found');
         if ($stateParams.gender){
-          $location.path("/offers/fashion/"+$stateParams.gender+"/"+$stateParams.type+"s");
+          $location.path("/offers/fashion/"+$stateParams.gender+"/"+$stateParams.type);
         }else{
           $location.path("/offers/"+ $stateParams.type);
         }
