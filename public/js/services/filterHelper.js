@@ -128,7 +128,7 @@ angular.module('mean.system').factory('FilterHelperService', function(){
 
         var priceSlider, priceMinMaxLabel, retailerTypeahead, brandTypeahead;
 
-        priceSlider = setUpSlider(0,1000,20,priceMin,priceMax);
+        priceSlider = setUpSlider(0,400,20,priceMin,priceMax);
         priceMinMaxLabel = setUpMinMaxLabel(priceMin,priceMax,"£");
         retailerTypeahead = setUpModifiedTypeahead('retailer');
         brandTypeahead = setUpModifiedTypeahead('brand');
