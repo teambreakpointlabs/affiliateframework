@@ -33,7 +33,7 @@ angular.module('mean.system').factory('PageDetailService', function($stateParams
          capitaliseGender = gender.charAt(0).toUpperCase() + gender.slice(1) + "'s ";
        }
        this.setTitle(capitaliseGender + capitaliseBrand + " " + capitaliseType + ' Offers | OfferCrunch');
-       this.setMetaDescription(capitaliseGender + capitaliseBrand + " " + capitaliseType + ' Offers | Offercrunch - All the best online offers in one place. Televisions, laptops, cameras, tablets. Up to 50% off big name brands from major UK retailers.')
+       this.setMetaDescription(capitaliseGender + capitaliseBrand + " " + capitaliseType + ' Offers | Offercrunch - All the best online offers in one place.')
        }else{
          //put capitalise into own method and rethink setting page detail service with undefined params
          var capitaliseGender = '';
@@ -42,7 +42,7 @@ angular.module('mean.system').factory('PageDetailService', function($stateParams
          capitaliseGender = gender.charAt(0).toUpperCase() + gender.slice(1) + "'s ";
        }
         this.setTitle(capitaliseGender + capitaliseType + ' Offers | OfferCrunch');
-        this.setMetaDescription(capitaliseGender + capitaliseType + ' Offers | Offercrunch - All the best online offers in one place. Televisions, laptops, cameras, tablets. Up to 50% off big name brands from major UK retailers.');
+        this.setMetaDescription(capitaliseGender + capitaliseType + ' Offers | Offercrunch - All the best online offers in one place.');
        }
     },
   	setTitle: function setTitle(title){
