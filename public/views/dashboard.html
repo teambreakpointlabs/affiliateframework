@@ -5,6 +5,7 @@
 	  <div class="col-sm-3 col-md-3">
     <div style="font-family:Lato;font-weight:300;font-size:16px;color:#afafaf;margin-bottom:10px;cursor:pointer;text-align:left;" ng-click="click()">{{filterDisplayText}} <span style="padding-left:2px;top:2px;font-size:80%;" class="glyphicon glyphicon-chevron-down"></span></div>
 	    <filter type="{{filterType}}"></filter>
+	    <email-widget offer-type="{{filterType}}"> </email-widget>
 	  </div>
 	  <div class="col-sm-9 col-md-9">
 	    <div data-ng-include="'/views/offers/list.html'"></div>

@@ -52,32 +52,71 @@ exports.session = function(req, res) {
  * Create user
  */
 exports.create = function(req, res, next) {
-    var user = new User(req.body);
-    var message = null;
+    
+  var userToSave = new User(req.body);
+  console.log(req.body);
+  // var message = null;
+  // validate email on server...
+  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  if(!re.test(req.body.email)){
+    console.log('email invalid');
+    return res.jsonp({message: 'email invalid'});
+  }else{
+  	console.log('email valid');
+  }
 
-    user.provider = 'local';
-    user.save(function(err) {
-        if (err) {
-            switch (err.code) {
-                case 11000:
-                case 11001:
-                    message = 'Username already exists';
-                    break;
-                default:
-                    message = 'Please fill all the required fields';
-            }
+  //console.log(user);
+  console.log('finding...');
+  var searchObj = {email:req.body.email, type:req.body.type};
+  if (req.body.gender){
+  	searchObj.gender = req.body.gender;
+  }
+  User.findOne(searchObj).exec(function(err, user){
+    if (!user){
+    	//save
+    	console.log('email - '+req.body.email+' not found for type - ' + req.body.type);
+    
+    userToSave.save(function(err) {
+	    if (err) {
+	    	console.log(err);
+	      switch (err.code) {
+	        case 11000:
+	        case 11001:
+	          console.log('email exists');
+	          res.jsonp({err:'email exists'});
+	           break;
+	        default:
+	          console.log('fill in all fields');
+	          res.jsonp({err:'fill in required fields'});
+	      }
+	    }else{
+	      return res.jsonp({message: 'success'});
+	    }
+	  });
+    }else{
+    	console.log('user already here');
+    	return res.jsonp({message: 'exists'});
+    }
 
-            return res.render('users/signup', {
-                message: message,
-                user: user
-            });
-        }
-        req.logIn(user, function(err) {
-            if (err) return next(err);
-            return res.redirect('/');
-        });
-    });
-};
+    if (err){
+    	console.log(err);
+    }
+  })
+
+
+  // user.provider = 'local';
+  
+}
+
+             // 
+
+             //return res.jsonp({message: 'success'});
+
+    //     req.logIn(user, function(err) {
+    //         if (err) return next(err);
+    //         return res.redirect('/');
+    //     });
+    // });
 
 /**
  * Send User

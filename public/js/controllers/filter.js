@@ -1,4 +1,4 @@
-angular.module('mean.system').controller("FilterController",['$scope','$stateParams','FilterHelperService','Data','UrlHelperService', function($scope, $stateParams,FilterHelperService,Data,UrlHelperService){
+angular.module('mean.system').controller("FilterController",['$scope','$stateParams','FilterHelperService','Data','UrlHelperService','Users', function($scope, $stateParams,FilterHelperService,Data,UrlHelperService,Users){
   
   var urlObj = UrlHelperService.processUrl($stateParams);
 
@@ -42,6 +42,7 @@ angular.module('mean.system').controller("FilterController",['$scope','$statePar
   $scope.submit = function(){
     $scope.$broadcast('updateOffers');
   };
+
   $scope.submitMobile = function(){
     $scope.$broadcast('updateOffers');
     $scope.filterVisible = false;
@@ -73,4 +74,28 @@ angular.module('mean.system').controller("FilterController",['$scope','$statePar
       }
     }
   }
+
+  function validateEmail(email) { 
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+  } 
+
+  $scope.submitEmail = function(email){
+    console.log(validateEmail(email));
+    if (!validateEmail(email)){
+      alert('Please enter a valid email address.');
+    }else{
+     Users.submitEmail(email,urlObj.type,urlObj.gender).then(function(result){
+       if(result.message=='success'){
+         console.log('email submitted successfully');
+          alert('Thank you for submitting your email address for ' + urlObj.type + ' offers!');
+       }else if (result.message=='email invalid'){
+        alert('Your email address is invalid');
+       }else{
+        alert('Your email address already exists for ' + urlObj.type + ' offers!' );
+       }
+     });
+    }
+  };
+
 }]);

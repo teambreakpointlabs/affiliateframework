@@ -89,6 +89,7 @@ module.exports = function(app, passport, db) {
         //handle api calls - everything else handled by angular
         var articles = require('../app/controllers/articles');
         var offers = require('../app/controllers/offers');
+        var users = require('../app/controllers/users');
         
         //static sitemap
         app.get('/sitemap', function(req, res) {
@@ -102,6 +103,8 @@ module.exports = function(app, passport, db) {
         app.get('/sitemap/offers/:type', function(req, res) {
           res.sendfile(config.root + '/public/sitemap/offers/'+req.params.type+'.xml');
         });
+
+        app.post('/users/new', users.create)
 
         app.get('/api/articles', articles.all);
         app.get('/api/articles/:articleId', articles.show);
