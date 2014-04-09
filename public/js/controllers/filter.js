@@ -96,6 +96,7 @@ angular.module('mean.system').controller("FilterController",['$scope','$statePar
        }
      });
     }
+    this.email = '';
   };
 
 }]);
