@@ -81,15 +81,15 @@ angular.module('mean.system').factory('Data',['$stateParams', function($statePar
 	  },
     shoe:{
       priceMin: 0,
-      priceMax: 400
+      priceMax: 200
     },
     shirt:{
       priceMin:0,
-      priceMax: 400
+      priceMax: 200
     },
     top:{
       priceMin:0,
-      priceMax:400
+      priceMax:200
     }
   }
 
