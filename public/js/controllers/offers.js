@@ -38,6 +38,7 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
       if ($scope.offers.length == 0){
         $scope.message = "No Offers Found.";
       }
+      $scope.offerWord = $scope.offers.length == 1 ? 'offer' : 'offers';
       removeIndexBlock();
       window.prerenderReady = true;
 
