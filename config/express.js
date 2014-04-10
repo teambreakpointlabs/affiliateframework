@@ -91,6 +91,11 @@ module.exports = function(app, passport, db) {
         var offers = require('../app/controllers/offers');
         var users = require('../app/controllers/users');
         
+        //robots.txt
+        app.get('/robots.txt', function(req, res) {
+          res.sendfile(config.root + '/public/robots.txt');
+        });
+
         //static sitemap
         app.get('/sitemap', function(req, res) {
           res.sendfile(config.root + '/public/sitemap/sitemap.xml');
