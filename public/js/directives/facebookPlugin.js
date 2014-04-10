@@ -19,12 +19,9 @@ angular.module('mean.system').directive('facebookPlugin',['$compile','$timeout',
         $compile(elem.contents())(scope);
         
 
-        window.fbAsyncInit = function() {
-			FB.XFBML.parse(); 
-        }
-         // $timeout(function() { 
-           
-         // });
+         $timeout(function() { 
+           FB.XFBML.parse(); 
+         },500);
    
 
     }
