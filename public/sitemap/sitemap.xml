@@ -29,6 +29,12 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
+   <url>
+    <loc>http://www.offercrunch.co.uk/offers/fashion</loc>
+    <lastmod>2014-04-08T17:37:28.659Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
   <url>
     <loc>http://www.offercrunch.co.uk/offers/fashion/men/shoes</loc>
     <lastmod>2014-04-08T17:37:28.659Z</lastmod>
