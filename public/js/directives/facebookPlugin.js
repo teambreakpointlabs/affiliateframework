@@ -18,9 +18,13 @@ angular.module('mean.system').directive('facebookPlugin',['$compile','$timeout',
         elem.html(getTemplate()); 
         $compile(elem.contents())(scope);
         
-         $timeout(function() { 
-           FB.XFBML.parse(); 
-         });
+
+        window.fbAsyncInit = function() {
+			FB.XFBML.parse(); 
+        }
+         // $timeout(function() { 
+           
+         // });
    
 
     }
