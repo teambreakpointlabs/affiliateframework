@@ -38,6 +38,7 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
       if ($scope.offers.length == 0){
         $scope.message = "No Offers Found.";
       }
+      removeIndexBlock();
       window.prerenderReady = true;
 
     });
@@ -54,6 +55,7 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
         var capitaliseType = $stateParams.type.charAt(0).toUpperCase() + $stateParams.type.slice(1);
         PageDetailService.setTitle(offer.pricing.pctSavings + '% Off! ' + offer.description + ' | ' + capitaliseType + ' Offer | Offercrunch');
         PageDetailService.setMetaDescription(offer.description);
+        noIndex();
         $scope.isLoaded = true;
         window.prerenderReady = true;
       }else{
@@ -188,6 +190,17 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
 
   function setSortedValue(value){
     $scope.sortedValue = value;
+  }
+
+  function noIndex(){
+      var meta = document.createElement('meta');
+      meta.name = "robots";
+      meta.content = "noindex";
+      document.getElementsByTagName('head')[0].appendChild(meta);
+  }
+
+  function removeIndexBlock(){
+    $('meta[name=robots]').remove();
   }
 
 
