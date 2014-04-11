@@ -26,7 +26,7 @@ angular.module('mean.system').factory('Data',['$stateParams', function($statePar
     },
     men:{
       shoe:['asos','house of fraser'],
-      shirt:['asos','house of fraser']
+      shirt:['asos','house of fraser','gant']
     }
   };
   
