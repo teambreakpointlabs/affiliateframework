@@ -54,8 +54,8 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
       if (!offer.err){
         console.log('offer found');
         var capitaliseType = $stateParams.type.charAt(0).toUpperCase() + $stateParams.type.slice(1);
-        PageDetailService.setTitle(offer.pricing.pctSavings + '% Off! ' + offer.description + ' | ' + capitaliseType + ' Offer | Offercrunch');
-        PageDetailService.setMetaDescription(offer.description);
+        PageDetailService.setTitle(offer.pricing.pctSavings + '% Off! ' + offer.description + ' | ' + capitaliseType + ' Offer');
+        //PageDetailService.setMetaDescription(offer.description);
         noIndex();
         $scope.isLoaded = true;
         window.prerenderReady = true;
