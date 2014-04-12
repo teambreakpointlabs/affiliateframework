@@ -11,7 +11,7 @@ var express = require('express'),
     config = require('./config'),
     mongoose = require('mongoose'),
     LocalStrategy = require('passport-local').Strategy,
-    User = mongoose.model('User'),
+    User = mongoose.model('User');
     //connect_s4a = require('connect-s4a'),
     //token = "9b77fa2b380380036fe1b06663239d28";
 
