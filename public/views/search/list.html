@@ -1,8 +1,8 @@
 <section data-ng-controller="OffersController" data-ng-init="showSearch()">
   <div class="row">
     <div class="col-md-12">
-      <input ng-model="searchText" placeholder="E.g. Samsung HD TV" style=" font-size: 22px;text-align: center;font-family: Lato;color: #38d5b8;font-weight: 300;border: 1px solid #38d5b8;margin-bottom: 10px;border-radius:4px;height:55px;margin-top:5px;display:inline; " type="text"/>
-      <span class="selection_go_button" style="background:#38d5b8 !important;cursor:pointer;display:inline-block;" ng-click="search(searchText);">
+      <input ng-model="searchText" class="search_input" placeholder="E.g. Samsung HD TV" style=" font-size: 22px;text-align: center;font-family: Lato;color: #38d5b8;font-weight: 300;border: 1px solid #38d5b8;margin-bottom: 10px;border-radius:4px;height:55px;margin-top:5px;display:inline;" type="text"/>
+      <span class="selection_go_button search_button_2" style="background:#38d5b8 !important;cursor:pointer;display:inline-block;text-align:center;" ng-click="search(searchText);">
         <span class="go_text"> Search! </span>
       </span>
       <span class="" style="font-size:22px;color:#afafaf;font-weight:300;display:inline-block;"> Searching for <span style="color:#38d5b8;"><i>"{{searchText}}"</i></span>
