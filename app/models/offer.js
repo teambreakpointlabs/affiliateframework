@@ -4,7 +4,8 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
-  Schema = mongoose.Schema;
+  Schema = mongoose.Schema,
+  textSearch = require('mongoose-text-search');
 
 /**
  * Offer Schema
@@ -30,5 +31,8 @@ var OfferSchema = new Schema({
 
     }
 });
+
+OfferSchema.plugin(textSearch);
+OfferSchema.index({description:'text'});
 
 mongoose.model('Offer', OfferSchema);

@@ -1,0 +1,63 @@
+<section data-ng-controller="OffersController" data-ng-init="showSearch()">
+  <div class="row">
+    <div style="font-size:28px;color:#afafaf;font-weight:300;"> Searching For...<span style="color:#38d5b8;">"{{searchText}}"</span>
+          <span style="font-family:Lato;color:#fff;font-size:20px;font-weight:300;margin-right:5px;"><i> Search for offers </i></span>
+         <input ng-model="searchText" placeholder="E.g. Samsung HD TV" style=" font-size: 20px;text-align: center;font-family: Lato;color: #38d5b8;font-weight: 300;border: 1px solid #38d5b8;margin-bottom: 10px; padding:6px;border-radius:4px;width:280px;height:55px;margin-top:5px;" type="text"/>
+          <span class="selection_go_button" style="background:#38d5b8 !important;cursor:pointer;" ng-click="search(searchText);">
+            <span class="go_text"> Search! </span>
+          </span>
+      </div>
+  </div>
+  <div ng-if="offers.length == 0" style="min-height:420px;height:100%;">
+    <div class="row">
+      <div class="col-md-12" style="text-align:center;font-size:25px;margin-top:100px;color:#">
+        No Results Found
+      </div>
+
+      </div>
+  </div>
+  <div ng-if="offers.length > 0">
+  <div class="row">
+    <div class="col-md-12" style="margin-top:15px; margin-bottom:15px;">
+    <div ng-show="isLoaded">
+    <span class="pull-left">
+      <li class="dropdown" style="list-style:none;cursor:pointer;">
+                <a class="dropdown-toggle" style="text-decoration:none;color:#00b0ff;font-size:22px;padding:20px;font-weight:300;">
+                 Sort By
+                  <span style="padding-left:5px;top:5px;" class="glyphicon glyphicon-chevron-down"></span>
+                  <span style="margin-left:10px;color:#afafaf;font-size:18px;">{{choice}}</span>
+                </a>
+                <ul class="dropdown-menu sort" style="width: 200px !important; cursor:pointer;color:#00b0ff;">
+                  <li ng-repeat="sortChoice in sortChoices">
+                    <a ng-click="sort(sortChoice)" style="color:#00b0ff;font-weight:300;">{{sortChoice}}</a>
+                  </li>
+                </ul>
+              </li>
+    </span>
+    <span class="pull-right num_offers"> <span ng-hide="!offers.length" class="glyphicon glyphicon-ok"></span> {{offers.length}} {{offerWord}}</span>
+    </div>
+  </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+		  <div data-ng-repeat="offer in offers | orderBy: sortedValue | limitTo: showItems ">
+			  <div class="col-sm-4 col-md-4">
+          <div ng-if="isLoaded">
+            <offer offer="offer" view-type="list"></offer>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="row">
+      <div ng-if="isLoaded">
+        <div ng-click="scrollTo('top')" class="go_to_top"> <span class="go_to_top_text"> Go to Top </span></div>
+        <div class="load_more_button" ng-hide="offers.length <= showItems" ng-click="showMoreItems();"> Load More Offers ({{offers.length - showItems}})</div>
+      </div>
+    </div>
+    <div ng-show="!isLoaded" ng-class="{bg:'!isLoaded'}">
+          <span class="loading-text" style="text-transform:capitalize;">Searching For "{{searchText}}"...</span>
+    </div>
+	<div class="no_offers_message" data-ng-hide="!offers || offers.length">{{message}}</div>
+  </div>
+</section>

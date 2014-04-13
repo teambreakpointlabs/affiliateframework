@@ -94,9 +94,8 @@
 
 .landing_title{
   margin-top: 10px;
-  margin-bottom: 20px;
   text-align: center;
-  font-size: 52px;
+  font-size: 60px;
   font-family: Lato;
   color:#00b0ff;
   font-weight:300;
@@ -104,7 +103,7 @@
 
 .landing_title .tagline{
   margin-top: 10px;
-  font-size: 22px;
+  font-size: 26px;
   color:#fff;
   font-family: Lato;
   font-weight: 300;

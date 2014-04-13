@@ -55,6 +55,10 @@ angular.module('mean').config(['$stateProvider', '$urlRouterProvider',
         url: '/offers/fashion/:gender/:type/:brand/:urlDesc',
         templateUrl: '/views/offers/view.html'
     })
+      .state('search',{
+        url: '/search',
+        templateUrl: '/views/search.html'
+    })
       .state('about',{
         url: '/about',
         templateUrl: '/views/about.html'

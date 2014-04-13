@@ -120,6 +120,8 @@ module.exports = function(app, passport, db) {
          // Finish with setting up the articleId param
         app.param('articleId', articles.article);
         
+
+        app.get('/api/offer/search/:searchString', offers.search);
         app.get('/api/offer/:urlDesc', offers.show);
         app.get('/api/offer/fashion/:gender/:urlDesc', offers.show);
         app.get('/api/offers', offers.all);

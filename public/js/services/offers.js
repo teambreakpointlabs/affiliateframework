@@ -14,6 +14,12 @@ angular.module('mean.system').factory('Offers', ['$http', function($http){
       return $http.get('/api/offer/'+ urlDesc).then(function(result){
         return result.data;
       });
+    },
+    searchDescriptionText: function searchDescriptionText(searchString){
+      return $http.get('/api/offer/search/'+searchString).then(function(result){
+        console.log(result);
+        return result.data.results;
+      });
     }
   }
 }]);

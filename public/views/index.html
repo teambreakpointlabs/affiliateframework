@@ -11,7 +11,7 @@
             </div>
            <!--  <div class="fb-like" data-href="http://www.offercrunch.co.uk" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true">
           </div> -->
-          <div class="selection_container">
+          <div class="selection_container" style="margin-top:20px;">
             <span><i> I'm looking for offers on a</i></span>
             <div class="offer_selection_button" ng-click="showOptions=!showOptions">
               <span>
@@ -24,6 +24,20 @@
               <a ng-href="offers/television" class="go_text">GO!</a>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="row" style="margin-bottom:14px;">
+        <div class="col-md-12" style="text-align:center;">
+          <span style="font-family:Lato;color:#fff;font-size:22px;"><i> or </i></span>
+        </div>
+      </div>
+      <div class="row" ng-controller="SearchController">
+        <div class="col-md-12" style="text-align:center;">
+          <span style="font-family:Lato;color:#fff;font-size:20px;font-weight:300;margin-right:5px;"><i> Search for offers </i></span>
+         <input ng-model="searchText" placeholder="E.g. Samsung HD TV" style=" font-size: 20px;text-align: center;font-family: Lato;color: #38d5b8;font-weight: 300;border: 1px solid #38d5b8;margin-bottom: 10px; padding:6px;border-radius:4px;width:280px;height:55px;margin-top:5px;" type="text"/>
+          <span class="selection_go_button" style="background:#38d5b8 !important;cursor:pointer;" ng-click="submit();">
+            <span class="go_text"> Search! </a>
+          </span>
         </div>
       </div>
       <div class="row">

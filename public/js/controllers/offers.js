@@ -9,7 +9,6 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
   var gender = urlObj.gender;
   var category = urlObj.category;
 
-
   $scope.offerType = type;
 
   $scope.isLoaded = false;
@@ -25,6 +24,52 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
   /** this appends more items to view **/
   $scope.showMoreItems = function(){
     $scope.showItems += 6;
+  }
+
+  $scope.showSearch = function(){
+         $scope.isLoaded = false;
+
+    console.log($location.$$search.searchText);
+    $scope.searchText = $location.$$search.searchText;
+    Offers.searchDescriptionText($location.$$search.searchText).then(function(offers){
+      $scope.offers = [];
+      //build offers from result obj
+      for (var i=0;i<offers.length;i++){
+        $scope.offers.push(offers[i].obj);
+      }
+      console.log($scope.offers);
+      $scope.isLoaded = true;
+      $scope.offerWord = $scope.offers.length == 1 ? 'offer found' : 'offers found';
+      
+    });
+  }
+  $scope.search = function(searchText){
+     $scope.isLoaded = false;
+     Offers.searchDescriptionText(searchText).then(function(offers){
+      $scope.offers = [];
+      //build offers from result obj
+      for (var i=0;i<offers.length;i++){
+        $scope.offers.push(offers[i].obj);
+      }
+      console.log($scope.offers);
+      $scope.isLoaded = true;
+      $scope.offerWord = $scope.offers.length == 1 ? 'offer found' : 'offers found';
+      
+    });
+
+     $scope.searchText = searchText;
+
+    // Offers.searchDescriptionText(searchText).then(function(offers){
+    //   $scope.offers = [];
+    //   //build offers from result obj
+    //   for (var i=0;i<offers.length;i++){
+    //     $scope.offers.push(offers[i].obj);
+    //   }
+    //   console.log($scope.offers);
+    //   $scope.isLoaded = true;
+    //   $scope.offerWord = $scope.offers.length == 1 ? 'offer found' : 'offers found';
+      
+    // });
   }
    
   $scope.find = function() {
@@ -90,6 +135,7 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
       $scope.showItems = 9;
     });
   });
+
   
   /** get current state of filter data and update offers **/
   function searchFromFilterData(){

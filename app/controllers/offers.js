@@ -7,6 +7,17 @@ var mongoose = require('mongoose'),
     Offer = mongoose.model('Offer'),
     _ = require('lodash');
 
+exports.search = function(req,res){
+  console.log('search method server');
+  var options = {
+    filter: {isValid:true}
+  }
+  console.log(req.params.searchString);
+  Offer.textSearch(req.params.searchString,options,function(err,output){
+    res.jsonp(output);
+  });
+}
+
 /**
  * Find offer by id
  */

@@ -33,9 +33,13 @@ angular.module('mean.system').service('OfferBuilderService', function(){
     '<div class="indiv_logo_holder"><img ng-src="/img/logos/'+offer.retailer+'.png"/></div>';
   }
 
-	var buildListOffer = function(offer){
+	var buildListOffer = function(offer,type){
+
+    console.log('building list offer');
     
     var originalPriceDisplay = '';
+
+    console.log(offer);
     
     if (offer.pricing.original != undefined){
       originalPriceDisplay = '<div class="original_price"><del>Was £'+ offer.pricing.original +'</del></div>';
