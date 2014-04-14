@@ -1,8 +1,8 @@
 <div ng-include="'/views/header.html'"></div>
-<section class="container" style="width: 96% !important;">
+<section class="container" style="width: 100% !important;">
 <section data-ng-controller="OffersController" data-ng-init="findOne()" style="margin-bottom:60px;">
 	<div class="row" style="margin-top:14px;">
-      <div class="col-sm-12 col-md-8 col-md-offset-2" style="border:1px solid #efefef;padding:40px;">
+      <div class="col-sm-12 col-md-8 col-md-offset-2 indiv_padding" style="border:1px solid #efefef;">
         <div style="text-align:center">
           <div ng-if="isLoaded">
             <offer offer="offer" view-type="individual"></offer>
