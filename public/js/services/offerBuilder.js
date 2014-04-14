@@ -38,6 +38,8 @@ angular.module('mean.system').service('OfferBuilderService', function(){
     console.log('building list offer');
     
     var originalPriceDisplay = '';
+    var screenSizeDisplay = '';
+    var screenTypeDisplay = '';
 
     console.log(offer);
     
@@ -47,17 +49,20 @@ angular.module('mean.system').service('OfferBuilderService', function(){
       originalPriceDisplay = '<div class="original_price"> Save ££! </div>';
     }
 
+    screenSizeDisplay = offer.details.screenSize == null ? '' : offer.details.screenSize;
+    screenTypeDisplay = offer.details.screenType == null ? '' : offer.details.screenType;
+
     var standardTagline = '<span class="offer_brand">' + offer.brand + ' ' + offer.type + '</span>';
     var tagline = '';
     var indivOfferUrlStub = '';
 
     switch(offer.type){
       case 'television':
-      tagline = '<span class="offer_brand">' + offer.brand + ' ' + offer.details.screenSize + '" '+ offer.details.screenType + '</span>'; ;
+      tagline = '<span class="offer_brand">' + offer.brand + ' ' + screenSizeDisplay + '" '+ screenTypeDisplay + '</span>'; ;
       indivOfferUrlStub = '/offers/'+offer.type;
       break;
       case 'laptop':
-      tagline = '<span class="offer_brand">' + offer.brand + ' ' + offer.details.screenSize + '"' + ' Laptop</span>' ;
+      tagline = '<span class="offer_brand">' + offer.brand + ' ' + screenSizeDisplay + '"' + ' Laptop</span>' ;
       indivOfferUrlStub = '/offers/'+offer.type;
       break;
       case 'tablet':
