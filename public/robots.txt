@@ -1,20 +1,3 @@
 # robotstxt.org/
 
 User-agent: *
-
-Allow: /offers/television/*
-Allow: /offers/laptop/*
-Allow: /offers/tablet/*
-Allow: /offers/camera/*
-Allow: /offers/fashion/men/shoes/*
-Allow: /offers/fashion/men/shirts/*
-Allow: /offers/fashion/women/shoes/*
-Allow: /offers/fashion/women/tops/*
-Disallow: /offers/television/*/*
-Disallow: /offers/laptop/*/*
-Disallow: /offers/tablet/*/*
-Disallow: /offers/camera/*/*
-Disallow: /offers/fashion/men/shoes/*/*
-Disallow: /offers/fashion/men/shirts/*/*
-Disallow: /offers/fashion/women/shoes/*/*
-Disallow: /offers/fashion/women/tops/*/*
