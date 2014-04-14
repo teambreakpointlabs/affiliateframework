@@ -8,7 +8,6 @@ var mongoose = require('mongoose'),
     _ = require('lodash');
 
 exports.search = function(req,res){
-  console.log('search method server');
   var options = {
     filter: {isValid:true}
   }

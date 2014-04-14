@@ -20,7 +20,7 @@ angular.module('mean.system').service('OfferBuilderService', function(){
     }
 
     var validText = offer.isValid ? '<span class="indiv_offer_valid_text"> valid</span>' : '<span class="indiv_offer_not_valid_text"> no longer valid</span>';
-    var goToOffer = offer.isValid ? '<a class="indiv_offer_label indiv_go_to_offer" rel="nofollow" target="_blank" ng-href='+offer.url.skimlinks+'><span class="indiv_go_to_offer_text"> Go to Offer <span class="glyphicon glyphicon-chevron-right" style="color:#38d5b8;font-size:14px;"></span></span></a>' : '<a class="indiv_offer_label indiv_go_to_offer" ng-href="/"><span class="indiv_go_to_offer_text"> Browse All Offers <span class="glyphicon glyphicon-chevron-right" style="color:#38d5b8;font-size:14px;"></span></span></a>';
+    var goToOffer = offer.isValid ? '<a class="indiv_offer_label indiv_go_to_offer" rel="nofollow" target="_blank" ng-href='+offer.url.skimlinks+'><span class="indiv_go_to_offer_text"> View Offer <span class="glyphicon glyphicon-chevron-right" style="color:#38d5b8;font-size:14px;"></span></span></a>' : '<a class="indiv_offer_label indiv_go_to_offer" ng-href="/"><span class="indiv_go_to_offer_text"> Browse All Offers <span class="glyphicon glyphicon-chevron-right" style="color:#38d5b8;font-size:14px;"></span></span></a>';
 
 
 		return  '<div class="indiv_offer_brand">' + offer.brand + ' ' + offer.type + ' Offer </div>' + 
