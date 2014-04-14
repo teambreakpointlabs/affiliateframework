@@ -54,8 +54,8 @@ module.exports = function(app, passport, db) {
     app.enable('jsonp callback');
     
     app.configure(function() {
-        app.use(connect_s4a(token));
-        //app.use(require('prerender-node').set('prerenderToken', 'XjPlsCNXECHVU0gDX0RS'));
+        //app.use(connect_s4a(token));
+        app.use(require('prerender-node').set('prerenderToken', 'XjPlsCNXECHVU0gDX0RS'));
         // The cookieParser should be above session
         app.use(express.cookieParser());
 
