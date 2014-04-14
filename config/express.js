@@ -11,9 +11,9 @@ var express = require('express'),
     config = require('./config'),
     mongoose = require('mongoose'),
     LocalStrategy = require('passport-local').Strategy,
-    User = mongoose.model('User');
-    //connect_s4a = require('connect-s4a'),
-    //token = "9b77fa2b380380036fe1b06663239d28";
+    User = mongoose.model('User'),
+    connect_s4a = require('connect-s4a'),
+    token = "9b77fa2b380380036fe1b06663239d28";
 
 
 
@@ -54,8 +54,8 @@ module.exports = function(app, passport, db) {
     app.enable('jsonp callback');
     
     app.configure(function() {
-        //app.use(connect_s4a(token));
-        app.use(require('prerender-node').set('prerenderToken', 'XjPlsCNXECHVU0gDX0RS'));
+        app.use(connect_s4a(token));
+        //app.use(require('prerender-node').set('prerenderToken', 'XjPlsCNXECHVU0gDX0RS'));
         // The cookieParser should be above session
         app.use(express.cookieParser());
 
