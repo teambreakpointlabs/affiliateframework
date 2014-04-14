@@ -48,9 +48,11 @@ angular.module('mean.system').service('OfferBuilderService', function(){
     }else{
       originalPriceDisplay = '<div class="original_price"> Save ££! </div>';
     }
-
-    screenSizeDisplay = offer.details.screenSize == null ? '' : offer.details.screenSize;
-    screenTypeDisplay = offer.details.screenType == null ? '' : offer.details.screenType;
+     
+    if (offer.details != undefined){
+      screenSizeDisplay = offer.details.screenSize == null ? '' : offer.details.screenSize;
+      screenTypeDisplay = offer.details.screenType == null ? '' : offer.details.screenType;
+    }
 
     var standardTagline = '<span class="offer_brand">' + offer.brand + ' ' + offer.type + '</span>';
     var tagline = '';
