@@ -86,8 +86,10 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
       console.log(offer);
       if (!offer.err){
         console.log('offer found');
-        var capitaliseType = $stateParams.type.charAt(0).toUpperCase() + $stateParams.type.slice(1);
-        PageDetailService.setTitle(offer.pricing.pctSavings + '% Off! ' + offer.description + ' | ' + capitaliseType + ' Offer');
+        //var capitaliseType = $stateParams.type.charAt(0).toUpperCase() + $stateParams.type.slice(1);
+       PageDetailService.setIndividualTitleAndMeta(offer);
+
+       // PageDetailService.setTitle(offer.pricing.pctSavings + '% Off! ' + offer.description + ' | ' + capitaliseType + ' Offer');
         //PageDetailService.setMetaDescription(offer.description);
         noIndex();
         $scope.isLoaded = true;

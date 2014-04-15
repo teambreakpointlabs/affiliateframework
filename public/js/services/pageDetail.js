@@ -108,6 +108,19 @@ angular.module('mean.system').factory('PageDetailService',['UrlHelperService', f
     return offerBrand;
   }
 
+  var splitByString = function(string, stringToSplitBy){
+    var arr = string.split(stringToSplitBy);
+    if (arr.length > 1){
+      return arr[0] + stringToSplitBy + ' Offer';
+    }else{
+      arr = string.split(',');
+      if (arr.length > 1){
+        return arr[0] + stringToSplitBy + ' Offer';
+      }
+      return string;
+    }
+  }
+
   return {
     setListOffersTitleAndMeta: function setListOffersTitleAndMeta(stateParams){
       var type = stateParams.type;
@@ -116,7 +129,23 @@ angular.module('mean.system').factory('PageDetailService',['UrlHelperService', f
       }else if (type === 'shirts' || type === 'tops' || type === 'shoes'){
         setFashionPageDetails(stateParams);
         console.log('set fashion page details');
+     }
+    },
+
+    setIndividualTitleAndMeta: function setIndividualTitleAndMeta(offer){
+      console.log('setting title for individual page');
+      if (offer.type === 'television'){
+        setTitle(splitByString(offer.description,'TV') + ' | Offercrunch');
+      }else if (offer.type == 'laptop'){
+        setTitle(splitByString(offer.description,'Laptop') + ' | Offercrunch');
       }
+      else if (offer.type == 'tablet'){
+        setTitle(splitByString(offer.description,'Tablet') + ' | Offercrunch');
+      }
+      else if (offer.type == 'camera'){
+        setTitle(splitByString(offer.description,'Camera') + ' | Offercrunch');
+      }
+    },
 
 
 
@@ -179,7 +208,7 @@ angular.module('mean.system').factory('PageDetailService',['UrlHelperService', f
       //     }
       //   }
       // }
-    },
+ 
 
     setPageDetail: function setPageDetail(offerType, brand){
       var capitaliseType = offerType.charAt(0).toUpperCase() + offerType.slice(1);
