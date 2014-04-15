@@ -3,7 +3,7 @@
 module.exports = {
     db: "mongodb://admin:af!9876@oceanic.mongohq.com:10041/app22752353",
     app: {
-        name: 'Offercrunch'
+        name: 'Offercrunch | TVs, Laptops, Tablets, Cameras, Fashion | Online Offers UK'
     },
     facebook: {
         clientID: 'APP_ID',

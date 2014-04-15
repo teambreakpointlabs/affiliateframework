@@ -55,7 +55,7 @@ exports.show = function(req, res) {
  * List of offers
  */
 exports.all = function(req, res) {
-  console.log('searching offers');
+  //console.log('searching offers');
     var searchObject =  generateSearch(req);
     //console.log(searchObject);
     Offer.find(searchObject).sort('-pricing.pctSavings').populate('user', 'name username').exec(function(err, offers) {

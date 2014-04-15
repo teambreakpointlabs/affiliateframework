@@ -4,7 +4,7 @@ angular.module('mean.system').controller('IndexController', ['$scope', 'Global',
   $scope.global = Global;
   $scope.showOptions = false;
    
-  PageDetailService.setTitle('One Website. Every Offer. | Offercrunch ');
-  PageDetailService.setMetaDescription('Offercrunch - All the best online offers in one place. Televisions, laptops, cameras, tablets, fashion. Massive savings on big name brands from major UK retailers.');  
+  PageDetailService.setTitle('Offercrunch | TVs, Laptops, Tablets, Cameras, Fashion | Online Offers UK');
+  PageDetailService.setMetaDescription('Choose from thousands of the best online offers from UK retailers at offercrunch - save money on televisions, laptops, tablets, cameras and men’s & women’s fashion.');  
 
 }]);

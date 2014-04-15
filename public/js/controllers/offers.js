@@ -27,8 +27,7 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
   }
 
   $scope.showSearch = function(){
-         $scope.isLoaded = false;
-
+    $scope.isLoaded = false;
     console.log($location.$$search.searchText);
     $scope.searchText = $location.$$search.searchText;
     Offers.searchDescriptionText($location.$$search.searchText).then(function(offers){
@@ -58,22 +57,11 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
     });
 
      $scope.searchText = searchText;
-
-    // Offers.searchDescriptionText(searchText).then(function(offers){
-    //   $scope.offers = [];
-    //   //build offers from result obj
-    //   for (var i=0;i<offers.length;i++){
-    //     $scope.offers.push(offers[i].obj);
-    //   }
-    //   console.log($scope.offers);
-    //   $scope.isLoaded = true;
-    //   $scope.offerWord = $scope.offers.length == 1 ? 'offer found' : 'offers found';
-      
-    // });
   }
    
   $scope.find = function() {
-    PageDetailService.setPageDetail(type, $stateParams.brand);
+    // PageDetailService.setPageDetail(type, $stateParams.brand);
+    PageDetailService.setListOffersTitleAndMeta($stateParams);
     var search = searchFromFilterData();
     console.log('searching for ');
     console.log(search);

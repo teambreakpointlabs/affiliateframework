@@ -4,7 +4,7 @@ module.exports = {
     db: 'mongodb://localhost/mean-test',
     port: 3001,
     app: {
-        name: 'Offercrunch test'
+        name: 'Offercrunch | TVs, Laptops, Tablets, Cameras, Fashion | UK Online Offers'
     },
     facebook: {
         clientID: 'APP_ID',

@@ -22,6 +22,7 @@ angular.module('mean.system').factory('UrlHelperService',function(){
   var splitBrandByDash = function splitBrandByDash(brand){
     //will return same as passed in if no dash
       var offerBrand = brand;
+      
       var splitBrandByDash = brand.split('-');
       if (splitBrandByDash.length > 0){
         var brandAppender = '';
@@ -34,13 +35,14 @@ angular.module('mean.system').factory('UrlHelperService',function(){
         }
       offerBrand = brandAppender;
     }
+    console.log(offerBrand);
     return offerBrand;
   }
   return {
     processUrl: function processUrl(params){
-     
+     console.log('processing url params');
       var offerCategory = params.gender == undefined ? 'consumer_electronics' : 'fashion';
-      var offerBrand;
+      var offerBrand = '';
       if (params.brand != undefined){
         offerBrand = splitBrandByDash(params.brand);
       }
