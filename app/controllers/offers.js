@@ -34,7 +34,6 @@ exports.offer = function(req, res, next, id) {
  */
 exports.show = function(req, res) {
     Offer.find({urlDesc: req.params.urlDesc, isValid:true}, function(err,offers){
-      console.log(offers[0]);
       if (offers[0] == undefined){
         //if valid offer not found return a page with offer no longer valid 
         Offer.find({urlDesc: req.params.urlDesc, isValid:false}, function(err,offers){
@@ -55,16 +54,13 @@ exports.show = function(req, res) {
  * List of offers
  */
 exports.all = function(req, res) {
-  //console.log('searching offers');
     var searchObject =  generateSearch(req);
-    //console.log(searchObject);
     Offer.find(searchObject).sort('-pricing.pctSavings').populate('user', 'name username').exec(function(err, offers) {
         if (err) {
             res.render('error', {
                 status: 500
             });
         } else {
-          //console.log(offers);
             res.jsonp(offers);
         }
     });
@@ -98,7 +94,6 @@ function generateSearch(req){
   }
 
   if (req.query.type == 'shoe'){
-    console.log(req.query.gender);
     search['gender'] = req.query.gender;
   }
 

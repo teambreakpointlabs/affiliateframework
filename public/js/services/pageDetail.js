@@ -1,7 +1,6 @@
 angular.module('mean.system').factory('PageDetailService',['UrlHelperService', function($stateParams,UrlHelperService){
    
   var capitaliseWord = function(word){
-    console.log('running capitaliseWord');
     return word.charAt(0).toUpperCase() + word.slice(1);
   }
 
@@ -57,7 +56,6 @@ angular.module('mean.system').factory('PageDetailService',['UrlHelperService', f
   }
 
   var setElectronicsPageDetails = function(params){ 
-    console.log('setting electronic offer page details');
     var type = params.type;
     var capitalisedType = capitaliseWord(type);
     var brand = params.brand ? params.brand : '';
@@ -95,7 +93,6 @@ angular.module('mean.system').factory('PageDetailService',['UrlHelperService', f
         var brandAppender = '';
         for (var i=0;i<splitBrandByDash.length;i++){
           capitaliseBrandPart = splitBrandByDash[i].charAt(0).toUpperCase() + splitBrandByDash[i].slice(1);
-          console.log(capitaliseBrandPart);
           if (i!=splitBrandByDash.length-1){
             brandAppender = brandAppender + capitaliseBrandPart+" ";
           }else{
@@ -127,63 +124,67 @@ angular.module('mean.system').factory('PageDetailService',['UrlHelperService', f
         setElectronicsPageDetails(stateParams);
       }else if (type === 'shirts' || type === 'tops' || type === 'shoes'){
         setFashionPageDetails(stateParams);
-        console.log('set fashion page details');
      }
     },
 
-    //tidy this up!
     setIndividualTitleAndMeta: function setIndividualTitleAndMeta(offer){
-      console.log('setting title for individual page');
+      
       var pctSavings = 0;
       var originalPrice = 0.0;
       var offerPrice = 0.0;
+      
       if (offer.pricing != null){
         pctSavings = offer.pricing.pctSavings;
         originalPrice = offer.pricing.original;
         offerPrice = offer.pricing.offer;
       }
 
-      if (offer.type === 'television'){
-        setTitle(splitByString(offer.description,'TV') + ' | Offercrunch');
-        if (offer.retailer=='direct tvs'){
-          setMetaDescription(offer.description + " Offer at Offercrunch! Save " + pctSavings + "% on this television from " + offer.retailer + "!. Now £" + offerPrice + "!");
-        }else{
-          setMetaDescription(offer.description + " Offer at Offercrunch! Save " + pctSavings + "% on this television from " + offer.retailer + "! Was £" +  originalPrice + ". Now £" + offerPrice + "!");
-        }
-      }else if (offer.type === 'laptop'){
-        setTitle(splitByString(offer.description,'Laptop') + ' | Offercrunch');
-        if (offer.retailer=='laptops direct'){
-          setMetaDescription(offer.description + " Offer at Offercrunch! Save " + pctSavings + "% on this laptop from " + offer.retailer + "!. Now £" + offerPrice + "!");
-        }else{
-          setMetaDescription(offer.description + " Offer at Offercrunch! Save " + pctSavings + "% on this laptop from " + offer.retailer + "! Was £" +  originalPrice + ". Now £" + offerPrice + "!");
-        }
-      }
-      else if (offer.type === 'tablet'){
-        setTitle(splitByString(offer.description,'Tablet') + ' | Offercrunch');
-        setMetaDescription(offer.description + " Offer at Offercrunch! Save " + pctSavings + "% on this tablet from " + offer.retailer + "! Was £" +  originalPrice + ". Now £" + offerPrice + "!");
-      }
-      else if (offer.type === 'camera'){
-        setTitle(splitByString(offer.description,'Camera') + ' | Offercrunch');
-        setMetaDescription(offer.description + " Offer at Offercrunch! Save " + pctSavings + "% on this camera from " + offer.retailer + "! Was £" +  originalPrice + ". Now £" + offerPrice + "!");
-      }
-      else if (offer.type === 'shoe'){
-        setTitle(offer.description + ' Offer | Offercrunch');
-        setMetaDescription(offer.description + " Offer at Offercrunch! Save " + pctSavings + "% on these shoes from " + offer.retailer + "! Was £" +  originalPrice + ". Now £" + offerPrice + "!");
-      }
-      else if (offer.type === 'top'){
-        setTitle(offer.description + ' Offer | Offercrunch');
-        setMetaDescription(offer.description + " Offer at Offercrunch! Save " + pctSavings + "% on this top from " + offer.retailer + "! Was £" +  originalPrice + ". Now £" + offerPrice + "!");
-      }
-      else if (offer.type === 'shirt'){
-        setTitle(offer.description + ' Offer | Offercrunch');
-        setMetaDescription(offer.description + " Offer at Offercrunch! Save " + pctSavings + "% on this shirt from " + offer.retailer + "! Was £" +  originalPrice + ". Now £" + offerPrice + "!");
-      }else{
-        setTitle(offer.description + ' Offer | Offercrunch');
+      switch(offer.type){
+        case 'television':
+          setTitle(splitByString(offer.description,'TV') + ' | Offercrunch');
+          if (offer.retailer=='direct tvs'){
+            setMetaDescription(offer.description + " Offer at Offercrunch! Save " + pctSavings + "% on this television from " + offer.retailer + "!. Now £" + offerPrice + "!");
+          }else{
+            setMetaDescription(offer.description + " Offer at Offercrunch! Save " + pctSavings + "% on this television from " + offer.retailer + "! Was £" +  originalPrice + ". Now £" + offerPrice + "!");
+          }
+        break;
+        case 'laptop':
+          setTitle(splitByString(offer.description,'Laptop') + ' | Offercrunch');
+          if (offer.retailer=='laptops direct'){
+            setMetaDescription(offer.description + " Offer at Offercrunch! Save " + pctSavings + "% on this laptop from " + offer.retailer + "!. Now £" + offerPrice + "!");
+          }else{
+            setMetaDescription(offer.description + " Offer at Offercrunch! Save " + pctSavings + "% on this laptop from " + offer.retailer + "! Was £" +  originalPrice + ". Now £" + offerPrice + "!");
+          }
+        break;
+        case 'tablet':
+          setTitle(splitByString(offer.description,'Tablet') + ' | Offercrunch');
+          setMetaDescription(offer.description + " Offer at Offercrunch! Save " + pctSavings + "% on this tablet from " + offer.retailer + "! Was £" +  originalPrice + ". Now £" + offerPrice + "!");
+        break;
+        case 'camera':
+          setTitle(splitByString(offer.description,'Camera') + ' | Offercrunch');
+          setMetaDescription(offer.description + " Offer at Offercrunch! Save " + pctSavings + "% on this camera from " + offer.retailer + "! Was £" +  originalPrice + ". Now £" + offerPrice + "!");
+        break;
+        case 'shoe':
+          setTitle(offer.description + ' Offer | Offercrunch');
+          setMetaDescription(offer.description + " Offer at Offercrunch! Save " + pctSavings + "% on these shoes from " + offer.retailer + "! Was £" +  originalPrice + ". Now £" + offerPrice + "!");
+        break;
+        case 'top':
+          setTitle(offer.description + ' Offer | Offercrunch');
+          setMetaDescription(offer.description + " Offer at Offercrunch! Save " + pctSavings + "% on this top from " + offer.retailer + "! Was £" +  originalPrice + ". Now £" + offerPrice + "!");
+        break;
+        case 'shirt':
+          setTitle(offer.description + ' Offer | Offercrunch');
+          setMetaDescription(offer.description + " Offer at Offercrunch! Save " + pctSavings + "% on this shirt from " + offer.retailer + "! Was £" +  originalPrice + ". Now £" + offerPrice + "!");
+        break;
+        default:
+          setTitle(offer.description + ' Offer | Offercrunch');
       }
     },
+
   	setTitle: function setTitle(title){
       document.title = title;
   	},
+
   	setMetaDescription: function setMetaDescription(metaDesc){
       $('meta[name=description]').remove();
       var meta = document.createElement('meta');
