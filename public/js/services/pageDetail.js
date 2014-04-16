@@ -57,7 +57,6 @@ angular.module('mean.system').factory('PageDetailService',['UrlHelperService', f
   }
 
   var setElectronicsPageDetails = function(params){
-    
     console.log('setting electronic offer page details');
     var type = params.type;
     var capitalisedType = capitaliseWord(type);
@@ -132,106 +131,31 @@ angular.module('mean.system').factory('PageDetailService',['UrlHelperService', f
      }
     },
 
+    //tidy this up!
     setIndividualTitleAndMeta: function setIndividualTitleAndMeta(offer){
       console.log('setting title for individual page');
       if (offer.type === 'television'){
         setTitle(splitByString(offer.description,'TV') + ' | Offercrunch');
-      }else if (offer.type == 'laptop'){
+      }else if (offer.type === 'laptop'){
         setTitle(splitByString(offer.description,'Laptop') + ' | Offercrunch');
       }
-      else if (offer.type == 'tablet'){
+      else if (offer.type === 'tablet'){
         setTitle(splitByString(offer.description,'Tablet') + ' | Offercrunch');
       }
-      else if (offer.type == 'camera'){
+      else if (offer.type === 'camera'){
         setTitle(splitByString(offer.description,'Camera') + ' | Offercrunch');
       }
-    },
-
-
-
-
-
-      // switch(stateParams.type){
-      //   case 'television':
-      //   if (!stateParams.brand){
-      //     this.setTitle('Television Offers From UK Retailers | Offercrunch');
-      //     this.setMetaDescription('Great television offers from UK retailers. A massive range of TVs from Currys, Argos, Littlewoods, John Lewis and many more. View the latest Samsung, Sony, LG and Panasonic TV offers right now at offercrunch.');
-      //   }else{
-      //     var brandCapitalised = capitaliseWord(stateParams.brand);
-      //     this.setTitle(brandCapitalised + ' Television Offers From UK Retailers | Offercrunch');
-      //     this.setMetaDescription(brandCapitalised +' television offers. View the latest ' + stateParams.brand + ' television offers right now at offercrunch. Search by price, screen size, brand and retailer');
-      //   }
-      //   break;
-      //   case 'laptop':
-      //     if (!stateParams.brand){
-      //       this.setTitle('Laptop Offers From UK Retailers | Offercrunch');
-      //       this.setMetaDescription('Great laptop offers from UK retailers. A massive range of Laptops from Argos, Currys, Littlewoods and many more. View the latest Apple, Sony and Lenovo laptop offers right now at offercrunch.');
-      //     }else{
-      //       var brandCapitalised = capitaliseWord(stateParams.brand);
-      //       this.setTitle(brandCapitalised + ' Laptop Offers From UK Retailers | Offercrunch');
-      //       this.setMetaDescription(brandCapitalised + ' laptop offers from UK retailers. View the latest ' + stateParams.brand + ' laptop offers right now at offercrunch. Search by price, brand and retailer');
-      //     }
-      //   break;
-      //   case 'camera':
-      //     if (!stateParams.brand){
-      //       this.setTitle('Camera Offers From UK Retailers | Offercrunch');
-      //       this.setMetaDescription('Great camera offers from UK retailers. A massive range of Cameras from Argos, Currys, Jessops and many more. View the latest Canon, Nikon and Panasonic camera offers right now at offercrunch.');
-      //     }else{
-      //       var brandCapitalised = capitaliseWord(stateParams.brand);
-      //       this.setTitle(brandCapitalised + ' Camera Offers From UK Retailers | Offercrunch');
-      //       this.setMetaDescription(brandCapitalised + ' camera offers from UK retailers. View the latest ' + stateParams.brand + ' camera offers right now at offercrunch. Search by price, brand and retailer');
-      //     }
-      //   break;
-      //   case 'tablet':
-      //     if (!stateParams.brand){
-      //       this.setTitle('Tablet Offers From UK Retailers | Offercrunch');
-      //       this.setMetaDescription('Great tablet offers from UK retailers. A massive range of Tablets from Argos, Currys, Littlewoods and many more. View the latest Nook, Lenovo and Google tablet offers right now at offercrunch.');
-      //     }else{
-      //       var brandCapitalised = capitaliseWord(stateParams.brand);
-      //       this.setTitle(brandCapitalised + ' Tablet Offers From UK Retailers | Offercrunch');
-      //       this.setMetaDescription(brandCapitalised + ' tablet offers from UK retailers. View the latest ' + stateParams.brand + ' tablet offers right now at offercrunch. Search by price, brand and retailer');
-      //     }
-      //   break;
-      //   case 'shirts':{
-      //    var gender = capitaliseWord(stateParams.gender);
-      //    if (!stateParams.brand){
-      //       this.setTitle(gender + "'s Shirt Offers From UK Retailers | Offercrunch");
-      //       if (gender == 'Men'){
-      //         this.setMetaDescription("Great Men's shirt offers from UK retailers. A massive range of shirts from Asos, House of Fraser, Gant and many more. View the latest Ralph Lauren, Lacoste and Hugo Boss shirt offers right now at offercrunch");
-      //       }else{
-      //         this.setMetaDescription("Great Women's shirt offers from UK retailers. A massive range of shirts from Asos, House of Fraser and many more. View the latest shirt offers right now at offercrunch");
-      //       }
-      //     }else{
-      //       var brandCapitalised = capitaliseWord(stateParams.brand);
-      //       this.setTitle(brandCapitalised + ' Tablet Offers From UK Retailers | Offercrunch');
-      //       this.setMetaDescription(brandCapitalised + ' tablet offers from UK retailers. View the latest ' + stateParams.brand + ' tablet offers right now at offercrunch. Search by price, brand and retailer');
-      //     }
-      //   }
-      // }
- 
-
-    setPageDetail: function setPageDetail(offerType, brand){
-      var capitaliseType = offerType.charAt(0).toUpperCase() + offerType.slice(1);
-       if (brand != undefined){
-       brand = splitBrandByDash(brand);
-       var capitaliseBrand = brand.charAt(0).toUpperCase() + brand.slice(1);
-       var capitaliseGender = '';
-       if ($stateParams.gender != undefined){
-         var gender = $stateParams.gender;
-         capitaliseGender = gender.charAt(0).toUpperCase() + gender.slice(1) + "'s ";
-       }
-       this.setTitle(capitaliseGender + capitaliseBrand + " " + capitaliseType + ' Offers | OfferCrunch');
-       this.setMetaDescription(capitaliseGender + capitaliseBrand + " " + capitaliseType + ' Offers | Offercrunch - All the best online offers in one place.')
-       }else{
-         //put capitalise into own method and rethink setting page detail service with undefined params
-         var capitaliseGender = '';
-          if ($stateParams.gender != undefined){
-         var gender = $stateParams.gender;
-         capitaliseGender = gender.charAt(0).toUpperCase() + gender.slice(1) + "'s ";
-       }
-        this.setTitle(capitaliseGender + capitaliseType + ' Offers | OfferCrunch');
-        this.setMetaDescription(capitaliseGender + capitaliseType + ' Offers | Offercrunch - All the best online offers in one place.');
-       }
+      else if (offer.type === 'shoe'){
+        setTitle(offer.description + ' Offer | Offercrunch');
+      }
+      else if (offer.type === 'top'){
+        setTitle(offer.description + ' Offer | Offercrunch');
+      }
+      else if (offer.type === 'shirt'){
+        setTitle(offer.description + ' Offer | Offercrunch');
+      }else{
+        setTitle(offer.description + ' Offer | Offercrunch');
+      }
     },
   	setTitle: function setTitle(title){
       document.title = title;

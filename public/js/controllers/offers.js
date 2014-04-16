@@ -60,49 +60,38 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
   }
    
   $scope.find = function() {
-    // PageDetailService.setPageDetail(type, $stateParams.brand);
     PageDetailService.setListOffersTitleAndMeta($stateParams);
-    var search = searchFromFilterData();
-    console.log('searching for ');
-    console.log(search);
-    Offers.getOffers(search).then(function(offers){
+    Offers.getOffers(searchFromFilterData()).then(function(offers){
       $scope.offers = offers;
       $scope.isLoaded = true;
       if ($scope.offers.length == 0){
         $scope.message = "No Offers Found.";
       }
       $scope.offerWord = $scope.offers.length == 1 ? 'offer' : 'offers';
-      removeIndexBlock();
       window.prerenderReady = true;
-
     });
   };
 
   $scope.findOne = function(){
     $scope.isLoaded = false;
-    console.log('searching for offer...' + $stateParams.urlDesc);
     Offers.findByUrlDesc($stateParams.urlDesc).then(function(offer){
       $scope.offer = offer;
-      console.log(offer);
       if (!offer.err){
-        console.log('offer found');
-        //var capitaliseType = $stateParams.type.charAt(0).toUpperCase() + $stateParams.type.slice(1);
+       //var capitaliseType = $stateParams.type.charAt(0).toUpperCase() + $stateParams.type.slice(1);
        PageDetailService.setIndividualTitleAndMeta(offer);
-
        // PageDetailService.setTitle(offer.pricing.pctSavings + '% Off! ' + offer.description + ' | ' + capitaliseType + ' Offer');
-        //PageDetailService.setMetaDescription(offer.description);
-        noIndex();
+       // PageDetailService.setMetaDescription(offer.description);
         $scope.isLoaded = true;
         window.prerenderReady = true;
       }else{
         console.log('offer not found');
-        if ($stateParams.gender){
-          $location.path("/offers/fashion/"+$stateParams.gender+"/"+$stateParams.type);
-        }else{
-          $location.path("/offers/"+ $stateParams.type);
-        }
+      if ($stateParams.gender){
+        $location.path("/offers/fashion/"+$stateParams.gender+"/"+$stateParams.type);
+      }else{
+        $location.path("/offers/"+ $stateParams.type);
       }
-    });
+    }
+   });
   }
 
   $scope.findRelated = function() {
