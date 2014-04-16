@@ -153,7 +153,7 @@ angular.module('mean.system').factory('PageDetailService',['UrlHelperService', f
       }else if (offer.type === 'laptop'){
         setTitle(splitByString(offer.description,'Laptop') + ' | Offercrunch');
         if (offer.retailer=='laptops direct'){
-          setMetaDescription(offer.description + " Offer at Offercrunch! Save " + pctSavings + "% on this television from " + offer.retailer + "!. Now £" + offerPrice + "!");
+          setMetaDescription(offer.description + " Offer at Offercrunch! Save " + pctSavings + "% on this laptop from " + offer.retailer + "!. Now £" + offerPrice + "!");
         }else{
           setMetaDescription(offer.description + " Offer at Offercrunch! Save " + pctSavings + "% on this laptop from " + offer.retailer + "! Was £" +  originalPrice + ". Now £" + offerPrice + "!");
         }
