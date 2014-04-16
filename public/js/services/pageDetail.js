@@ -56,7 +56,7 @@ angular.module('mean.system').factory('PageDetailService',['UrlHelperService', f
 
   }
 
-  var setElectronicsPageDetails = function(params){
+  var setElectronicsPageDetails = function(params){ 
     console.log('setting electronic offer page details');
     var type = params.type;
     var capitalisedType = capitaliseWord(type);
@@ -134,25 +134,41 @@ angular.module('mean.system').factory('PageDetailService',['UrlHelperService', f
     //tidy this up!
     setIndividualTitleAndMeta: function setIndividualTitleAndMeta(offer){
       console.log('setting title for individual page');
+      var pctSavings = 0;
+      var originalPrice = 0.0;
+      var offerPrice = 0.0;
+      if (offer.pricing != null){
+        pctSavings = offer.pricing.pctSavings;
+        originalPrice = offer.pricing.original;
+        offerPrice = offer.pricing.offer;
+      }
+
       if (offer.type === 'television'){
         setTitle(splitByString(offer.description,'TV') + ' | Offercrunch');
+        setMetaDescription(offer.description + " Offer at Offercrunch! Save " + pctSavings + "% on this television from " + offer.retailer + "! Was £" +  originalPrice + ". Now £" + offerPrice + "!");
       }else if (offer.type === 'laptop'){
         setTitle(splitByString(offer.description,'Laptop') + ' | Offercrunch');
+        setMetaDescription(offer.description + " Offer at Offercrunch! Save " + pctSavings + "% on this laptop from " + offer.retailer + "! Was £" +  originalPrice + ". Now £" + offerPrice + "!");
       }
       else if (offer.type === 'tablet'){
         setTitle(splitByString(offer.description,'Tablet') + ' | Offercrunch');
+        setMetaDescription(offer.description + " Offer at Offercrunch! Save " + pctSavings + "% on this tablet from " + offer.retailer + "! Was £" +  originalPrice + ". Now £" + offerPrice + "!");
       }
       else if (offer.type === 'camera'){
         setTitle(splitByString(offer.description,'Camera') + ' | Offercrunch');
+        setMetaDescription(offer.description + " Offer at Offercrunch! Save " + pctSavings + "% on this camera from " + offer.retailer + "! Was £" +  originalPrice + ". Now £" + offerPrice + "!");
       }
       else if (offer.type === 'shoe'){
         setTitle(offer.description + ' Offer | Offercrunch');
+        setMetaDescription(offer.description + " Offer at Offercrunch! Save " + pctSavings + "% on these shoes from " + offer.retailer + "! Was £" +  originalPrice + ". Now £" + offerPrice + "!");
       }
       else if (offer.type === 'top'){
         setTitle(offer.description + ' Offer | Offercrunch');
+        setMetaDescription(offer.description + " Offer at Offercrunch! Save " + pctSavings + "% on this top from " + offer.retailer + "! Was £" +  originalPrice + ". Now £" + offerPrice + "!");
       }
       else if (offer.type === 'shirt'){
         setTitle(offer.description + ' Offer | Offercrunch');
+        setMetaDescription(offer.description + " Offer at Offercrunch! Save " + pctSavings + "% on this shirt from " + offer.retailer + "! Was £" +  originalPrice + ". Now £" + offerPrice + "!");
       }else{
         setTitle(offer.description + ' Offer | Offercrunch');
       }
