@@ -145,10 +145,18 @@ angular.module('mean.system').factory('PageDetailService',['UrlHelperService', f
 
       if (offer.type === 'television'){
         setTitle(splitByString(offer.description,'TV') + ' | Offercrunch');
-        setMetaDescription(offer.description + " Offer at Offercrunch! Save " + pctSavings + "% on this television from " + offer.retailer + "! Was £" +  originalPrice + ". Now £" + offerPrice + "!");
+        if (offer.retailer=='direct tvs'){
+          setMetaDescription(offer.description + " Offer at Offercrunch! Save " + pctSavings + "% on this television from " + offer.retailer + "!. Now £" + offerPrice + "!");
+        }else{
+          setMetaDescription(offer.description + " Offer at Offercrunch! Save " + pctSavings + "% on this television from " + offer.retailer + "! Was £" +  originalPrice + ". Now £" + offerPrice + "!");
+        }
       }else if (offer.type === 'laptop'){
         setTitle(splitByString(offer.description,'Laptop') + ' | Offercrunch');
-        setMetaDescription(offer.description + " Offer at Offercrunch! Save " + pctSavings + "% on this laptop from " + offer.retailer + "! Was £" +  originalPrice + ". Now £" + offerPrice + "!");
+        if (offer.retailer=='laptops direct'){
+          setMetaDescription(offer.description + " Offer at Offercrunch! Save " + pctSavings + "% on this television from " + offer.retailer + "!. Now £" + offerPrice + "!");
+        }else{
+          setMetaDescription(offer.description + " Offer at Offercrunch! Save " + pctSavings + "% on this laptop from " + offer.retailer + "! Was £" +  originalPrice + ". Now £" + offerPrice + "!");
+        }
       }
       else if (offer.type === 'tablet'){
         setTitle(splitByString(offer.description,'Tablet') + ' | Offercrunch');
