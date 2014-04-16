@@ -12,7 +12,7 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
   $scope.offerType = type;
 
   $scope.isLoaded = false;
-  $scope.showItems = 9;
+  $scope.showItems = 12;
   $scope.showExtraItems = 6;
   $scope.sortedValue = '';
   $scope.message = '';
