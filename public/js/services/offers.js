@@ -5,6 +5,11 @@ angular.module('mean.system').factory('Offers', ['$http', function($http){
         return result.data;
       });
     },
+    getTopOffers: function getTopOffers(){
+      return $http.get('/api/topOffers').then(function(result){
+        return result.data;
+      });
+    },
     findByUrlDesc: function findOfferByUrlDesc(urlDesc){
       return $http.get('/api/offer/'+ urlDesc).then(function(result){
         return result.data;

@@ -108,7 +108,7 @@ angular.module('mean.system').service('OfferBuilderService', function(){
 
 		return '<div class="offer_holder">' +
     '<div class="offer_tagline">' + tagline + '</div>' +
-    '<div class="offer_img_holder">'+ '<img src="'+ offer.url.image +'" class="offer_img"/> </div>' +
+    '<div class="offer_img_holder" style="background:#fff;">'+ '<img src="'+ offer.url.image +'" class="offer_img"/> </div>' +
     '<div class="offer_info_holder">' +
        '<div class="offer_description">'+offer.description+'</div>'+
        originalPriceDisplay +

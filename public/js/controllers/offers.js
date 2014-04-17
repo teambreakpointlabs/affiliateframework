@@ -104,6 +104,16 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
     });
   };
 
+  $scope.findTopOffers = function(){
+  $scope.isLoaded = false;
+  Offers.getOffers({}).then(function(offers){
+      console.log(offers);
+      $scope.offers = offers;
+      $scope.isLoaded = true;
+      // $scope.isLoaded = true;
+    });
+  }
+
   
   /** when filter fires updateOffers run this **/
   $scope.$on('updateOffers', function(event) {

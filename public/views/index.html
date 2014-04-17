@@ -55,11 +55,28 @@
           </span>
         </div>
         <div class="col-md-12" style="text-align:center;">
-          <span style="font-family:Lato;color:#38d5b8;font-size:20px;font-weight:300;margin-right:5px;"><i> We respect your privacy. No Spam. </i></span>
+          <span style="font-family:Lato;color:#38d5b8;font-size:20px;font-weight:300;margin-right:5px;border-radius:10px;"><i> We respect your privacy. No Spam. </i></span>
         </div>
       </div>
+      <h2 class="landing_title" style="color:#fff;margin-top:50px;margin-bottom:10px;font-size:28px;">
+            Today's Best Offers
+      </h2>
       <div class="row">
-        <div class="col-md-8 col-md-offset-2 index_offer_box">
+        <div class="col-md-12" style="margin-top:20px;background:none;padding-top:10px;" ng-controller="OffersController" ng-init="findTopOffers()">
+      <div data-ng-repeat="offer in offers | limitTo: 24">
+        <div class="col-sm-4 col-md-4">
+          <div ng-if="isLoaded">
+            <offer offer="offer" view-type="list"></offer>
+          </div>
+        </div>
+      </div>
+        </div>
+      </div>
+      <h2 class="landing_title" style="color:#fff;margin-top:50px;margin-bottom:10px;font-size:28px;">
+            Offer Categories & Brands
+      </h2>
+      <div class="row">
+        <div class="col-md-12 index_offer_box">
           <div class="row">
             <div class="col-md-6 index_offer_box_section">
               <div> Offer Categories </div>

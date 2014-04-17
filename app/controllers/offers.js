@@ -54,7 +54,23 @@ exports.show = function(req, res) {
  * List of offers
  */
 exports.all = function(req, res) {
-    var searchObject =  generateSearch(req);
+   
+  if (req.query.type === undefined){
+// console.log('top offers');
+
+
+   Offer.find({}).sort('-pricing.pctSavings').limit(24).populate('user', 'name username').exec(function(err, offers) {
+        if (err) {
+            res.render('error', {
+                status: 500
+            });
+        } else {
+            res.jsonp(offers);
+        }
+    });
+ }else{
+  // console.log('normal offers');
+      var searchObject =  generateSearch(req);
     Offer.find(searchObject).sort('-pricing.pctSavings').populate('user', 'name username').exec(function(err, offers) {
         if (err) {
             res.render('error', {
@@ -64,6 +80,11 @@ exports.all = function(req, res) {
             res.jsonp(offers);
         }
     });
+ }
+
+
+
+
 };
 
 
