@@ -9,7 +9,7 @@ var mongoose = require('mongoose'),
 
 exports.search = function(req,res){
   var options = {
-    filter: {isValid:true}, limit: 20
+    filter: {isValid:true}, limit: 10
   }
   console.log(req.params.searchString);
   Offer.textSearch(req.params.searchString,options,function(err,output){
