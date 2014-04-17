@@ -12,8 +12,8 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
   $scope.offerType = type;
 
   $scope.isLoaded = false;
-  $scope.showItems = 12;
-  $scope.showExtraItems = 6;
+  $scope.showItems = 24;
+  $scope.showExtraItems = 12;
   $scope.sortedValue = '';
   $scope.message = '';
 
