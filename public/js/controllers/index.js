@@ -11,8 +11,8 @@ angular.module('mean.system').controller('IndexController', ['$scope', 'Global',
     {"type":"Cameras"}
   ];
   $scope.emailAddress = '';
-  PageDetailService.setTitle('Offercrunch | TVs, Laptops, Tablets, Cameras, Fashion | Online Offers UK');
-  PageDetailService.setMetaDescription('Choose from thousands of the best online offers from UK retailers at offercrunch - save money on televisions, laptops, tablets, cameras and men’s & women’s fashion.');  
+  PageDetailService.setTitle('Offercrunch | TVs, Laptops, Tablets, Cameras | Online Offers UK');
+  PageDetailService.setMetaDescription('Choose from thousands of the best online offers from UK retailers at offercrunch - save money on televisions, laptops, tablets and cameras');  
 
   
   function validateEmail(email) { 
