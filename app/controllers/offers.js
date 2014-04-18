@@ -59,7 +59,7 @@ exports.all = function(req, res) {
 // console.log('top offers');
 
 
-   Offer.find({isValid:true}).sort('-pricing.pctSavings').limit(48).populate('user', 'name username').exec(function(err, offers) {
+   Offer.find({type:{$in:['television','laptop']},isValid:true}).sort('-pricing.pctSavings').limit(48).populate('user', 'name username').exec(function(err, offers) {
         if (err) {
             res.render('error', {
                 status: 500
