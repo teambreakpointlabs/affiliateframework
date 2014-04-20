@@ -54,12 +54,8 @@ exports.show = function(req, res) {
  * List of offers
  */
 exports.all = function(req, res) {
-   
-  if (req.query.type === undefined){
-// console.log('top offers');
-
-
-   Offer.find({type:{$in:['television','laptop']},isValid:true}).sort('-pricing.pctSavings').limit(48).populate('user', 'name username').exec(function(err, offers) {
+  if (req.query.brands === undefined){
+   Offer.find({type:req.query.type,isValid:true}).sort('-pricing.pctSavings').limit(48).populate('user', 'name username').exec(function(err, offers) {
         if (err) {
             res.render('error', {
                 status: 500

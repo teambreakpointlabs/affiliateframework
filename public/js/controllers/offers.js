@@ -104,9 +104,10 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
     });
   };
 
-  $scope.findTopOffers = function(){
+  $scope.findTopOffers = function(offertype){
   $scope.isLoaded = false;
-  Offers.getOffers({}).then(function(offers){
+  console.log(offertype);
+  Offers.getOffers({type:offertype}).then(function(offers){
       console.log(offers);
       $scope.offers = offers;
       $scope.isLoaded = true;

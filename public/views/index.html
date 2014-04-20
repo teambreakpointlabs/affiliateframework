@@ -59,11 +59,53 @@
         </div>
       </div>
       <h2 class="landing_title" style="color:#fff;margin-top:50px;margin-bottom:10px;font-size:28px;">
-            Today's Best Offers
+            Today's Best TV Offers
       </h2>
       <div class="row">
-        <div class="col-md-12" style="margin-top:20px;background:none;padding-top:10px;" ng-controller="OffersController" ng-init="findTopOffers()">
-      <div data-ng-repeat="offer in offers | limitTo: 48">
+        <div class="col-md-12" style="margin-top:20px;background:none;padding-top:10px;" ng-controller="OffersController" ng-init="findTopOffers('television')">
+      <div data-ng-repeat="offer in offers | limitTo: 12">
+        <div class="col-sm-4 col-md-4">
+          <div ng-if="isLoaded">
+            <offer offer="offer" view-type="list"></offer>
+          </div>
+        </div>
+      </div>
+        </div>
+      </div>
+       <h2 class="landing_title" style="color:#fff;margin-top:50px;margin-bottom:10px;font-size:28px;">
+            Today's Best Laptop Offers
+      </h2>
+      <div class="row">
+        <div class="col-md-12" style="margin-top:20px;background:none;padding-top:10px;" ng-controller="OffersController" ng-init="findTopOffers('laptop')">
+      <div data-ng-repeat="offer in offers | limitTo: 12">
+        <div class="col-sm-4 col-md-4">
+          <div ng-if="isLoaded">
+            <offer offer="offer" view-type="list"></offer>
+          </div>
+        </div>
+      </div>
+        </div>
+      </div>
+        <h2 class="landing_title" style="color:#fff;margin-top:50px;margin-bottom:10px;font-size:28px;">
+            Today's Best Tablet Offers
+      </h2>
+      <div class="row">
+        <div class="col-md-12" style="margin-top:20px;background:none;padding-top:10px;" ng-controller="OffersController" ng-init="findTopOffers('tablet')">
+      <div data-ng-repeat="offer in offers | limitTo: 12">
+        <div class="col-sm-4 col-md-4">
+          <div ng-if="isLoaded">
+            <offer offer="offer" view-type="list"></offer>
+          </div>
+        </div>
+      </div>
+        </div>
+      </div>
+        <h2 class="landing_title" style="color:#fff;margin-top:50px;margin-bottom:10px;font-size:28px;">
+            Today's Best Camera Offers
+      </h2>
+      <div class="row">
+        <div class="col-md-12" style="margin-top:20px;background:none;padding-top:10px;" ng-controller="OffersController" ng-init="findTopOffers('camera')">
+      <div data-ng-repeat="offer in offers | limitTo: 12">
         <div class="col-sm-4 col-md-4">
           <div ng-if="isLoaded">
             <offer offer="offer" view-type="list"></offer>
