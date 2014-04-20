@@ -48,9 +48,10 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
       $scope.offers = [];
       //build offers from result obj
       for (var i=0;i<offers.length;i++){
+        console.log(offers[i]);
         $scope.offers.push(offers[i].obj);
       }
-      console.log($scope.offers);
+      //console.log($scope.offers);
       $scope.isLoaded = true;
       $scope.offerWord = $scope.offers.length == 1 ? 'offer found' : 'offers found';
       

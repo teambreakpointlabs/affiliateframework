@@ -41,7 +41,7 @@
   </div>
   <div class="row">
     <div class="col-sm-12 col-md-12">
-		  <div data-ng-repeat="offer in offers | orderBy: sortedValue | limitTo: showItems ">
+		  <div data-ng-repeat="offer in offers | limitTo: showItems ">
 			  <div class="col-sm-4 col-md-4">
           <div ng-if="isLoaded">
             <offer offer="offer" view-type="list"></offer>
