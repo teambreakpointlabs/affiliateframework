@@ -50,7 +50,7 @@ angular.module('mean.system').service('OfferBuilderService', function(){
     }
      
     if (offer.details != undefined){
-      screenSizeDisplay = offer.details.screenSize == null ? '' : offer.details.screenSize;
+      screenSizeDisplay = offer.details.screenSize == null ? '' : offer.details.screenSize + '"';
       screenTypeDisplay = offer.details.screenType == null ? '' : offer.details.screenType;
     }
 
@@ -60,11 +60,11 @@ angular.module('mean.system').service('OfferBuilderService', function(){
 
     switch(offer.type){
       case 'television':
-      tagline = '<span class="offer_brand">' + offer.brand + ' ' + screenSizeDisplay + '" '+ screenTypeDisplay + '</span>'; ;
+      tagline = '<span class="offer_brand">' + offer.brand + ' ' + screenSizeDisplay + ' '+ screenTypeDisplay + '</span>'; ;
       indivOfferUrlStub = '/offers/'+offer.type;
       break;
       case 'laptop':
-      tagline = '<span class="offer_brand">' + offer.brand + ' ' + screenSizeDisplay + '"' + ' Laptop</span>' ;
+      tagline = '<span class="offer_brand">' + offer.brand + ' ' + screenSizeDisplay + ' Laptop</span>' ;
       indivOfferUrlStub = '/offers/'+offer.type;
       break;
       case 'tablet':
