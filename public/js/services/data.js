@@ -1,7 +1,7 @@
 angular.module('mean.system').factory('Data',['$stateParams', function($stateParams){
 	
 	var brands = {
-		television: ['aqualite','bush','cello','e-motion','lg','panasonic','toshiba','philips','sharp','samsung', 'jvc','sony','hitachi','digihome','logik','sandstrom','jmb','luxor','blaupunkt','foehn & hirsch','furrion','hannspree','technika'],
+		television: ['alba','aqualite','bush','cello','e-motion','lg','panasonic','toshiba','philips','sharp','samsung', 'jvc','sony','hitachi','digihome','logik','sandstrom','jmb','luxor','blaupunkt','foehn & hirsch','furrion','hannspree','technika'],
     laptop:['advent','acer','asus','apple','dell','fujitsu','hp','lenovo','samsung','sony','toshiba','packard bell','compaq'],
     camera:['fujifilm', 'nikon', 'canon','panasonic','olympus','samsung','vivitar','pentax','polaroid','ricoh','sony'],
     tablet:['acer','samsung','sony','archos','toshiba','kobo','hp','arnova','prestigio','gemini','asus','google','apple','microsoft','nook','lenovo','kindle'],
