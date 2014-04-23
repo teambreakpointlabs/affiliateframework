@@ -1,5 +1,5 @@
 angular.module('mean.system').directive('twitterPlugin',['$compile','$timeout',function($compile,$timeout){
-    console.log('------loading twitter plugin----');
+    //console.log('------loading twitter plugin----');
    
   var getTemplate = function(){
     return '<a href="https://twitter.com/_offercrunch_" class="twitter-follow-button" data-show-count="false" data-size="large">Follow Us</a>';

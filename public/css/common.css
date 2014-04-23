@@ -7,6 +7,33 @@
 
 }
 
+.breadcrumbs-row{
+  border-radius:5px;
+  height:40px;
+  padding-top:6px;
+  font-family:Lato;
+  font-size:18px;
+  font-weight:300;
+  color:#afafaf;
+  padding-left:28px;
+}
+
+.breadcrumb-active{
+  text-decoration:none !important;
+  color:#afafaf !important;
+
+}
+
+.breadcrumb-name{
+  text-decoration:none;
+  color:#00b0ff !important;
+}
+
+.breadcrumb-name:hover{
+  text-decoration:none;
+  color:#343434 !important;
+}
+
 .go_to_top{
   font-size:22px;
   margin-right:5%;

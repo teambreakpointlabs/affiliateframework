@@ -35,12 +35,12 @@ angular.module('mean.system').factory('UrlHelperService',function(){
         }
       offerBrand = brandAppender;
     }
-    console.log(offerBrand);
+    //console.log(offerBrand);
     return offerBrand;
   }
   return {
     processUrl: function processUrl(params){
-     console.log('processing url params');
+     //console.log('processing url params');
       var offerCategory = params.gender == undefined ? 'consumer_electronics' : 'fashion';
       var offerBrand = '';
       if (params.brand != undefined){

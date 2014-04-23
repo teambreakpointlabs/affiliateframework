@@ -1,4 +1,16 @@
 <section data-ng-controller="OffersController" data-ng-init="showSearch()">
+    <div class="row">
+  <div class="col-md-12 breadcrumbs-row hidden-xs">
+    <li data-ng-repeat="breadcrumb in breadcrumbs" style="list-style:none;display:inline;">
+      <span ng-if="breadcrumbs[0].name==breadcrumb.name"><a ng-href="/" class="breadcrumb-name"> home </a> &rsaquo; </span>
+      <span ng-if="breadcrumbs[0].name!=breadcrumb.name"> &rsaquo; </span>
+      <a ng-if="$last" class="breadcrumb-active">{{breadcrumb.name}}</a>
+      <a ng-href="{{breadcrumb.path}}"  class="breadcrumb-name" ng-if="!$last">
+      {{breadcrumb.name}}
+      </a>
+    </li>
+  </div>
+  </div>
   <div class="row">
     <div class="col-md-12">
       <input ng-model="searchText" class="search_input" placeholder="E.g. Samsung HD TV" style=" font-size: 22px;text-align: center;font-family: Lato;color: #38d5b8;font-weight: 300;border: 1px solid #38d5b8;margin-bottom: 10px;border-radius:4px;height:55px;margin-top:5px;display:inline;" type="text"/>

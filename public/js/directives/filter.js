@@ -33,7 +33,7 @@ angular.module('mean.system').directive('filter',['$compile', 'FilterHelperServi
     controller:function($scope){
       
       this.isFound = function(val, arr){
-        console.log(arr);
+        //console.log(arr);
         for (var i = 0; i< arr.length;i++){
           if (val == arr[i]){
               return i;

@@ -25,7 +25,7 @@ angular.module('mean').config(['$stateProvider', '$urlRouterProvider',
     })
       .state('offer dashboard to home page', {
         url: '/offers',
-        templateUrl: '/views/index.html'
+        templateUrl: '/views/offers.html'
     })
       .state('fashion home', {
         url: '/offers/fashion',
@@ -65,8 +65,7 @@ angular.module('mean').config(['$stateProvider', '$urlRouterProvider',
     }).state('blogs',{
         url: '/money-saving-blogs',
         templateUrl: '/views/blogs.html'
-    })
-      .state('home', {
+    }).state('home', {
         url: '/',
         templateUrl: '/views/index.html'
     });

@@ -6,7 +6,7 @@ angular.module('mean.system').controller("FilterController",['$scope','$statePar
   var brand = urlObj.brand;
   var gender = urlObj.gender;
 
-  console.log('from filter controller...');
+  //console.log('from filter controller...');
 
   //sync services
   $scope.filterDataService = FilterHelperService;

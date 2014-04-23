@@ -1,5 +1,17 @@
 <section data-ng-controller="OffersController" data-ng-init="find()">
   <div class="row">
+  <div class="col-md-12 breadcrumbs-row hidden-xs">
+    <li data-ng-repeat="breadcrumb in breadcrumbs" style="list-style:none;display:inline;">
+      <span ng-if="breadcrumbs[0].name==breadcrumb.name"><a ng-href="/" class="breadcrumb-name"> home </a> &rsaquo; </span>
+      <span ng-if="breadcrumbs[0].name!=breadcrumb.name"> &rsaquo; </span>
+      <a ng-if="$last" class="breadcrumb-active">{{breadcrumb.name}}</a>
+      <a ng-href="{{breadcrumb.path}}"  class="breadcrumb-name" ng-if="!$last">
+      {{breadcrumb.name}}
+      </a>
+    </li>
+  </div>
+  </div>
+  <div class="row">
     <div class="col-md-12" style="margin-top:15px; margin-bottom:15px;">
     <div ng-show="isLoaded">
     <span class="pull-left">

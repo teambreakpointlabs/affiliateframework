@@ -35,13 +35,13 @@ angular.module('mean.system').service('OfferBuilderService', function(){
 
 	var buildListOffer = function(offer,type){
 
-    console.log('building list offer');
+    // console.log('building list offer');
     
     var originalPriceDisplay = '';
     var screenSizeDisplay = '';
     var screenTypeDisplay = '';
 
-    console.log(offer);
+    //console.log(offer);
     
     if (offer.pricing.original != undefined){
       originalPriceDisplay = '<div class="original_price"><del>Was £'+ offer.pricing.original +'</del></div>';

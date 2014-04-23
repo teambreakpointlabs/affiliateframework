@@ -1,6 +1,9 @@
-angular.module('mean.system').controller('OffersController', ['$scope','Offers','$stateParams','FilterHelperService','Data','PageDetailService','$location','UrlHelperService',function($scope, Offers, $stateParams,FilterHelperService,Data,PageDetailService,$location,UrlHelperService){
+angular.module('mean.system').controller('OffersController', ['$scope','Offers','$stateParams','FilterHelperService','Data','PageDetailService','$location','UrlHelperService','Breadcrumbs',function($scope, Offers, $stateParams,FilterHelperService,Data,PageDetailService,$location,UrlHelperService,Breadcrumbs){
   //sync to data service
   $scope.data = Data;
+  $scope.breadcrumbs = Breadcrumbs.getBreadcrumbs();
+  console.log($scope.breadcrumbs);
+
 
   var urlObj = UrlHelperService.processUrl($stateParams);
 
