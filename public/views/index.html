@@ -10,7 +10,27 @@
               Online Offers From UK Retailers
             </h2>
           </h1>
-      <div class="row hidden-xs" ng-controller="SearchController" style="margin-top:40px;margin-bottom:10px;">
+      <div class="row hidden-xs">
+        <div class="col-md-12" style="text-align:center;margin-top:25px;">
+          <span style="font-family:Lato;color:#fff;font-size:20px;font-weight:300;margin-right:5px;"><i> Weekly Email </i></span>
+          <input ng-model="emailAddress" placeholder="your@emailaddress.com" style=" font-size: 20px;text-align: center;font-family: Lato;color: #38d5b8;font-weight: 300;border: 1px solid #38d5b8;margin-bottom: 10px; padding:6px;border-radius:4px;width:280px;height:55px;margin-top:5px;" type="text"/>
+          <span style="font-family:Lato;color:#fff;font-size:20px;font-weight:300;margin-right:5px;margin-left:5px;"><i> for </i></span>
+          <select class="offer_selection_button" style="color:#343434;font-weight:300;font-family:Lato;border-color:#38d5b8" ng-init="selectedEmailType = emailTypes[0]" novalidate="" ng-model="selectedEmailType" ng-options="email.type for email in emailTypes">
+          </select>
+          <span class="selection_go_button" style="background:#38d5b8 !important;color:#38d5b8;cursor:pointer;" ng-click="submitEmail();">
+            <span class="go_text"> Sign Up! </span>
+          </span>
+        </div>
+        <div class="col-md-12" style="text-align:center;">
+          <span style="font-family:Lato;color:#38d5b8;font-size:20px;font-weight:300;margin-right:5px;border-radius:10px;"><i> Top Offers To Your Inbox. No Spam.</i></span>
+        </div>
+     <div class="row hidden-xs" style="margin-bottom:0px;">
+        <div class="col-md-12" style="text-align:center;margin-top:18px;">
+          <span style="font-family:Lato;color:#fff;font-size:22px;"><i> or </i></span>
+        </div>
+      </div>
+      </div>
+      <div class="row hidden-xs" ng-controller="SearchController" style="margin-top:20px;margin-bottom:8px;">
         <div class="col-md-12" style="text-align:center;">
           <span style="font-family:Lato;color:#fff;font-size:20px;font-weight:300;margin-right:5px;"><i> Search for offers </i></span>
          <input ng-model="searchText" placeholder='E.g. Freeview 42" HD TV' style=" font-size: 20px;text-align: center;font-family: Lato;color: #00b0ff;font-weight: 300;border: 1px solid #00b0ff;margin-bottom: 10px; padding:6px;border-radius:4px;width:280px;height:55px;margin-top:5px;" type="text"/>
@@ -37,25 +57,6 @@
               <a ng-href="offers/television" class="go_text">GO!</a>
             </div>
           </div>
-        </div>
-      </div>
-       <div class="row hidden-xs" style="margin-bottom:14px;">
-        <div class="col-md-12" style="text-align:center;">
-          <span style="font-family:Lato;color:#fff;font-size:22px;"><i> or </i></span>
-        </div>
-      </div>
-      <div class="row hidden-xs">
-        <div class="col-md-12" style="text-align:center;">
-          <span style="font-family:Lato;color:#fff;font-size:20px;font-weight:300;margin-right:5px;"><i> Weekly Email </i></span>
-          <input ng-model="emailAddress" placeholder="your@emailaddress.com" style=" font-size: 20px;text-align: center;font-family: Lato;color: #38d5b8;font-weight: 300;border: 1px solid #38d5b8;margin-bottom: 10px; padding:6px;border-radius:4px;width:280px;height:55px;margin-top:5px;" type="text"/>
-          <select class="offer_selection_button" style="color:#343434;font-weight:300;font-family:Lato;border-color:#38d5b8" ng-init="selectedEmailType = emailTypes[0]" novalidate="" ng-model="selectedEmailType" ng-options="email.type for email in emailTypes">
-          </select>
-          <span class="selection_go_button" style="background:#38d5b8 !important;color:#38d5b8;cursor:pointer;" ng-click="submitEmail();">
-            <span class="go_text"> Sign Up! </span>
-          </span>
-        </div>
-        <div class="col-md-12" style="text-align:center;">
-          <span style="font-family:Lato;color:#38d5b8;font-size:20px;font-weight:300;margin-right:5px;border-radius:10px;"><i> We Respect Your Privacy. No Spam. Exclusive Email. </i></span>
         </div>
       </div>
       <h2 class="landing_title" style="color:#fff;margin-top:50px;margin-bottom:10px;font-size:28px;">
