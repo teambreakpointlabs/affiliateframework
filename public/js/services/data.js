@@ -2,7 +2,7 @@ angular.module('mean.system').factory('Data',['$stateParams', function($statePar
 	
 	var brands = {
 		television: ['alba','aqualite','bush','cello','e-motion','lg','panasonic','toshiba','philips','sharp','samsung', 'jvc','sony','hitachi','digihome','logik','sandstrom','jmb','luxor','blaupunkt','foehn & hirsch','furrion','hannspree','technika'],
-    laptop:['advent','acer','asus','apple','dell','fujitsu','hp','lenovo','samsung','sony','toshiba','packard bell','compaq'],
+    laptop:['advent','acer','asus','apple','dell','fujitsu','hp','lenovo','samsung','sony','toshiba','packard bell','compaq','medion'],
     camera:['fujifilm', 'nikon', 'canon','panasonic','olympus','samsung','vivitar','pentax','polaroid','ricoh','sony'],
     tablet:['acer','samsung','sony','archos','toshiba','kobo','hp','arnova','prestigio','gemini','asus','google','apple','microsoft','nook','lenovo','kindle'],
 	  women: {
@@ -17,7 +17,7 @@ angular.module('mean.system').factory('Data',['$stateParams', function($statePar
 
   var retailers = {
   	television:['argos','currys','littlewoods','ebuyer','selfridges', 'coop electrical','john lewis','tesco', 'prc direct','electrical123'],
-  	laptop:['argos','currys','littlewoods','coop electrical','ebuyer'],
+  	laptop:['argos','currys','littlewoods','coop electrical','ebuyer','medion'],
   	camera:['argos','currys','littlewoods','jessops'],
   	tablet:['argos','currys','littlewoods'],
     women:{
