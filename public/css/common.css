@@ -89,6 +89,7 @@
   border-radius:0px !important; 
   background:rgba(0,0,0,0.6) !important;
   border:none;padding:20px;
+  margin-top:40px;
 }
 
 .footer_row_first{
@@ -360,6 +361,10 @@
   .search_button_2{
     width:100%;
   }
+  .footer_section{
+
+  margin-top:100px;
+}
 }
 
 footer {
