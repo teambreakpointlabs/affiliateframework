@@ -16,7 +16,7 @@ angular.module('mean.system').factory('Data',['$stateParams', function($statePar
   }
 
   var retailers = {
-  	television:['argos','currys','littlewoods','ebuyer','selfridges', 'coop electrical','john lewis','tesco', 'prc direct','electrical123','sonic direct','hughes direct'],
+  	television:['argos','currys','littlewoods','ebuyer','selfridges', 'coop electrical','john lewis','tesco', 'prc direct','sonic direct','hughes direct','electrical discount uk'],
   	laptop:['argos','currys','littlewoods','coop electrical','ebuyer','medion','zavvi','sonic direct'],
   	camera:['argos','currys','littlewoods','jessops'],
   	tablet:['argos','currys','littlewoods'],
