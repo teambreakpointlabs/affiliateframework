@@ -75,22 +75,15 @@ angular.module('mean.system').service('OfferBuilderService', function(){
       tagline = standardTagline;
       indivOfferUrlStub = '/offers/'+offer.type;
       break;
-      case 'shoe':
-      tagline = '<span class="offer_brand">' + offer.brand + '</span>';
-      indivOfferUrlStub = '/offers/fashion/'+offer.gender + '/shoes';
-      break;
-      case 'shirt':
-      tagline = '<span class="offer_brand">' + offer.brand + '</span>';
-      indivOfferUrlStub = '/offers/fashion/'+offer.gender + '/shirts';
-      break;
-      case 'top':
-      tagline = '<span class="offer_brand">' + offer.brand + '</span>';
-      indivOfferUrlStub = '/offers/fashion/'+offer.gender + '/tops';
+      case 'fashion':
+      tagline = '<span class="offer_brand"> Fashion Offer </span>';
+      indivOfferUrlStub = '/offers/fashion/';
       break;
       default:
       tagline = standardTagline;
     }
 
+    if (offer.brand!=undefined){
     var checkMultipleBrandWords = offer.brand.split(' ');
     var brand = offer.brand;
     if (checkMultipleBrandWords.length > 0){
@@ -105,6 +98,7 @@ angular.module('mean.system').service('OfferBuilderService', function(){
       }
       brand = brandAppender;
     }
+  }
 
 		return '<div class="offer_holder">' +
     '<div class="offer_tagline">' + tagline + '</div>' +

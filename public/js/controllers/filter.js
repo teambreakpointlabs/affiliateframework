@@ -6,8 +6,6 @@ angular.module('mean.system').controller("FilterController",['$scope','$statePar
   var brand = urlObj.brand;
   var gender = urlObj.gender;
 
-  //console.log('from filter controller...');
-
   //sync services
   $scope.filterDataService = FilterHelperService;
   $scope.data = Data;
@@ -16,12 +14,11 @@ angular.module('mean.system').controller("FilterController",['$scope','$statePar
   $scope.filterVisible = true;
   $scope.filterType = type;
   
-  var isFashionOffer = gender == undefined ? false : true;
 
-  $scope.unselectedRetailers = !isFashionOffer ? $scope.data.retailers[type] : $scope.data.retailers[gender][type];
-  $scope.unselectedBrands = !isFashionOffer ?  $scope.data.brands[type] : $scope.data.brands[gender][type];
-  $scope.selectedRetailers = !isFashionOffer ? $scope.data.selectedRetailers[type] : $scope.data.selectedRetailers[gender][type];
-  $scope.selectedBrands = !isFashionOffer ? $scope.data.selectedBrands[type] : $scope.data.selectedBrands[gender][type];
+  $scope.unselectedRetailers = $scope.data.retailers[type];
+  $scope.unselectedBrands =  $scope.data.brands[type];
+  $scope.selectedRetailers = $scope.data.selectedRetailers[type];
+  $scope.selectedBrands = $scope.data.selectedBrands[type];
 
   $scope.filters = $scope.data.filters;
 
@@ -31,11 +28,7 @@ angular.module('mean.system').controller("FilterController",['$scope','$statePar
   updateFilterDisplayText();
 
   function updateFilterDisplayText(){
-    if ($scope.filterVisible){
-      $scope.filterDisplayText = 'hide filter';
-    }else{
-      $scope.filterDisplayText = 'show filter';
-    }
+   $scope.filterDisplayText = $scope.filterVisible ? 'hide filter' : $scope.filterDisplayText = 'show filter';
   }
 
   //tell offers controller to update offers

@@ -40,6 +40,8 @@ var UserSchema = new Schema({
     // linkedin: {}
 });
 
+mongoose.model('User', UserSchema);
+
 /**
  * Virtuals
  */
@@ -135,4 +137,3 @@ var UserSchema = new Schema({
 //     }
 // };
 
-mongoose.model('User', UserSchema);

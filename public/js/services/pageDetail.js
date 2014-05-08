@@ -5,54 +5,19 @@ angular.module('mean.system').factory('PageDetailService',['UrlHelperService', f
   }
 
   var setTitle =function(title){
-      document.title = title;
+    document.title = title;
   }
 
   var setMetaDescription = function(metaDesc){
-     $('meta[name=description]').remove();
-      var meta = document.createElement('meta');
-      meta.name = "description";
-      meta.content = metaDesc;
-      document.getElementsByTagName('head')[0].appendChild(meta);
+    $('meta[name=description]').remove();
+    var meta = document.createElement('meta');
+    meta.name = "description";
+    meta.content = metaDesc;
+    document.getElementsByTagName('head')[0].appendChild(meta);
   }
 
   var convertPlural = function(toConvert){
     return toConvert.substring(0, toConvert.length - 1);
-  }
-
-
-  var setFashionPageDetails = function(params){
-    //gender is always set on fashion page
-    var gender = params.gender;
-    var capitalisedGender = capitaliseWord(gender);
-    var type = params.type;
-    var singularType = convertPlural(type);
-    var capitalisedType = capitaliseWord(singularType);
-    var brand = params.brand ? params.brand : '';
-    var brandSplit = splitBrandByDash(brand);
-    var capitalisedBrand = capitaliseWord(brandSplit);
-
-    brand == '' ? setTitle(capitalisedGender + "'s " + capitalisedType + ' Offers From UK Retailers | Offercrunch') : setTitle(capitalisedBrand + ' ' + capitalisedGender + "'s " + capitalisedType + " Offers From UK Retailers | Offercrunch");
-    var metaDescriptionString = '';
-    switch(singularType){
-      case 'top':
-        /** women only **/
-        metaDescriptionString = brand == '' ? "Great Women's top offers from UK retailers. A massive range of tops from Asos, House of Fraser and many more. View the latest top offers right now at offercrunch" : capitalisedBrand +' top offers. View the latest ' + brandSplit + ' top offers right now at offercrunch. Search by price, brand and retailer';
-      break;
-      case 'shirt':
-        /** men only atm **/
-        metaDescriptionString = brand == '' ? "Great Men's shirt offers from UK retailers. A massive range of shirts from Asos, House of Fraser, Gant and many more. View the latest Ralph Lauren, Lacoste and Hugo Boss shirt offers right now at offercrunch" : capitalisedBrand +' shirt offers. View the latest ' + brandSplit + ' shirt offers right now at offercrunch. Search by price, brand and retailer';
-      break;
-      case 'shoe':
-        if (gender === 'men'){
-          metaDescriptionString = brand == '' ? "Great Men's shoe offers from UK retailers. A massive range of shoes from Asos, House of Fraser and many more. View the latest Lacoste, Ted Baker and Dune shoe offers right now at offercrunch" : capitalisedBrand +' shoe offers. View the latest ' + brandSplit + ' shoe offers right now at offercrunch. Search by price, brand and retailer';
-        }else if (gender === 'women'){
-          metaDescriptionString = brand == '' ? "Great Women's shoe offers from UK retailers. A massive range of shoes from Asos, House of Fraser and many more. View the latest Karen Millen, Kurt Geiger and Vivienne Westwood shoe offers right now at offercrunch" : capitalisedBrand +' shoe offers. View the latest ' + brandSplit + ' shoe offers right now at offercrunch. Search by price, brand and retailer';
-        }
-      break;
-    }
-    setMetaDescription(metaDescriptionString);
-
   }
 
   var setElectronicsPageDetails = function(params){ 
@@ -163,18 +128,6 @@ angular.module('mean.system').factory('PageDetailService',['UrlHelperService', f
         case 'camera':
           setTitle(splitByString(offer.description,'Camera') + ' | Offercrunch');
           setMetaDescription(offer.description + " Offer at Offercrunch! Save " + pctSavings + "% on this camera from " + offer.retailer + "! Was £" +  originalPrice + ". Now £" + offerPrice + "!");
-        break;
-        case 'shoe':
-          setTitle(offer.description + ' Offer | Offercrunch');
-          setMetaDescription(offer.description + " Offer at Offercrunch! Save " + pctSavings + "% on these shoes from " + offer.retailer + "! Was £" +  originalPrice + ". Now £" + offerPrice + "!");
-        break;
-        case 'top':
-          setTitle(offer.description + ' Offer | Offercrunch');
-          setMetaDescription(offer.description + " Offer at Offercrunch! Save " + pctSavings + "% on this top from " + offer.retailer + "! Was £" +  originalPrice + ". Now £" + offerPrice + "!");
-        break;
-        case 'shirt':
-          setTitle(offer.description + ' Offer | Offercrunch');
-          setMetaDescription(offer.description + " Offer at Offercrunch! Save " + pctSavings + "% on this shirt from " + offer.retailer + "! Was £" +  originalPrice + ". Now £" + offerPrice + "!");
         break;
         default:
           setTitle(offer.description + ' Offer | Offercrunch');

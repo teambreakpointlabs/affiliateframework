@@ -2,8 +2,6 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
   //sync to data service
   $scope.data = Data;
   $scope.breadcrumbs = Breadcrumbs.getBreadcrumbs();
-  console.log($scope.breadcrumbs);
-
 
   var urlObj = UrlHelperService.processUrl($stateParams);
 

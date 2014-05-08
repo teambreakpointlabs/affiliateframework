@@ -11,7 +11,6 @@ exports.search = function(req,res){
   var options = {
     filter: {isValid:true}, limit: 18
   }
-  console.log(req.params.searchString);
   Offer.textSearch(req.params.searchString,options,function(err,output){
     res.jsonp(output);
   });
@@ -21,11 +20,11 @@ exports.search = function(req,res){
  * Find offer by id
  */
 exports.offer = function(req, res, next, id) {
-    Offer.load(id, function(err, offer) {
-        if (err) return next(err);
-        if (!offer) return next(new Error('Failed to load offer ' + id));
-        req.offer = offer;
-        next();
+  Offer.load(id, function(err, offer) {
+    if (err) return next(err);
+      if (!offer) return next(new Error('Failed to load offer ' + id));
+      req.offer = offer;
+      next();
     });
 };
 
@@ -33,56 +32,53 @@ exports.offer = function(req, res, next, id) {
  * Show an offer
  */
 exports.show = function(req, res) {
-    Offer.find({urlDesc: req.params.urlDesc, isValid:true}, function(err,offers){
-      if (offers[0] == undefined){
-        //if valid offer not found return a page with offer no longer valid 
-        Offer.find({urlDesc: req.params.urlDesc, isValid:false}, function(err,offers){
-          if(offers[0] == undefined){
-            res.jsonp({err:'notFound'});
-          }else{
-            res.jsonp(offers[0]);
-          }
-        })
-      }else{
-       res.jsonp(offers[0]); 
-      }
-      
-    });
+  Offer.find({urlDesc: req.params.urlDesc, isValid:true}, function(err,offers){
+    if (offers[0] == undefined){
+      //if valid offer not found return a page with offer no longer valid 
+      Offer.find({urlDesc: req.params.urlDesc, isValid:false}, function(err,offers){
+        if(offers[0] == undefined){
+          res.jsonp({err:'notFound'});
+        }else{
+          res.jsonp(offers[0]);
+        }
+      })
+    }else{
+      res.jsonp(offers[0]); 
+    }
+  });
 };
 
 /**
  * List of offers
  */
 exports.all = function(req, res) {
+  //top offers
   if (req.query.brands === undefined){
-   Offer.find({type:req.query.type,isValid:true}).sort('-pricing.pctSavings').limit(48).populate('user', 'name username').exec(function(err, offers) {
-        if (err) {
-            res.render('error', {
-                status: 500
-            });
-        } else {
-            res.jsonp(offers);
-        }
+    Offer.find({type:req.query.type,isValid:true}).sort('-pricing.pctSavings').limit(48).exec(function(err, offers) {
+      if (err) {
+        res.render('error', {
+          status: 500
+        });
+      } else {
+        res.jsonp(offers);
+      }
     });
- }else{
-  // console.log('normal offers');
-      var searchObject =  generateSearch(req);
-    Offer.find(searchObject).sort('-pricing.pctSavings').populate('user', 'name username').exec(function(err, offers) {
-        if (err) {
-            res.render('error', {
-                status: 500
-            });
-        } else {
-            res.jsonp(offers);
-        }
+  }else{
+    //normal offers
+    var searchObject =  generateSearch(req);
+    Offer.find(searchObject).sort('-pricing.pctSavings').exec(function(err, offers) {
+      if (err) {
+        res.render('error', {
+          status: 500
+        });
+      }else{
+        res.jsonp(offers);
+      }
     });
- }
-
-
-
-
+  }
 };
 
+/** generate search object from request data **/
 
 function generateSearch(req){
   var search = {};
@@ -109,11 +105,6 @@ function generateSearch(req){
   if (req.query.type == 'television' || req.query.type == 'laptop'){
     search['details.screenSize'] = {$gte: parseInt(req.query.screenMin), $lte: parseInt(req.query.screenMax)}
   }
-
-  if (req.query.type == 'shoe'){
-    search['gender'] = req.query.gender;
-  }
-
 
   return search;
 }

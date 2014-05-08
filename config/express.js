@@ -87,11 +87,9 @@ module.exports = function(app, passport, db) {
         app.use("/js", express.static(config.root + '/public/js'));
         app.use("/lib", express.static(config.root + '/public/lib'));
         app.use("/views", express.static(config.root + '/public/views'));
-        //app.use("/views/articles", express.static(config.root + '/public/views/articles'));
         app.use("/img", express.static(config.root + '/public/img'));
 
         //handle api calls - everything else handled by angular
-        var articles = require('../app/controllers/articles');
         var offers = require('../app/controllers/offers');
         var users = require('../app/controllers/users');
         
@@ -105,21 +103,15 @@ module.exports = function(app, passport, db) {
           res.sendfile(config.root + '/public/sitemap/sitemap.xml');
         });
 
-        app.get('/sitemap/main', function(req, res) {
-          res.sendfile(config.root + '/public/sitemap/main.xml');
-        });
+        // app.get('/sitemap/main', function(req, res) {
+        //   res.sendfile(config.root + '/public/sitemap/main.xml');
+        // });
 
-        app.get('/sitemap/offers/:type', function(req, res) {
-          res.sendfile(config.root + '/public/sitemap/offers/'+req.params.type+'.xml');
-        });
+        // app.get('/sitemap/offers/:type', function(req, res) {
+        //   res.sendfile(config.root + '/public/sitemap/offers/'+req.params.type+'.xml');
+        // });
 
         app.post('/users/new', users.create)
-
-        app.get('/api/articles', articles.all);
-        app.get('/api/articles/:articleId', articles.show);
-         // Finish with setting up the articleId param
-        app.param('articleId', articles.article);
-        
 
         app.get('/api/offer/search/:searchString', offers.search);
         app.get('/api/offer/:urlDesc', offers.show);
