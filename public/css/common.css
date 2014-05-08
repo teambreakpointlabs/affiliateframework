@@ -129,12 +129,44 @@
   font-weight:300;
 }
 
-.landing_title .tagline{
-  margin-top: 10px;
-  font-size: 24px;
+h2.tagline{
+  color:#fff !important;
+  font-size:22px;
+  font-weight:300;
+  font-family:Lato;
+}
+
+.weekly_email_text{
+  font-family:Lato;
   color:#fff;
-  font-family: Lato;
-  font-weight: 300;
+  font-size:20px;
+  font-weight:300;
+  margin-right:5px;
+}
+.email_capture{
+  text-align:center;
+  margin-top:25px;
+}
+
+.index_input{
+   font-size: 20px;
+   text-align: center;
+   font-family: Lato;
+   color: #38d5b8;
+   font-weight: 300;
+   border: 1px solid #38d5b8;
+   margin-bottom: 10px; 
+   padding:6px;
+   border-radius:4px;
+   width:280px;
+   height:55px;
+   margin-top:5px;
+}
+
+.or_text{
+  font-family:Lato;
+  color:#fff;
+  font-size:22px;
 }
 
 .selection_container{
