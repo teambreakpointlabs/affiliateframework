@@ -136,7 +136,7 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
       if (offerStats.length > 1){
         $timeout(function(){
         buildPricingGraph(offerStats);
-      },800)
+      },1000)
       }
       
     });
@@ -307,7 +307,7 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
 
   var buildPricingGraph = function(jsonObj){
 
-  var svg = dimple.newSvg(".plotGraph", 800,600);
+    var svg = dimple.newSvg(".plotGraph", 800,600);
  
     var chart = new dimple.chart(svg, jsonObj);
     chart.addCategoryAxis("x", "date");
