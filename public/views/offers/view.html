@@ -16,9 +16,7 @@
 	<div class="row" style="margin-top:14px;">
       <div class="col-sm-12 col-md-8 col-md-offset-2 indiv_padding" style="border:1px solid #efefef;">
         <div style="text-align:center">
-          <div ng-if="isLoaded">
-            <offer offer="offer" view-type="individual"></offer>
-          </div>
+            <offer ng-if="offerIsLoaded" offer="offer" view-type="individual"></offer>
         </div>
       </div>
   </div>

@@ -313,6 +313,7 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
     chart.addCategoryAxis("x", "date");
     chart.addMeasureAxis("y", "price");
     chart.addSeries(null, dimple.plot.line);
+    chart.setStoryboard("price");
     chart.draw();
 
 }
