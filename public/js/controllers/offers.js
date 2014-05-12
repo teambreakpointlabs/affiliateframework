@@ -1,4 +1,4 @@
-angular.module('mean.system').controller('OffersController', ['$scope','Offers','$stateParams','FilterHelperService','Data','PageDetailService','$location','UrlHelperService','Breadcrumbs',function($scope, Offers, $stateParams,FilterHelperService,Data,PageDetailService,$location,UrlHelperService,Breadcrumbs){
+angular.module('mean.system').controller('OffersController', ['$scope','Offers','$stateParams','FilterHelperService','Data','PageDetailService','$location','UrlHelperService','Breadcrumbs','$timeout',function($scope, Offers, $stateParams,FilterHelperService,Data,PageDetailService,$location,UrlHelperService,Breadcrumbs,$timeout){
   //sync to data service
   $scope.data = Data;
   $scope.breadcrumbs = Breadcrumbs.getBreadcrumbs();
@@ -81,7 +81,6 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
   }
 
   var findOfferStats = function(){
-    
     $scope.lowestPrice = -1;
     $scope.highestPrice = -1;
     
@@ -136,9 +135,12 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
       }
       $scope.lowestPrice = lowPrice;
       $scope.highestPrice = highPrice;
-      buildPricingGraph(offerStats);
+      $scope.offerStats = offerStats;
+      //work around as graph was plotting without page loaded
+      $timeout(function(){
+        buildPricingGraph(offerStats);
+      },600)
     });
-    $scope.offerStats = offerStats;
   }
 
   var findOne = function(){
@@ -305,19 +307,8 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
   }
 
   var buildPricingGraph = function(jsonObj){
-    var sampleData = [10,20,30,40,50];
-    // var svg = dimple.newSvg("body", 590, 400);
-    // d3.json(sampleData, function (data) {
-    //   //data = dimple.filterData(data, "Owner", ["Aperture", "Black Mesa"])
-    //   var myChart = new dimple.chart(svg, data);
-    //   // myChart.setBounds(60, 30, 505, 305);
-    //   var x = myChart.addCategoryAxis("x", "Month");
-    //   // x.addOrderRule("Date");
-    //   myChart.addMeasureAxis("y", "Unit Sales");
-    //   var s = myChart.addSeries(null, dimple.plot.line);
-    //   myChart.draw();
-    // });
-  var svg = dimple.newSvg(".plotGraph", 500, 350);
+
+  var svg = dimple.newSvg(".plotGraph", 800,600);
  
     var chart = new dimple.chart(svg, jsonObj);
     chart.addCategoryAxis("x", "date");
