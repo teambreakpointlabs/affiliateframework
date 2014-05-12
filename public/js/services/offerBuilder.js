@@ -15,7 +15,7 @@ angular.module('mean.system').service('OfferBuilderService', function(){
 
     var originalPriceDisplay = '';
 
-    if (offer.pricing.original != undefined){
+    if (offer.pricing != undefined){
       originalPriceDisplay = '<div class="indiv_offer_label indiv_original_price"> Was £' + offer.pricing.original+ '</div>';
     }
 
