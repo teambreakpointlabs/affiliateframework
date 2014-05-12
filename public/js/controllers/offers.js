@@ -38,14 +38,12 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
       for (var i=0;i<offers.length;i++){
         $scope.offers.push(offers[i].obj);
       }
-      console.log($scope.offers);
       $scope.isLoaded = true;
       $scope.offerWord = $scope.offers.length == 1 ? 'offer found' : 'offers found';
       
     });
   }
   $scope.search = function(searchText){
-   //  removeIndexBlock();
      $scope.isLoaded = false;
      Offers.searchDescriptionText(searchText).then(function(offers){
       $scope.offers = [];
@@ -54,7 +52,6 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
         console.log(offers[i]);
         $scope.offers.push(offers[i].obj);
       }
-      //console.log($scope.offers);
       $scope.isLoaded = true;
       $scope.offerWord = $scope.offers.length == 1 ? 'offer found' : 'offers found';
       
@@ -64,7 +61,6 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
   }
    
   $scope.find = function() {
-   // removeIndexBlock();
     PageDetailService.setListOffersTitleAndMeta($stateParams);
     Offers.getOffers(searchFromFilterData()).then(function(offers){
       $scope.offers = offers;
@@ -77,30 +73,73 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
     });
   };
 
-  $scope.findOne = function(){
-   // noIndex();
+  $scope.initIndividualOffer = function(){
+    findOne();
+    findOfferStats();
+    findRelated();
+    $scope.prices = [124,186,145];
+  }
+
+  var findOfferStats = function(){
+    
+    $scope.lowestPrice = -1;
+    $scope.highestPrice = -1;
+    
+    var offerStats = [];
+    var lowPrice = -1;
+    var highPrice = -1;
+    
+    Offers.findOfferStats($stateParams.urlDesc).then(function(offers){
+      for (var i=0;i<offers.length;i++){
+        var priceToCompare = offers[i].pricing.offer;
+        
+        if (i==0) {
+          lowPrice = offers[i].pricing.offer;
+          highPrice = offers[i].pricing.offer;
+        }
+
+        lowPrice = priceToCompare <= lowPrice ? priceToCompare : lowPrice;
+        highPrice = priceToCompare <= highPrice ? priceToCompare : highPrice;
+        
+        //grab date and price
+        var timestamp = offers[i]._id.toString().substring(0,8);
+        date = new Date( parseInt( timestamp, 16 ) * 1000 );
+        var options = {
+          weekday: "long", year: "numeric", month: "short",
+          day: "numeric", hour: "2-digit", minute: "2-digit"
+        };
+        date = date.toLocaleTimeString("en-us", options);
+      
+        var dateAndPrice = {
+          price: offers[i].pricing.offer,
+          date: date
+        }
+        offerStats.push(dateAndPrice);
+      }
+      $scope.lowestPrice = lowPrice;
+      $scope.highestPrice = highPrice;
+    });
+    $scope.offerStats = offerStats;
+  }
+
+  var findOne = function(){
     $scope.isLoaded = false;
     Offers.findByUrlDesc($stateParams.urlDesc).then(function(offer){
       $scope.offer = offer;
       if (!offer.err){
-       //var capitaliseType = $stateParams.type.charAt(0).toUpperCase() + $stateParams.type.slice(1);
+        var timestamp = offer._id.toString().substring(0,8);
+        console.log(new Date( parseInt( timestamp, 16 ) * 1000 ));
        PageDetailService.setIndividualTitleAndMeta(offer);
-       // PageDetailService.setTitle(offer.pricing.pctSavings + '% Off! ' + offer.description + ' | ' + capitaliseType + ' Offer');
-       // PageDetailService.setMetaDescription(offer.description);
         $scope.isLoaded = true;
         window.prerenderReady = true;
       }else{
         console.log('offer not found');
-      if ($stateParams.gender){
-        $location.path("/offers/fashion/"+$stateParams.gender+"/"+$stateParams.type);
-      }else{
-        $location.path("/offers/"+ $stateParams.type);
       }
-    }
    });
   }
 
-  $scope.findRelated = function() {
+  var findRelated = function() {
+    console.log('finding related');
     Offers.getOffers(searchRelated()).then(function(offers){
       $scope.offers = offers;
       $scope.isLoaded = true;
@@ -118,7 +157,6 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
       $scope.offers = offers;
       $scope.isLoaded = true;
       $scope.offerWord = $scope.offers.length == 1 ? 'offer found' : 'offers found';
-      // $scope.isLoaded = true;
     });
   }
 

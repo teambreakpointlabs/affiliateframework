@@ -15,6 +15,11 @@ angular.module('mean.system').factory('Offers', ['$http', function($http){
         return result.data;
       });
     },
+    findOfferStats: function findOfferStats(urlDesc){
+      return $http.get('/api/offer/stats/'+urlDesc).then(function(result){
+        return result.data;
+      });
+    },
     searchDescriptionText: function searchDescriptionText(searchString){
       return $http.get('/api/offer/search/'+searchString).then(function(result){
         console.log(result);

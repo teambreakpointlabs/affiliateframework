@@ -1,6 +1,6 @@
 <div ng-include="'/views/header.html'"></div>
-<section class="container" style="width: 100% !important;">
-<section data-ng-controller="OffersController" data-ng-init="findOne()" style="margin-bottom:60px;">
+<section class="container" style="width: 100% !important;" data-ng-controller="OffersController" data-ng-init="initIndividualOffer()">
+<section style="margin-bottom:60px;">
   <div class="row">
   <div class="col-md-12 breadcrumbs-row hidden-xs">
     <li data-ng-repeat="breadcrumb in breadcrumbs" style="list-style:none;display:inline;">
@@ -22,8 +22,43 @@
         </div>
       </div>
   </div>
+  <div class="row" style="margin-top:14px;">
+    <div class="col-sm-12 col-md-8 col-md-offset-2 indiv_padding" style="text-align:center;">
+    <div ng-if="isLoaded" style="text-align:center;">
+     <div ng-if="lowestPrice === offer.pricing.offer" class="offer_stats_text">
+    <b>£{{lowestPrice}}</b> is the lowest price we have seen on this offer
+    </div>
+    <div ng-if="lowestPrice !== -1 && highestPrice !== -1" class="offer_stats_text">
+    This offer has been priced between £{{lowestPrice}} and £{{highestPrice}}
+    </div>
+    <div ng-if="offerStats.length>0" class="row" style="margin-top:28px;">
+    <div style="margin-bottom:20px;font-family:Lato;font-size:28px;font-weight:300;color:#afafaf;text-align:center;">Offer History</div>
+    
+    <div class="col-xs-6 col-sm-6 col-md-6 offer_stats_table_header">
+    Offer Price
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6 offer_stats_table_header">
+    Seen On
+    </div>
+    </div>
+      <div data-ng-repeat="offerStat in offerStats | limitTo: 10">
+        <div class="row">
+          <div class="col-xs-6 col-sm-6 col-md-6 offer_stats_table_content">
+           £{{offerStat.price}}
+          </div>
+           <div class="col-xs-6 col-sm-6 col-md-6 offer_stats_table_content">
+            {{offerStat.date}}
+          </div>
+        </div>
+        </div>
+      </div>
+      <div ng-if="offerStats.length === 0" class="offer_stats_first">
+      This is the first time we have seen this offer!
+      </div>
+</div>
+  </div>
 </section>
-<section data-ng-controller="OffersController" data-ng-init="findRelated()" style="margin-bottom:100px;">
+<section style="margin-bottom:100px;">
 <div class="row">
     <div class="col-sm-12 col-md-12">
     <div style="margin-bottom:60px;font-family:Lato;font-size:28px;font-weight:400;color:#afafaf;text-align:center;"> Related Offers </div>

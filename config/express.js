@@ -115,6 +115,7 @@ module.exports = function(app, passport, db) {
 
         app.get('/api/offer/search/:searchString', offers.search);
         app.get('/api/offer/:urlDesc', offers.show);
+        app.get('/api/offer/stats/:urlDesc', offers.stats);
         app.get('/api/offer/fashion/:gender/:urlDesc', offers.show);
         app.get('/api/offers', offers.all);
  

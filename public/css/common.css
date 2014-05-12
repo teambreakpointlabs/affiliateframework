@@ -379,6 +379,41 @@ h2.tagline{
   width:280px;
 }
 
+.offer_stats_text{
+  font-family:Lato;
+  font-size:24px;
+  font-weight:300;
+  color:#38d5b8;
+  padding:10px;
+}
+
+.offer_stats_table_header{
+  border:1px solid #efefef;
+  font-family:Lato;
+  font-size:28px;
+  font-weight:300;
+  color:#38d5b8;
+  padding:10px;
+}
+
+.offer_stats_table_content{
+  border:1px solid #efefef;
+  font-family:Lato;
+  font-size:18px;
+  font-weight:300;
+  color:#afafaf;
+  padding:10px;
+}
+
+.offer_stats_first{
+  margin-bottom:60px;
+  font-family:Lato;
+  font-size:24px;
+  font-weight:400;
+  color:#afafaf;
+  text-align:center;
+}
+
 @media (max-width: 767px){
   .num_offers{
     font-size:16px;

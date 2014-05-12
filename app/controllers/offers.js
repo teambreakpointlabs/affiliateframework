@@ -48,6 +48,17 @@ exports.show = function(req, res) {
   });
 };
 
+exports.stats = function(req, res) {
+      Offer.find({urlDesc: req.params.urlDesc, isValid:false}, function(err,offers){
+        //if no old offers found this is a new offer
+        if(offers[0] == undefined){
+          res.jsonp({message:'new'});
+        }else{
+          res.jsonp(offers);
+        }
+      });
+};
+
 /**
  * List of offers
  */
