@@ -99,7 +99,7 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
         }
 
         lowPrice = priceToCompare <= lowPrice ? priceToCompare : lowPrice;
-        highPrice = priceToCompare <= highPrice ? priceToCompare : highPrice;
+        highPrice = priceToCompare >= highPrice ? priceToCompare : highPrice;
         
         //grab date and price
         var timestamp = offers[i]._id.toString().substring(0,8);
