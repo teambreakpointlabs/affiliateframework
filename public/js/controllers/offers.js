@@ -136,7 +136,7 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
       if (offerStats.length > 1){
         $timeout(function(){
         buildPricingGraph(offerStats);
-      },600)
+      },800)
       }
       
     });
