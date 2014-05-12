@@ -119,27 +119,26 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
         //grab date and price
         var timestamp = offers[i]._id.toString().substring(0,8);
         date = new Date( parseInt( timestamp, 16 ) * 1000 );
-        var options = {
-          weekday: "long", year: "numeric", month: "short",
-          day: "numeric", hour: "2-digit", minute: "2-digit"
-        };
-        date = date.toLocaleTimeString("en-us", options);
-      
+    
+        var monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+        dateString = monthNames[date.getMonth()] + " " + date.getDate() + " " + date.getFullYear();
+
         var dateAndPrice = {
           price: offers[i].pricing.offer,
-          date: date
+          date: dateString
         }
-
-        
         offerStats.push(dateAndPrice);
       }
       $scope.lowestPrice = lowPrice;
       $scope.highestPrice = highPrice;
       $scope.offerStats = offerStats;
       //work around as graph was plotting without page loaded
-      $timeout(function(){
+      if (offerStats.length > 1){
+        $timeout(function(){
         buildPricingGraph(offerStats);
       },600)
+      }
+      
     });
   }
 
@@ -148,8 +147,8 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
     Offers.findByUrlDesc($stateParams.urlDesc).then(function(offer){
       $scope.offer = offer;
       if (!offer.err){
-        var timestamp = offer._id.toString().substring(0,8);
-        console.log(new Date( parseInt( timestamp, 16 ) * 1000 ));
+        //var timestamp = offer._id.toString().substring(0,8);
+       // console.log(new Date( parseInt( timestamp, 16 ) * 1000 ));
        PageDetailService.setIndividualTitleAndMeta(offer);
         $scope.isLoaded = true;
         window.prerenderReady = true;
