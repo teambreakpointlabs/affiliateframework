@@ -137,7 +137,10 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
         $timeout(function(){
         buildPricingGraph(offerStats);
       },1000)
+        window.prerenderReady = true;
+
       }
+
       
     });
   }
@@ -151,7 +154,6 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
        // console.log(new Date( parseInt( timestamp, 16 ) * 1000 ));
        PageDetailService.setIndividualTitleAndMeta(offer);
         $scope.offerIsLoaded = true;
-        window.prerenderReady = true;
       }else{
         console.log('offer not found');
       }
