@@ -143,14 +143,14 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
   }
 
   var findOne = function(){
-    $scope.isLoaded = false;
+    $scope.offerIsLoaded = false;
     Offers.findByUrlDesc($stateParams.urlDesc).then(function(offer){
       $scope.offer = offer;
       if (!offer.err){
         //var timestamp = offer._id.toString().substring(0,8);
        // console.log(new Date( parseInt( timestamp, 16 ) * 1000 ));
        PageDetailService.setIndividualTitleAndMeta(offer);
-        $scope.isLoaded = true;
+        $scope.offerIsLoaded = true;
         window.prerenderReady = true;
       }else{
         console.log('offer not found');
