@@ -86,13 +86,29 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
     $scope.highestPrice = -1;
     
     var offerStats = [];
+    //unique prices - we only want unique prices to display
+    var uniquePrices = [];
     var lowPrice = -1;
     var highPrice = -1;
     
     Offers.findOfferStats($stateParams.urlDesc).then(function(offers){
       for (var i=0;i<offers.length;i++){
+        
         var priceToCompare = offers[i].pricing.offer;
         
+        //check if this price is duplicated
+        var duplicate = false;
+        for (var j=0;j<uniquePrices.length;j++){
+          if (uniquePrices[j] == priceToCompare){
+            duplicate = true;
+          }
+        }
+        //ignore if duplicate
+        if (duplicate) continue;
+
+        //not duplicated so add to unique prices array
+        uniquePrices.push(priceToCompare);
+
         if (i==0) {
           lowPrice = offers[i].pricing.offer;
           highPrice = offers[i].pricing.offer;
