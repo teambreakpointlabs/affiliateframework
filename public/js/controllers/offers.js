@@ -130,10 +130,13 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
           price: offers[i].pricing.offer,
           date: date
         }
+
+        
         offerStats.push(dateAndPrice);
       }
       $scope.lowestPrice = lowPrice;
       $scope.highestPrice = highPrice;
+      buildPricingGraph(offerStats);
     });
     $scope.offerStats = offerStats;
   }
@@ -300,6 +303,29 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
   function removeIndexBlock(){
     $('meta[name=robots]').remove();
   }
+
+  var buildPricingGraph = function(jsonObj){
+    var sampleData = [10,20,30,40,50];
+    // var svg = dimple.newSvg("body", 590, 400);
+    // d3.json(sampleData, function (data) {
+    //   //data = dimple.filterData(data, "Owner", ["Aperture", "Black Mesa"])
+    //   var myChart = new dimple.chart(svg, data);
+    //   // myChart.setBounds(60, 30, 505, 305);
+    //   var x = myChart.addCategoryAxis("x", "Month");
+    //   // x.addOrderRule("Date");
+    //   myChart.addMeasureAxis("y", "Unit Sales");
+    //   var s = myChart.addSeries(null, dimple.plot.line);
+    //   myChart.draw();
+    // });
+  var svg = dimple.newSvg(".plotGraph", 500, 350);
+ 
+    var chart = new dimple.chart(svg, jsonObj);
+    chart.addCategoryAxis("x", "date");
+    chart.addMeasureAxis("y", "price");
+    chart.addSeries(null, dimple.plot.line);
+    chart.draw();
+
+}
 
 
 }]);

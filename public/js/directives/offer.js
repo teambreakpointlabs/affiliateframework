@@ -6,7 +6,9 @@ angular.module('mean.system').directive('offer',['$compile','$timeout','OfferBui
     restrict: 'E',
     link: function(scope,elem,attrs){
         elem.html(getTemplate(scope.$eval(attrs.offer), attrs.viewType)); 
-        $compile(elem.contents())(scope);
+        $timeout(function() { 
+          $compile(elem.contents())(scope);
+        }, 500);
     }
   }
 }]);
