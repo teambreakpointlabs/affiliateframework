@@ -8,7 +8,7 @@ angular.module('mean.system').directive('offer',['$compile','$timeout','OfferBui
         elem.html(getTemplate(scope.$eval(attrs.offer), attrs.viewType)); 
         $timeout(function() { 
           $compile(elem.contents())(scope);
-        }, 600);
+        });
     }
   }
 }]);
