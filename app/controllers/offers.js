@@ -49,9 +49,9 @@ exports.show = function(req, res) {
 };
 
 exports.stats = function(req, res) {
-      Offer.find({urlDesc: req.params.urlDesc, isValid:false}, function(err,offers){
-        //if no old offers found this is a new offer
-        if(offers[0] == undefined){
+      Offer.find({urlDesc: req.params.urlDesc}, function(err,offers){
+        //if one offer found this is a new offer
+        if(offers[1] == undefined){
           res.jsonp({message:'new'});
         }else{
           res.jsonp(offers);
