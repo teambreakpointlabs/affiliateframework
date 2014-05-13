@@ -6,7 +6,7 @@
     <li data-ng-repeat="breadcrumb in breadcrumbs" style="list-style:none;display:inline;">
       <span ng-if="breadcrumbs[0].name==breadcrumb.name"><a ng-href="/" style="text-decoration:none;color:#00b0ff !important;"> home </a> &rsaquo; </span>
       <span ng-if="breadcrumbs[0].name!=breadcrumb.name"> &rsaquo; </span>
-      <a ng-if="$last" style="text-decoration:none;color:#afafaf !important;">{{breadcrumb.name}}</a>
+      <a ng-if="$last && offerIsLoaded" style="text-decoration:none;color:#afafaf !important;">{{offer.description}}</a>
       <a ng-href="{{breadcrumb.path}}"  style="text-decoration:none;color:#00b0ff !important;" ng-if="!$last">
       {{breadcrumb.name}}
       </a>
