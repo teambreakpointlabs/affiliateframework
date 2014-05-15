@@ -13,6 +13,10 @@ angular.module('mean.system').controller('IndividualOfferController', ['$scope',
         PageDetailService.setIndividualTitleAndMeta(offer);
         $scope.offerIsLoaded = true;
         return offer;
+      }else{
+        //tidy up
+        $location.path('/');
+        alert('We could not find that offer. Have a look at the other great offers on the site!');
       }
     });
   }
