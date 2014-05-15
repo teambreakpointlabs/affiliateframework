@@ -1,0 +1,16 @@
+<div ng-include="'/views/header.html'"></div>
+<section class="container" style="width: 96% !important;min-height:500px;">
+<section data-ng-controller="PostsController" data-ng-init="find()">
+	<ul class="articles unstyled" style="text-decoration:none;list-style:none;">
+		<li data-ng-repeat="post in posts" style="text-decoration:none;">
+		<div class="row" style="margin-bottom:28px;">
+      <div class="col-md-12 title" style="font-size:20px;"> <span>Published: {{post.published_date | date:'medium'}}</span> </div>
+      <div class="col-md-12 question"> <span>{{post.title}}</span> </div>
+      <div class="col-md-12 answer"><div>{{post.content}}</div></div>
+	</div>
+			
+		</li>
+	</ul>
+</section>
+</section>
+<div ng-include="'/views/footer.html'"></div>

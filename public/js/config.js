@@ -24,8 +24,11 @@ angular.module('mean').config(['$stateProvider', '$urlRouterProvider',
       .state('individual offer',{
         url: '/offers/:type/:brand/:urlDesc',
         templateUrl: '/views/offers/view.html'
+    }).state('posts',{
+      url:'/voucher-codes',
+      templateUrl: '/views/posts/list.html'
     })
-      .state('search',{
+    .state('search',{
         url: '/search',
         templateUrl: '/views/search.html'
     })

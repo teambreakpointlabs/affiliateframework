@@ -77,7 +77,6 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
     findOne();
     findOfferStats();
     findRelated();
-    $scope.prices = [124,186,145];
   }
 
   var findOfferStats = function(){

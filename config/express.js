@@ -103,20 +103,12 @@ module.exports = function(app, passport, db) {
           res.sendfile(config.root + '/public/sitemap/sitemap.xml');
         });
 
-        // app.get('/sitemap/main', function(req, res) {
-        //   res.sendfile(config.root + '/public/sitemap/main.xml');
-        // });
-
-        // app.get('/sitemap/offers/:type', function(req, res) {
-        //   res.sendfile(config.root + '/public/sitemap/offers/'+req.params.type+'.xml');
-        // });
-
         app.post('/users/new', users.create)
-
+        
         app.get('/api/offer/search/:searchString', offers.search);
         app.get('/api/offer/:urlDesc', offers.show);
         app.get('/api/offer/stats/:urlDesc', offers.stats);
-        app.get('/api/offer/fashion/:gender/:urlDesc', offers.show);
+        app.get('/api/offer/related/:type/:brand', offers.related);
         app.get('/api/offers', offers.all);
  
         // Routes should be at the last

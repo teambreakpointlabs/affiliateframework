@@ -1,5 +1,5 @@
 <div ng-include="'/views/header.html'"></div>
-<section class="container" style="width: 100% !important;" data-ng-controller="OffersController" data-ng-init="initIndividualOffer()">
+<section class="container" style="width: 100% !important;" data-ng-controller="IndividualOfferController">
 <section style="margin-bottom:60px;">
   <div class="row">
   <div class="col-md-12 breadcrumbs-row hidden-xs">
@@ -22,14 +22,14 @@
   </div>
   <div class="row" style="margin-top:14px;">
     <div class="col-sm-12 col-md-8 col-md-offset-2 indiv_padding" style="text-align:center;">
-    <div ng-if="isLoaded" style="text-align:center;">
      <div ng-if="lowestPrice === offer.pricing.offer" class="offer_stats_text">
-    <b>£{{lowestPrice}}</b> is the lowest price we have seen on this offer
+      <b>£{{lowestPrice}}</b> is the lowest price we have seen on this offer
     </div>
-    <div ng-if="lowestPrice !== -1 && highestPrice !== -1" class="offer_stats_text">
+ 
+    <div ng-if="lowestPrice !== -1 && highestPrice !== -1 && offerStats.length>1" class="offer_stats_text">
     Historic Price Range: £{{lowestPrice}} - £{{highestPrice}}
     </div>
-    <div ng-if="offerStats.length>1" class="plotGraph">
+    <div class="plotGraph">
     </div>
     <div ng-if="offerStats.length>0" class="row" style="margin-top:28px;">
     
@@ -52,22 +52,20 @@
           </div>
         </div>
         </div>
-      </div>
-      <div ng-if="offerStats.length === 0" class="offer_stats_first">
-      This is the first time we have seen this offer!
+        <div ng-if="offerStats.length === 0 || offerStats.length === 1" class="offer_stats_first">
+      This is the only price we have seen this offer at!
       </div>
 </div>
-  </div>
+      </div>
+     
 </section>
 <section style="margin-bottom:100px;">
 <div class="row">
     <div class="col-sm-12 col-md-12">
     <div style="margin-bottom:60px;font-family:Lato;font-size:28px;font-weight:400;color:#afafaf;text-align:center;"> Related Offers </div>
-      <div data-ng-repeat="offer in offers | limitTo: showExtraItems">
+      <div data-ng-repeat="offer in offers">
         <div class="col-sm-4 col-md-4">
-          <div ng-if="isLoaded">
             <offer offer="offer" view-type="list"></offer>
-          </div>
         </div>
       </div>
     </div>
@@ -75,7 +73,7 @@
   <div class="row">
   <div style="margin-bottom:10px;font-family:Lato;font-size:28px;font-weight:400;color:#afafaf;text-align:center;"><a ng-href="/" style="text-decoration:none;"> Browse All Offers</a></div>
   </div>
-   <div ng-show="!isLoaded" ng-class="{bg:'!isLoaded'}">
+   <div ng-show="!offerIsLoaded" ng-class="{bg:'!offerIsLoaded'}">
      <span class="loading-text" style="text-transform:capitalize;">Loading {{offerType}} Offer...</span>
    </div>
 </section>

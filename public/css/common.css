@@ -406,10 +406,10 @@ h2.tagline{
 }
 
 .offer_stats_first{
-  margin-bottom:60px;
+  margin-bottom:40px;
   font-family:Lato;
   font-size:24px;
-  font-weight:400;
+  font-weight:300;
   color:#afafaf;
   text-align:center;
 }

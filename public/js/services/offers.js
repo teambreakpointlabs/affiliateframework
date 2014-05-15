@@ -10,6 +10,11 @@ angular.module('mean.system').factory('Offers', ['$http', function($http){
         return result.data;
       });
     },
+    getRelatedOffers:function getRelatedOffers(offer){
+      return $http.get('/api/offer/related/'+offer.type+'/'+offer.brand).then(function(result){
+        return result.data;
+      });
+    },
     findByUrlDesc: function findOfferByUrlDesc(urlDesc){
       return $http.get('/api/offer/'+ urlDesc).then(function(result){
         return result.data;

@@ -59,6 +59,18 @@ exports.stats = function(req, res) {
       });
 };
 
+exports.related = function(req,res){
+  Offer.find({type:req.params.type, brand:req.params.brand},function(err,offers){
+    if (err) {
+        res.render('error', {
+          status: 500
+        });
+      }else{
+        res.jsonp(offers);
+      }
+  });
+}
+
 /**
  * List of offers
  */
