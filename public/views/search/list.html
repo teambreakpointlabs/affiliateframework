@@ -63,7 +63,7 @@
       </div>
     </div>
     <div ng-show="!isLoaded" ng-class="{bg:'!isLoaded'}">
-          <span class="loading-text" style="text-transform:capitalize;">Searching For "{{searchText}}"...</span>
+          <span class="loading-text" style="text-transform:capitalize;">Searching For "{{search.query}}"...</span>
     </div>
 	<div class="no_offers_message" data-ng-hide="!offers || offers.length">{{message}}</div>
 
