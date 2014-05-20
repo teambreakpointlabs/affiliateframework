@@ -12,6 +12,7 @@ angular.module('mean.system').controller('SearchController', ['$scope', 'Offers'
   /** run on load **/
   var searchOffers = function(query){
     var offers = [];
+    if (query !== ''){
     Offers.searchDescriptionText(query).then(function(result){
       //build offers from result obj that mongoose text search returns
       for (var i=0;i<result.length;i++){
@@ -22,6 +23,10 @@ angular.module('mean.system').controller('SearchController', ['$scope', 'Offers'
       $scope.isLoaded = true;
       $scope.offerWord = $scope.offers.length == 1 ? 'offer found' : 'offers found';
     });
+    }else{
+      $scope.offers = [];
+      $scope.isLoaded = true;
+    }
   }
 
   
