@@ -7,17 +7,35 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" style="color:#00b0ff;letter-spacing:0.05em" href="/"> offercrunch.co.uk </a>
+      <a class="navbar-brand" style="color:#00b0ff;letter-spacing:0.05em" href="/"> offercrunch </a>
     </div>
     <div class="navbar-collapse collapse" style="height:1px;">
-      <ul class="nav navbar-nav">
-        <li><a ng-href="/offers/television" class="header_link"> Televisions</a></li>
-        <li><a ng-href="/offers/laptop" class="header_link"> Laptops</a></li>
-        <li><a ng-href="/offers/tablet" class="header_link"> Tablets</a></li>
-        <li><a ng-href="/offers/camera" class="header_link"> Cameras</a></li>
+    <ul class="nav navbar-nav">
+       <li class="dropdown">
+         <a href="#" class="dropdown-toggle header_link" data-toggle="dropdown">Offer Types <b class="caret"></b></a>
+          <ul class="dropdown-menu" style="background:#222;">
+        <li><a ng-href="/offers/television" class="header_link" style="font-size: 18px !important;font-weight: 300;text-align: left;"> Televisions</a></li>
+        <li><a ng-href="/offers/laptop" class="header_link" style="font-size: 18px !important;font-weight: 300;text-align: left;"> Laptops</a></li>
+        <li><a ng-href="/offers/tablet" class="header_link" style="font-size: 18px !important;font-weight: 300;text-align: left;"> Tablets</a></li>
+        <li><a ng-href="/offers/camera" class="header_link" style="font-size: 18px !important;font-weight: 300;text-align: left;"> Cameras</a></li>
+        
+          </ul>
+        </li>
         <li><a ng-href="/voucher-codes" class="header_link"> Voucher Codes</a></li>
         <li><a ng-href="/money-saving-blogs" class="header_link"> Money Saving Blogs</a></li>
+        
       </ul>
+     <form class="navbar-form navbar-left" role="search" ng-submit="searchOffers(query)">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder='E.g. Freeview 42" TV' ng-model="query">
+      </div>
+    <!--   <div class="form-group">
+      <input type="text" class="form-control" placeholder="Link" ng-model="post.url">
+      </div> -->
+      <button type="submit" class="btn btn-default" style="color:#efefef !important; background:#00b0ff; border-color:#00b0ff;">Search Offers</button>
+    </form>
+
+      
        <ul class="nav navbar-nav navbar-right">
            <li class="hidden-xs"><a ng-href="http://www.twitter.com/_offercrunch_" target="_blank" style="padding:0;margin:0;"><img alt="Like Us on Facebook!" src="/img/icons/twitter2.png" style="width:28px;height:38px;padding-top:12px;"/></a></li>
           <li class="hidden-xs" style="margin-left:10px;margin-right:10px;"><a ng-href="http://www.facebook.com/offercrunch" target="_blank" style="padding:0;margin:0;"><img alt="Like Us on Facebook!" src="/img/icons/facebook2.png" style="width:28px;height:38px;padding-top:12px;"/></a></li>

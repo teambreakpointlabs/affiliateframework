@@ -30,15 +30,15 @@
               </div>
             </div>
           </div>
-          <div class="row hidden-xs" ng-controller="SearchController" style="margin-top:20px;margin-bottom:8px;">
+          <form class="row hidden-xs" ng-controller="HeaderController" style="margin-top:20px;margin-bottom:8px;" ng-submit="searchOffers(query);">
             <div class="col-md-12" style="text-align:center;">
               <span style="font-family:Lato;color:#fff;font-size:20px;font-weight:300;margin-right:5px;"><i> Search for offers </i></span>
-              <input ng-model="searchText" placeholder='E.g. Freeview 42" HD TV' class="index_input" type="text" style="border: 1px solid #00b0ff";/>
-              <span class="selection_go_button" style="background:#00b0ff !important;cursor:pointer;" ng-click="submit();">
-                <span class="go_text"> Search! </span>
+              <input ng-model="query" placeholder='E.g. Freeview 42" HD TV' class="index_input" type="text" style="border: 1px solid #00b0ff";/>
+              <input type="submit" value="Search!" class="selection_go_button" style="background:#00b0ff !important;cursor:pointer;color:#fff;padding: 8px;padding-left: 12px;padding-right: 12px; border: none;">
+                <!-- <span class="go_text"> Search! </span> -->
               </span>
             </div>
-          </div>
+          </form>
           <div class="row hidden-xs" style="margin-bottom:10px;">
             <div class="col-md-12" style="text-align:center;">
               <span class="or_text"><i> or </i></span>

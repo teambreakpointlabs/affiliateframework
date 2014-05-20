@@ -1,4 +1,4 @@
-<section data-ng-controller="OffersController" data-ng-init="showSearch()">
+<section data-ng-controller="SearchController">
     <div class="row">
   <div class="col-md-12 breadcrumbs-row hidden-xs">
     <li data-ng-repeat="breadcrumb in breadcrumbs" style="list-style:none;display:inline;">
@@ -12,27 +12,13 @@
   </div>
   </div>
   <div class="row">
-    <div class="col-md-12">
-      <input ng-model="searchText" class="search_input" placeholder="E.g. Samsung HD TV" style=" font-size: 22px;text-align: center;font-family: Lato;color: #38d5b8;font-weight: 300;border: 1px solid #38d5b8;margin-bottom: 10px;border-radius:4px;height:55px;margin-top:5px;display:inline;" type="text"/>
-      <span class="selection_go_button search_button_2" style="background:#38d5b8 !important;cursor:pointer;display:inline-block;text-align:center;" ng-click="search(searchText);">
-        <span class="go_text"> Search! </span>
-      </span>
-      <span class="" style="font-size:22px;color:#afafaf;font-weight:300;display:inline-block;"> Searching for <span style="color:#38d5b8;"><i>"{{searchText}}"</i></span>
-      </span>
-    </div>
-  </div>
-  <div ng-if="offers.length == 0" style="min-height:420px;height:100%;">
-    <div class="row">
-      <div class="col-md-12" style="text-align:center;font-size:25px;margin-top:100px;color:#">
-        No Results Found
-      </div>
+<!--   <div class="col-md-12">
+      <span class="" style="font-size:22px;color:#afafaf;font-weight:300;display:inline-block;"> Searching for <span style="color:#38d5b8;"><i>"{{search.query}}"</i></span>
+  </div> -->
 
-      </div>
-  </div>
-  <div ng-if="offers.length > 0">
   <div class="row">
     <div class="col-md-12" style="margin-top:15px; margin-bottom:15px;">
-    <div ng-show="isLoaded">
+   
 <!--     <span class="pull-left">
       <li class="dropdown" style="list-style:none;cursor:pointer;">
                 <a class="dropdown-toggle" style="text-decoration:none;color:#00b0ff;font-size:22px;padding:20px;font-weight:300;">
@@ -47,9 +33,17 @@
                 </ul>
               </li>
     </span> -->
-    <span class="pull-right num_offers"> <span ng-hide="!offers.length" class="glyphicon glyphicon-ok"></span> {{offers.length}} {{offerWord}}</span>
-    </div>
+    <span class="pull-left search_query"> <i>searching for...</i>"{{search.query}}"</span>
+    <span ng-if="offers.length > 0" class="pull-right num_offers"> <span ng-hide="!offers.length" class="glyphicon glyphicon-ok"></span> {{offers.length}} {{offerWord}}</span>
   </div>
+  </div>
+    <div ng-if="offers.length == 0" style="min-height:400px;height:100%;">
+    <div class="row">
+      <div class="col-md-12" style="text-align:center;font-size:25px;margin-top:100px;color:#">
+        No Results Found
+      </div>
+
+      </div>
   </div>
   <div class="row">
     <div class="col-sm-12 col-md-12">
@@ -72,5 +66,5 @@
           <span class="loading-text" style="text-transform:capitalize;">Searching For "{{searchText}}"...</span>
     </div>
 	<div class="no_offers_message" data-ng-hide="!offers || offers.length">{{message}}</div>
-  </div>
+
 </section>

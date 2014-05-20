@@ -1,26 +1,11 @@
 'use strict';
 
-angular.module('mean.system').controller('HeaderController', ['$scope', 'Global', function ($scope, Global) {
-    $scope.global = Global;
+angular.module('mean.system').controller('HeaderController', ['$scope', 'Search', '$location','$state', function($scope, Search, $location,$state) {
+    $scope.search = Search;
     
-    $scope.menu = [{
-        'title': 'Television Offers',
-        'link': '/offers/television'
-    }, {
-        'title': 'Laptop Offers',
-        'link': '/offers/laptop'
-    },
-    {
-        'title': 'Tablet Offers',
-        'link': '/offers/tablet'
-    },
-    {
-        'title': 'Camera Offers',
-        'link': '/offers/camera'
-    },
-    {
-        'title': 'Fashion Offers',
-        'link': '/offers/fashion'
-    }];
+    $scope.searchOffers = function(query){
+      Search.search.query = query;
+      $location.path() !== '/search' ? $location.path('/search') : $state.go($state.$current, null, { reload: true });
+    };
 
 }]);

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mean.system').controller('FashionController', ['$scope', 'Global','PageDetailService', function ($scope, Global, PageDetailService) {
+angular.module('mean.system').controller('FashionController', ['$scope', 'Global','PageDetailService', function($scope, Global, PageDetailService) {
   $scope.global = Global;
    
   PageDetailService.setTitle('Men’s & Women’s Fashion Offers From UK Retailers | Offercrunch');

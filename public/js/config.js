@@ -30,7 +30,8 @@ angular.module('mean').config(['$stateProvider', '$urlRouterProvider',
     })
     .state('search',{
         url: '/search',
-        templateUrl: '/views/search.html'
+        templateUrl: '/views/search.html',
+        controller:'SearchController'
     })
       .state('about',{
         url: '/about',

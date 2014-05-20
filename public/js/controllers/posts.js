@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mean.system').controller('PostsController', ['$scope', 'Global','PageDetailService', function ($scope, Global, PageDetailService) {
+angular.module('mean.system').controller('PostsController', ['$scope', 'Global','PageDetailService', function($scope, Global, PageDetailService) {
   $scope.global = Global;
 
   PageDetailService.setTitle('Voucher Codes & News | Offercrunch ');

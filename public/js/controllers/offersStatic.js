@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mean.system').controller('OffersStaticController', ['$scope', 'Global','PageDetailService','Breadcrumbs', function ($scope, Global, PageDetailService,Breadcrumbs) {
+angular.module('mean.system').controller('OffersStaticController', ['$scope', 'Global','PageDetailService','Breadcrumbs', function($scope, Global, PageDetailService,Breadcrumbs) {
   $scope.global = Global;
   $scope.breadcrumbs = Breadcrumbs.getBreadcrumbs();
 

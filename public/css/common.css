@@ -338,6 +338,7 @@ h2.tagline{
 
 .header_row{
   text-align: center;
+  margin-top:10px;
 }
 
 .close_tag{
@@ -374,6 +375,15 @@ h2.tagline{
   color:#00b0ff;
   margin-bottom:20px;
   text-transform:capitalize;
+}
+
+.search_query{
+  font-family:Lato;
+  font-weight:300;
+  font-size:18px;
+  color:#00b0ff;
+  margin-bottom:20px;
+  margin-left: 20px;
 }
 .search_button_2{
   width:280px;
