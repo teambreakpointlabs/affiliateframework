@@ -60,7 +60,7 @@ exports.stats = function(req, res) {
 };
 
 exports.related = function(req,res){
-  Offer.find({type:req.params.type, brand:req.params.brand},function(err,offers){
+  Offer.find({type:req.params.type, brand:req.params.brand, isValid:true},function(err,offers){
     if (err) {
         res.render('error', {
           status: 500
