@@ -49,7 +49,8 @@ exports.show = function(req, res) {
 };
 
 exports.stats = function(req, res) {
-      Offer.find({urlDesc: req.params.urlDesc}, function(err,offers){
+  console.log(req.params.url);
+      Offer.find({'url.product': req.params.url}, function(err,offers){
         //if one offer found this is a new offer
         if(offers[1] == undefined){
           res.jsonp({message:'new'});

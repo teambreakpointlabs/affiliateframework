@@ -88,7 +88,7 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
     var uniquePrices = [];
     var lowPrice = -1;
     var highPrice = -1;
-    
+        
     Offers.findOfferStats($stateParams.urlDesc).then(function(offers){
       for (var i=0;i<offers.length;i++){
         

@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
-    Offer = mongoose.model('Post'),
+    Post = mongoose.model('Post'),
     _ = require('lodash');
 
 /**
@@ -34,7 +34,6 @@ exports.all = function(req, res) {
       }
     });
   }
-};
 
 
 

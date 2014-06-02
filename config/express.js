@@ -92,6 +92,7 @@ module.exports = function(app, passport, db) {
         //handle api calls - everything else handled by angular
         var offers = require('../app/controllers/offers');
         var users = require('../app/controllers/users');
+        var posts = require('../app/controllers/posts');
         
         //robots.txt
         app.get('/robots.txt', function(req, res) {
@@ -104,10 +105,12 @@ module.exports = function(app, passport, db) {
         });
 
         app.post('/users/new', users.create)
+
+        app.get('/api/posts', posts.all);
         
         app.get('/api/offer/search/:searchString', offers.search);
         app.get('/api/offer/:urlDesc', offers.show);
-        app.get('/api/offer/stats/:urlDesc', offers.stats);
+        app.get('/api/offer/stats/:url', offers.stats);
         app.get('/api/offer/related/:type/:brand', offers.related);
         app.get('/api/offers', offers.all);
  
