@@ -40,9 +40,8 @@ angular.module('mean.system').controller('IndividualOfferController', ['$scope',
     var uniquePrices = [];
     var lowPrice = -1;
     var highPrice = -1;
-    console.log(url);
+
     return Offers.findOfferStats(url).then(function(offers){
-      console.log(offers);
       for (var i=0;i<offers.length;i++){
         
         var priceToCompare = offers[i].pricing.offer;

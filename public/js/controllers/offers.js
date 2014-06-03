@@ -79,71 +79,6 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
     findRelated();
   }
 
-  var findOfferStats = function(){
-    $scope.lowestPrice = -1;
-    $scope.highestPrice = -1;
-    
-    var offerStats = [];
-    //unique prices - we only want unique prices to display
-    var uniquePrices = [];
-    var lowPrice = -1;
-    var highPrice = -1;
-        
-    Offers.findOfferStats($stateParams.urlDesc).then(function(offers){
-      for (var i=0;i<offers.length;i++){
-        
-        var priceToCompare = offers[i].pricing.offer;
-        
-        //check if this price is duplicated
-        var duplicate = false;
-        for (var j=0;j<uniquePrices.length;j++){
-          if (uniquePrices[j] == priceToCompare){
-            duplicate = true;
-          }
-        }
-        //ignore if duplicate
-        if (duplicate) continue;
-
-        //not duplicated so add to unique prices array
-        uniquePrices.push(priceToCompare);
-
-        if (i==0) {
-          lowPrice = offers[i].pricing.offer;
-          highPrice = offers[i].pricing.offer;
-        }
-
-        lowPrice = priceToCompare <= lowPrice ? priceToCompare : lowPrice;
-        highPrice = priceToCompare >= highPrice ? priceToCompare : highPrice;
-        
-        //grab date and price
-        var timestamp = offers[i]._id.toString().substring(0,8);
-        date = new Date( parseInt( timestamp, 16 ) * 1000 );
-    
-        var monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
-        dateString = monthNames[date.getMonth()] + " " + date.getDate() + " " + date.getFullYear();
-
-        var dateAndPrice = {
-          price: offers[i].pricing.offer,
-          date: dateString
-        }
-        offerStats.push(dateAndPrice);
-      }
-      $scope.lowestPrice = lowPrice;
-      $scope.highestPrice = highPrice;
-      $scope.offerStats = offerStats;
-      //work around as graph was plotting without page loaded
-      if (offerStats.length > 1){
-        $timeout(function(){
-        buildPricingGraph(offerStats);
-      },1000)
-        window.prerenderReady = true;
-
-      }
-
-      
-    });
-  }
-
   var findOne = function(){
     $scope.offerIsLoaded = false;
     Offers.findByUrlDesc($stateParams.urlDesc).then(function(offer){
@@ -305,18 +240,6 @@ angular.module('mean.system').controller('OffersController', ['$scope','Offers',
   function removeIndexBlock(){
     $('meta[name=robots]').remove();
   }
-
-  var buildPricingGraph = function(jsonObj){
-
-    var svg = dimple.newSvg(".plotGraph", 800,600);
- 
-    var chart = new dimple.chart(svg, jsonObj);
-    chart.addCategoryAxis("x", "date");
-    chart.addMeasureAxis("y", "price");
-    chart.addSeries(null, dimple.plot.line);
-    chart.draw();
-
-}
 
 
 }]);
