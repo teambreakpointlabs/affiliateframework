@@ -6,7 +6,6 @@
 var mongoose = require('mongoose'),
     Post = mongoose.model('Post'),
     _ = require('lodash');
-
 /**
  * Find post by id
  */
